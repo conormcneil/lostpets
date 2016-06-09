@@ -9,21 +9,30 @@ exports.seed = function(knex, Promise) {
             username: 'andrew',
             password: 'andrew',
             email: 'andrew@andrew.com',
-            image: 'examplehosting.com/andrew.jpg'
+            image: 'examplehosting.com/andrew.jpg',
+            first_name: 'andrew',
+            last_name: 'west',
+            isAdmin: true
         }),
         knex('users').insert({
             id: 2,
             username: 'lizzie',
             password: 'lizzie',
             email: 'lizzie@lizzie.com',
-            image: 'examplehosting.com/lizzie.jpg'
+            image: 'examplehosting.com/lizzie.jpg',
+            first_name: 'lizzie',
+            last_name: 'szoke',
+            isAdmin: true
         }),
         knex('users').insert({
             id: 3,
             username: 'conor',
             password: 'conor',
             email: 'conor@conor.com',
-            image: 'examplehosting.com/conor.jpg'
+            image: 'examplehosting.com/conor.jpg',
+            first_name: 'conor',
+            last_name: 'kingston',
+            isAdmin: true
         })
     );
 };
