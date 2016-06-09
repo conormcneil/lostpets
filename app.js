@@ -11,6 +11,7 @@ var knex = require('./db/knex');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var admin = require('./routes/admin');
 var pets = require('./routes/pets');
 
 var app = express();
@@ -29,6 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/admin', admin);
 app.use('/pets', pets);
 
 // catch 404 and forward to error handler
