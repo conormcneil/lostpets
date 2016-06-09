@@ -1,23 +1,25 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET users listing. */
+/* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', {
-    title: 'Users Route - index'
+    title: 'Pets Route - index'
   });
 });
 
-router.get('/signin', function(req, res, next) {
+router.get('/lost', function(req, res, next) {
   res.render('index', {
-    title: 'Users Route - /users/signin'
+    title: 'Pets Route - /pets/lost'
   });
 });
 
-router.get('/signup', function(req, res, next) {
+router.get('/found', function(req, res, next) {
   res.render('index', {
-    title: 'Users Route - /users/signup'
+    title: 'Pets Route - /pets/found'
   });
 });
+
+
 
 module.exports = router;
