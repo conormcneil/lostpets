@@ -23,6 +23,7 @@ form {
   border-width: thin;
   background-color: lightyellow;
 }
+
 form * {
   width: 95%;
 }
