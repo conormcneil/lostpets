@@ -1,9 +1,16 @@
-body{
-  background: #6B7599;
-}
-
 $fontColor: #284DCC;
 $fontColor2: #FFB68C;
 $backGroundColor: #6B7599;
 $backGroundColor2: #FFB68C;
 $headerColor: #CC4C28;
+
+
+body{
+  background: $backGroundColor;
+}
+body * {
+  color: white;
+}
+header a button {
+  color: $fontColor;
+}

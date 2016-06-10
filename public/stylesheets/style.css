@@ -1,4 +1,10 @@
 body {
   background: #6B7599; }
 
+body * {
+  color: white; }
+
+header a button {
+  color: #284DCC; }
+
 /*# sourceMappingURL=style.css.map */
