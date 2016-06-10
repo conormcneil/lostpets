@@ -20,9 +20,9 @@ var app = express();
 app.use(cookieSession({
   name: 'session',
   keys: [
-    'd8b49edd1deddbeaf50cfee55306012158fa25db51940f82e677f0ab8352492dd9c167639169643c8bdfe898ac85ff04',
-    'b8c68710eae90b2979d868d99f4f964f445c45805deeea5fad15672964b5c586a2ef162f5797fb039532beb43616576d',
-    'daefa67d86c2581723f0269e83882045db0ca08aa2ba12f12634a527707ec233d2fbb94afd3321cea95013d99a5a7f13'
+    process.env.SESSION_KEY1,
+    process.env.SESSION_KEY2,
+    process.env.SESSION_KEY3
   ]
 }));
 

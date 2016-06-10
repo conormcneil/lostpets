@@ -15,21 +15,21 @@ router.get('/lost', function(req, res, next) {
 });
 
 router.get('/found', function(req, res, next) {
-  res.render('found', {
+  res.render('pets/found', {
     title: 'Pets Route - /pets/found'
   });
 });
 
 router.get('/all', function(req, res, next) {
-  res.render('all');
+  res.render('pets/all');
 });
 
 router.get('/add/lost', function(req, res, next) {
-  res.render('reportlost');
+  res.render('pets/reportlost');
 })
 
 router.get('/add/found', function(req, res, next) {
-  res.render('reportfound');
+  res.render('pets/reportfound');
 });
 
 

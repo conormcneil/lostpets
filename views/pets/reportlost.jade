@@ -1,0 +1,21 @@
+extends ../layout
+
+block content
+  h1 Report a Lost Pet 
+    form(action='add-lost-pet', method="post")
+      input(type="text" name="name" placeholder="Enter the name of your pet")
+      p
+      input(type="text" name="species" placeholder="Enter the species of your pet")
+      p
+      input(type="location" name="location" placeholder="Enter the approximate last known location of your pet")
+      p
+      input(type="integer" name="age" placeholder="Enter the age of your pet")
+      p
+      input(type="textarea" name="description" placeholder="Please enter any additional information, such as breed, distinguishing features, characteristics, etc.")
+      p
+      label(for="image") Please add an image of your pet.  
+      input(type="file" name="image") 
+      p
+      input(type="textarea" name="contact" placeholder="Please enter your preferred contact information")
+      p
+      input(type="submit" value="Report Your Lost Pet")
