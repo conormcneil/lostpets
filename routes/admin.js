@@ -18,6 +18,7 @@ router.get('/', function(req, res, next) {
 // Display list of users from DB at /admin/users
 router.get('/users', function(req, res, next) {
   knex('users')
+  .orderBy('id','asc')
   .then(function(users) {
     res.render('users/userlist', {
       users: users

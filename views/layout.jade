@@ -13,4 +13,6 @@ html
         button Sign In
       a(href="/users/signup")
         button Sign Up
+      if user.id
+        p Welcome, #{user.username}
   block content

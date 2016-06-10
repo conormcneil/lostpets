@@ -16,28 +16,22 @@ router.get('/signin', function(req, res, next) {
 });
 router.post('/signin', function(req, res, next) {
   knex('users')
-  .first()
   .where({
-    username: req.body.username
+    username: req.body.username.toLowerCase()
   })
-  .then(function(user){
-    if (req.body.password === user.password) {
-      res.render('users/signin', {
-        title: 'Please sign in',
-        error: 'Sign in Success'
-      });
-    } else {
-      res.render('users/signin', {
-        title: 'Please sign in',
-        error: 'Invalid username or password'
-      });
+  .first()
+  .then(function(user) {
+    if (!user) {
+      res.send('signinerror');
     }
-  })
-  .catch(function(err){
-    res.render('users/signin', {
-      title: 'Please sign in',
-      error: 'Invalid username or password'
-    });
+    // Check password
+    if (req.body.password === user.password) {
+      req.session.id = (Array.isArray(user.id)) ? user.id[0] : user.id
+      res.redirect('/');
+    }
+    else {
+      res.send('signinerror');
+    }
   })
 })
 
@@ -47,12 +41,13 @@ router.get('/signup', function(req, res, next) {
   });
 });
 router.post('/signup', function(req, res, next) {
+  console.log(req.body);
   knex('users')
   .insert({
     first_name: req.body.first_name,
     last_name: req.body.last_name,
     email: req.body.email,
-    username: req.body.userame,
+    username: req.body.username,
     password: req.body.password
   })
   .then(function(data){
