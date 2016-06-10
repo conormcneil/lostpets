@@ -61,6 +61,7 @@ router.post('/signup', function(req, res, next) {
     })
   })
   .catch(function(err) {
+    console.log(req.body);
     res.render('users/signup', {
       title: 'Sign up for a new account',
       error: 'Something went wrong: please try again.'

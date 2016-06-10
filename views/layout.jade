@@ -9,6 +9,8 @@ html
         button Home
       a(href="/admin/users")
         button Users
+      a(href="/pets/add/lost")
+        button Report Lost Pet
       if user.id
         p Welcome, #{user.username}
         a(href="/users/signout")
