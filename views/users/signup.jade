@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+  h2= title
+  h4= error
+  
+  formid="signup" method="post" action="/users/signup")
+    label(for="first_name") First Name:
+    input(name="first_name" type="text" placeholder="Johnny" autofocus)
+      
+    label(for="last_name") Last Name:
+    input(name="last_name" type="text" placeholder="Appleseed")
+      
+    label(for="email") Enter your email address: 
+    input(name="email" type="text" placeholder="johnny@example.com")
+      
+    label(for="username") Choose a username
+    input(name="username" type="text" placeholder="username" )
+      
+    label(for="password") Choose a password
+    input(name="password" type="password" placeholder="password")
+      
+    input(type="submit" value="Create Account")

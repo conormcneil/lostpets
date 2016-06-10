@@ -1,0 +1,24 @@
+extends ../layout
+
+block content
+  
+  h1 List of Users
+  h3= title
+  
+  table
+    th ID
+    th First Name
+    th Last Name
+    th Username
+    th Password
+    th Email
+    th
+      for user in users
+        tr
+          td= user.id
+          td= user.first_name
+          td= user.last_name
+          td= user.username
+          td= user.password
+          td= user.email
+          td Edit
