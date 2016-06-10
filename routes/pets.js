@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var knex = require('../db/knex');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -26,6 +27,10 @@ router.get('/all', function(req, res, next) {
 
 router.get('/add/lost', function(req, res, next) {
   res.render('pets/reportlost');
+});
+
+router.post('/add-lost-pet', function(req, res, next) {
+  // knex('pets').insert(req.)
 })
 
 router.get('/add/found', function(req, res, next) {
