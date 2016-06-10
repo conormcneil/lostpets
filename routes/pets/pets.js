@@ -20,6 +20,12 @@ router.get('/found', function(req, res, next) {
   });
 });
 
+router.get('/all')
+
+router.get('/add/lost')
+
+router.get('/add/found')
+
 
 
 module.exports = router;
