@@ -4,4 +4,20 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    block content
+    header
+      a(href="/")
+        button Home
+      a(href="/admin/users")
+        button Users
+      a(href="/pets/add/lost")
+        button Report Lost Pet
+      if user.id
+        p Welcome, #{user.username}
+        a(href="/users/signout")
+          button Sign Out
+      else 
+        a(href="/users/signin")
+          button Sign In
+        a(href="/users/signup")
+          button Sign Up
+  block content

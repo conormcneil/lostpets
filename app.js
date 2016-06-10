@@ -16,6 +16,37 @@ var pets = require('./routes/pets');
 
 var app = express();
 
+// Enable cookie-session
+app.use(cookieSession({
+  name: 'session',
+  keys: [
+    process.env.SESSION_KEY1,
+    process.env.SESSION_KEY2,
+    process.env.SESSION_KEY3
+  ]
+}));
+
+// Check if user is signed in before every route
+app.use(function(req, res, next) {
+  req.session.id = (Array.isArray(req.session.id)) ? req.session.id[0] : req.session.id
+  if (req.session.id) {
+    knex('users')
+    .where({
+      id: req.session.id
+    })
+    .first()
+    .then(function(data) {
+      res.locals.user = data;
+      next();
+    })
+  } else {
+    res.locals.user = {
+      username: 'Guest'
+    }
+    next();
+  }
+});
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
