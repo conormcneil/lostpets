@@ -9,10 +9,13 @@ html
         button Home
       a(href="/admin/users")
         button Users
-      a(href="/users/signin")
-        button Sign In
-      a(href="/users/signup")
-        button Sign Up
       if user.id
         p Welcome, #{user.username}
+        a(href="/users/signout")
+          button Sign Out
+      else 
+        a(href="/users/signin")
+          button Sign In
+        a(href="/users/signup")
+          button Sign Up
   block content

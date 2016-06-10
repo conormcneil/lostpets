@@ -6,14 +6,14 @@ var knex = require('../db/knex');
 router.get('/', function(req, res, next) {
   res.render('index', {
     title: 'Users Route - index'
-  });
-});
+  })
+})
 
 router.get('/signin', function(req, res, next) {
   res.render('users/signin', {
     title: 'Please sign in'
-  });
-});
+  })
+})
 router.post('/signin', function(req, res, next) {
   knex('users')
   .where({
@@ -35,11 +35,16 @@ router.post('/signin', function(req, res, next) {
   })
 })
 
+router.get('/signout', function(req, res, next) {
+  res.clearCookie('session');
+  res.redirect('/');
+});
+
 router.get('/signup', function(req, res, next) {
   res.render('users/signup', {
     title: 'Sign up for a new account'
-  });
-});
+  })
+})
 router.post('/signup', function(req, res, next) {
   console.log(req.body);
   knex('users')
