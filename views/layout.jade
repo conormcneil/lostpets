@@ -11,6 +11,8 @@ html
         button Users
       a(href="/pets/add/lost")
         button Report Lost Pet
+      a(href="/pets/add/found")
+        button Report Found Pet 
       if user.id
         p Welcome, #{user.username}
         a(href="/users/signout")
