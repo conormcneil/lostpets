@@ -6,3 +6,9 @@ body {
 a {
   color: #00B7FF;
 }
+
+/*Below is all of Conor's CSS: Delete Any Time*/
+table {
+  display: flex;
+  justify-content: center;
+}
