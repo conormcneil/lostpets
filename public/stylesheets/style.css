@@ -1,20 +1,22 @@
 body {
-  background: #6B7599;
+  background: linear-gradient(90deg, #6B7599, #FFB68C);
   font-family: Helvetica, sans-serif;
   font-size: 1.42857em; }
 
 header {
-  text-align: center;
+  display: flex;
+  justify-content: center;
   font-style: Helvetica, sans-serif; }
 
 button {
   color: #284DCC;
-  background: #FFB68C;
-  border-radius: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
-  margin-right: 20px;
-  margin-right: 20px; }
+  background: #6B7599;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  font-size: 1em; }
 
 h1 {
   text-align: center;
@@ -25,15 +27,28 @@ h1 {
   color: #284DCC; }
 
 table {
-  width: 100%; }
+  display: flex;
+  width: auto;
+  flex-direction: row;
+  justify-content: space-around; }
   table th {
     color: #284DCC;
-    text-align: center; }
+    padding-right: 30px;
+    padding-left: 30px; }
 
 input {
+  font-size: .75em;
+  width: 500px;
+  height: 30px;
   padding-left: 5px;
   margin-bottom: -5px;
+  border-radius: 4px;
   background: #FFB68C;
+  color: #284DCC;
+  border-bottom: 5px;
+  border-right: 5px; }
+
+label {
   color: #284DCC; }
 
 webkit-input-placeholder {
