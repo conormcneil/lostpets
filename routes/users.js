@@ -14,6 +14,7 @@ router.get('/signin', function(req, res, next) {
     title: 'Please sign in'
   })
 })
+
 router.post('/signin', function(req, res, next) {
   knex('users')
   .where({
