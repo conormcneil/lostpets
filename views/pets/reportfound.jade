@@ -3,23 +3,28 @@ extends ../layout
 block content
   h1 Report a Found Pet 
   form(action='add-found-pet' method="post")
-    input(type="text" name="name" placeholder="Enter the name of the pet. If not known, say N/A.")
+    label(for="name") Enter the name of the pet. If not known, enter N/A. 
+    input(type="text" name="name")
     p 
-    input(type="text" name="species" placeholder="Enter the species of the pet")
+    label(for="species") Enter the species of the pet. 
+    input(type="text" name="species")
     p
-    input(type="location" name="location" placeholder="Enter the approximate location where the pet currently is.")
+    label(for="location") Enter the approximate location where the pet currently is. 
+    input(type="location" name="location")
     p
-    label(for="date") Please add the date the pet was found.
-    p
+    label(for="date") Please add the date the pet was found. 
     input(type="date" name="date")
     p
-    input(type="number" name="age" placeholder="Enter the age of the pet. (Best guess)")
+    label(for="age") Enter the age of the pet (best guess if not known) 
+    input(type="number" name="age")
     p
-    input(type="textarea" name="description" placeholder="Please enter any additional information, such as breed, distinguishing features, characteristics, etc.")
+    label(for="description") Please enter any additional information, such as breed, distinguishing features, characteristics, etc. 
+    input(type="textarea" name="description")
     p
-    label(for="image") Please add an image of the pet.  
+    label(for="image") Please add an image of the pet.   
     input(type="file" name="image") 
     p
-    input(type="textarea" name="contact" placeholder="Please enter your preferred contact information")
+    label(for="contact") Please enter your preferred contact information. 
+    input(type="textarea" name="contact")
     p
     input(type="submit" value="Report Your Found Pet")
