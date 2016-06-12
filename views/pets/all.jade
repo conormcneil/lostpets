@@ -7,16 +7,23 @@ block content
   a(href="/pets/browsefound") Found Pets 
   p
   table
-    each pet in pets 
+    each pet in petsAndUsers 
       tr
         td
           ul
             li= pet.image
-            li= fs.echo(pet.name)
-            li= pet.age
-            li= fs.echo(pet.location) 
-            li= fs.echo(pet.description) 
-            li= pet.date 
-            li= fs.echo(pet.contact) 
+            li Name: #{fs.echo(pet.name)}
+            li Age: #{pet.age}
+            if pet.isFound
+              li Location: #{fs.echo(pet.location)}
+            else 
+              li Last Known Location: #{fs.echo(pet.location)}
+            li Description: #{fs.echo(pet.description)}
+            if pet.isFound
+              li Date Found: #{pet.date}
+            else 
+              li Date Lost: #{pet.date}
+            li User: #{pet.username}
+            li Contact Info: #{fs.echo(pet.contact)}
             
       
