@@ -1,4 +1,42 @@
 body {
-  background: #6B7599; }
+  background: #6B7599;
+  font-family: Helvetica, sans-serif;
+  font-size: 1.42857em; }
+
+header {
+  text-align: center;
+  font-style: Helvetica, sans-serif; }
+
+button {
+  color: #284DCC;
+  background: #FFB68C;
+  border-radius: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-right: 20px;
+  margin-right: 20px; }
+
+h1 {
+  text-align: center;
+  color: #284DCC; }
+
+#p1 {
+  text-align: center;
+  color: #284DCC; }
+
+table {
+  width: 100%; }
+  table th {
+    color: #284DCC;
+    text-align: center; }
+
+input {
+  padding-left: 5px;
+  margin-bottom: -5px;
+  background: #FFB68C;
+  color: #284DCC; }
+
+webkit-input-placeholder {
+  color: #FFB68C; }
 
 /*# sourceMappingURL=style.css.map */

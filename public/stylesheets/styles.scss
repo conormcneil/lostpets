@@ -1,9 +1,56 @@
-body{
-  background: #6B7599;
-}
-
 $fontColor: #284DCC;
 $fontColor2: #FFB68C;
 $backGroundColor: #6B7599;
 $backGroundColor2: #FFB68C;
 $headerColor: #CC4C28;
+$headerFont: Helvetica, sans-serif;
+$headerFontSize: (10/7) * 1em;
+
+//INDEX AND LAYOUT PAGES
+body{
+  background: $backGroundColor;
+  font: {
+    family: $headerFont;
+    size: $headerFontSize;
+  }
+}
+header{
+  text-align: center;
+  font-style: $headerFont;
+}
+button{
+  color: $fontColor;
+  background: $backGroundColor2;
+  border-radius: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-right: 20px;
+  margin-right: 20px;
+}
+h1{
+  text-align: center;
+  color: $fontColor;
+}
+#p1{
+  text-align:center;
+  color: $fontColor;
+}
+
+//USERLIST.JADE
+table{
+  width: 100%;
+  th{
+    color: $fontColor;
+    text-align: center;
+  }
+}
+//REPORT LOST PETS
+input{
+  padding-left: 5px;
+  margin-bottom: -5px;
+  background: $fontColor2;
+  color: $fontColor; }
+
+  webkit-input-placeholder{
+    color: $fontColor2;
+  }
