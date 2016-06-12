@@ -1,0 +1,21 @@
+extends ../layout
+
+block content
+  h1 Lost Pets 
+  a(href="/pets/all") All Pets 
+  a(href="/pets/browsefound") Found Pets 
+  p
+  h4= error 
+  p
+  table
+    each pet in pets 
+      tr
+        td
+          ul
+            li= pet.image
+            li= fs.echo(pet.name)
+            li= pet.age
+            li= fs.echo(pet.location) 
+            li= fs.echo(pet.description) 
+            li= pet.date 
+            li= fs.echo(pet.contact) 
