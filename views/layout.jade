@@ -2,11 +2,14 @@ doctype html
 html
   head
     title= title
+    //- link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css")
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     header
       a(href="/")
         button Home
+      a(href="/pets/all")
+        button Find Pets 
       a(href="/admin/users")
         button Users
       a(href="/pets/add/lost")
