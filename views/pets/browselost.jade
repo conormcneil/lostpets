@@ -1,0 +1,22 @@
+extends ../layout
+
+block content
+  h1 Lost Pets 
+  a(href="/pets/all") All Pets 
+  a(href="/pets/browsefound") Found Pets 
+  p
+  h4= error 
+  p
+  table
+    each pet in petsAndUsers 
+      tr
+        td
+          ul
+            li= pet.image
+            li Name: #{fs.echo(pet.name)}
+            li Age: #{pet.age}
+            li Last Known Location: #{fs.echo(pet.location)}
+            li Description: #{fs.echo(pet.description)}
+            li Date Lost: #{pet.date}
+            li User: #{pet.username}
+            li Contact Info: #{fs.echo(pet.contact)}

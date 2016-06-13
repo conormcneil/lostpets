@@ -72,4 +72,10 @@ label {
 #passwordLabel {
   padding-right: 14px; }
 
+body * {
+  color: white; }
+
+header a button {
+  color: #284DCC; }
+
 /*# sourceMappingURL=style.css.map */
