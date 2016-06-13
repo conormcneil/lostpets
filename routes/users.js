@@ -48,26 +48,41 @@ router.get('/signup', function(req, res, next) {
 })
 router.post('/signup', function(req, res, next) {
   console.log(req.body);
+  // Check if username exists in database
   knex('users')
-  .insert({
-    first_name: req.body.first_name,
-    last_name: req.body.last_name,
-    email: req.body.email,
-    username: req.body.username,
-    password: req.body.password
+  .where({
+    username: req.body.username.toLowerCase()
   })
+  .first()
   .then(function(data){
-    res.render('users/userlist', {
-      title: 'User added successfully',
-      users: user
-    })
-  })
-  .catch(function(err) {
-    console.log(req.body);
-    res.render('users/signup', {
-      title: 'Sign up for a new account',
-      error: 'Something went wrong: please try again.'
-    })
+    if(!data){
+      knex('users')
+      .insert({
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        email: req.body.email,
+        username: req.body.username,
+        password: req.body.password
+      })
+      .then(function(data){
+        console.log(data);
+        res.locals.id = data.id;
+        console.log(res.locals.id);
+        res.redirect('/');
+      })
+      .catch(function(err) {
+        console.log(req.body);
+        res.render('users/signup', {
+          title: 'Sign up for a new account',
+          error: 'Something went wrong: please try again.'
+        })
+      })
+    } else {
+      res.render('users/signup', {
+        title: 'Sign up for a new account',
+        error: 'Something went wrong: please try again.'
+      })
+    }
   })
 })
 
