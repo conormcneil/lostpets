@@ -1,4 +1,13 @@
 body {
+  background: #6B7599; }
+
+body * {
+  color: white; }
+
+header a button {
+  color: #284DCC; }
+
+body {
   background: linear-gradient(90deg, #6B7599, #FFB68C);
   font-family: Helvetica, sans-serif;
   font-size: 1.42857em; }
@@ -53,11 +62,5 @@ label {
 
 webkit-input-placeholder {
   color: #FFB68C; }
-
-body * {
-  color: white; }
-
-header a button {
-  color: #284DCC; }
 
 /*# sourceMappingURL=style.css.map */
