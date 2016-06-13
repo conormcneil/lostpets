@@ -3,6 +3,11 @@ var router = express.Router();
 var knex = require('../db/knex');
 var cloudinary = require('cloudinary');
 
+function capitalizeFirst(string) {
+    console.log(string);
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('pets/pets', {
@@ -24,25 +29,22 @@ router.get('/found', function(req, res, next) {
 
 router.get('/all', function(req, res, next) {
   knex('pets').then(function(pets) {
-    knex('users').fullOuterJoin('pets', 'pets.user_id', 'users.id').then(function(data) {
+    knex('users').fullOuterJoin('pets', 'pets.user_id', 'users.id').whereNot('pets.name', 'null').then(function(data) {
       console.log(data);
       var petsAndUsers = data;
-      function capitalizeFirst(string) {
-        return string.charAt(0).toUpperCase() + string.slice(1);
-      }
       res.render('pets/all', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }});
     });
+  })
+  .catch(function(err) {
+    console.log(err);
   });
 });
 
 router.get('/browselost', function(req, res, next) {
   knex('pets').then(function(pets) {
     knex('users').fullOuterJoin('pets', 'pets.user_id', 'users.id').where('isFound', 'false').then(function(data) {
-      console.log(data);
       var petsAndUsers = data;
-      function capitalizeFirst(string) {
-        return string.charAt(0).toUpperCase() + string.slice(1);
-      }
+      console.log(petsAndUsers);
       res.render('pets/browselost', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }});
     });
   });
@@ -53,9 +55,6 @@ router.get('/browsefound', function(req, res, next) {
     knex('users').fullOuterJoin('pets', 'pets.user_id', 'users.id').where('isFound', 'true').then(function(data) {
       console.log(data);
       var petsAndUsers = data;
-      function capitalizeFirst(string) {
-        return string.charAt(0).toUpperCase() + string.slice(1);
-      }
       res.render('pets/browsefound', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }});
     });
   });
@@ -91,9 +90,54 @@ router.post('/add/lost', function(req, res, next) {
     console.log(err);
     res.render('pets/reportlost', { error: "Something went wrong in submitting your form. Please try again." })
   });
+  if(req.body.species === 'other') {
+    console.log(req.body.other);
+    knex('pets').insert(
+        {
+          name: req.body.name,
+          species: req.body.other,
+          location: req.body.location,
+          age: req.body.age,
+          description: req.body.description,
+          user_id: req.session.id,
+          image: req.body.image,
+          contact: req.body.contact,
+          date: req.body.date,
+          isFound: 'false'
+        })
+        .then(function(data) {
+          res.redirect('pets/success-found');
+        })
+        .catch(function(err) {
+          console.log(err);
+          res.render('pets/reportfound', { error: "Something went wrong in submitting your form. Please try again." })
+        });
+  }
+    else {
+      knex('pets').insert(
+          {
+            name: req.body.name,
+            species: req.body.species,
+            location: req.body.location,
+            age: req.body.age,
+            description: req.body.description,
+            user_id: req.session.id,
+            contact: req.body.contact,
+            date: req.body.date,
+            isFound: 'false'
+          })
+          .then(function(data) {
+            res.redirect('pets/success-lost');
+          })
+          .catch(function(err) {
+            console.log(err);
+            res.render('pets/reportlost', { error: "Something went wrong in submitting your form. Please try again." })
+          });
+    }
+
 });
 router.get('/add/lost/addimage', function(req, res, next){
-  res.render('pets/reportlostaddimage', {
+  res.render('pets/imageupload', {
     request: req.body,
   })
 })
@@ -107,27 +151,51 @@ router.get('/add/found', function(req, res, next) {
 });
 
 router.post('/add/found', function(req, res, next) {
-  knex('pets').insert(
-    {
-      name: req.body.name,
-      species: req.body.species,
-      location: req.body.location,
-      age: req.body.age,
-      description: req.body.description,
-      user_id: req.session.id,
-      image: req.body.image,
-      contact: req.body.contact,
-      date: req.body.date,
-      isFound: 'true'
+  if(req.body.species === 'other') {
+    console.log(req.body.other);
+    knex('pets').insert(
+        {
+          name: req.body.name,
+          species: req.body.other,
+          location: req.body.location,
+          age: req.body.age,
+          description: req.body.description,
+          user_id: req.session.id,
+          image: req.body.image,
+          contact: req.body.contact,
+          date: req.body.date,
+          isFound: 'true'
+        })
+        .then(function(data) {
+          res.redirect('pets/success-found');
+        })
+        .catch(function(err) {
+          console.log(err);
+          res.render('pets/reportfound', { error: "Something went wrong in submitting your form. Please try again." })
+        });
+  }
+    else {
+      knex('pets').insert(
+          {
+            name: req.body.name,
+            species: req.body.species,
+            location: req.body.location,
+            age: req.body.age,
+            description: req.body.description,
+            user_id: req.session.id,
+            image: req.body.image,
+            contact: req.body.contact,
+            date: req.body.date,
+            isFound: 'true'
+          })
+          .then(function(data) {
+            res.redirect('pets/success-found');
+          })
+          .catch(function(err) {
+            console.log(err);
+            res.render('pets/reportfound', { error: "Something went wrong in submitting your form. Please try again." })
+          });
     }
-  )
-  .then(function(data) {
-    res.redirect('pets/success-found');
-  })
-  .catch(function(err) {
-    console.log(err);
-    res.render('pets/reportfound', { error: "Something went wrong in submitting your form. Please try again." })
-  });
 });
 
 router.get('/add/pets/success-found', function(req, res, next) {

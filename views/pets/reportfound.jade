@@ -2,13 +2,20 @@ extends ../layout
 
 block content
   h1 Report a Found Pet 
-  p= error 
+  p= error
   form(action='/pets/add/found' method="post")
     label(for="name") Enter the name of the pet. If not known, enter N/A. 
     input(type="text" name="name")
     p 
-    label(for="species") Enter the species of the pet. 
-    input(type="text" name="species")
+    label(for="dog") Dog 
+    input(type="radio" name="species" id="dog" value="dog")
+    p
+    label(for="cat") Cat 
+    input(type="radio" name="species" id="cat" value="cat")
+    p
+    label(for="other") Other:  
+    input(type="radio" name="species" id="other" value="other")
+    input(type="text" name="other" placeholder="Please enter the species")
     p
     label(for="location") Enter the approximate location where the pet currently is. 
     input(type="location" name="location")
@@ -17,7 +24,7 @@ block content
     input(type="date" name="date")
     p
     label(for="age") Enter the age of the pet (best guess if not known) 
-    input(type="number" name="age")
+    input(type="text" name="age")
     p
     label(for="description") Please enter any additional information, such as breed, distinguishing features, characteristics, etc. 
     input(type="textarea" name="description")

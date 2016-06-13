@@ -1,0 +1,26 @@
+extends ../layout
+
+block content
+  
+  h1 Upload Images
+  div
+    for obj in request
+      p= obj.name
+      p= obj.species
+      p= obj.other
+      p= obj.location
+      p= obj.age
+      p= obj.description
+      p= obj.contact
+  
+  p
+  label(for="image")
+  input(type="file" name="image" entype='multipart/form-data')
+  p
+  a(id='upload_widget_opener' href='#') Upload images of your pet 
+  script(src='//widget.cloudinary.com/global/all.js', type='text/javascript')
+  script(type='text/javascript').
+    document.getElementById("upload_widget_opener").addEventListener("click", function() {
+    cloudinary.openUploadWidget({ cloud_name: 'dmuipy77o', upload_preset: 'qpt4sw9g'},
+    function(error, result) { console.log(error, result[0]); console.log(result[0].secure_url); });
+    }, false);
