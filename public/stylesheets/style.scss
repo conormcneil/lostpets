@@ -51,20 +51,22 @@ h1{
   color: $fontColor;
 }
 //USERLIST.JADE
-table{
+table, form{
   display:flex;
-  width: auto;
-  flex-direction: row;
-  justify-content: space-around;
+  width: 50%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
   th{
     color: $fontColor;
     padding-right: 30px;
-    padding-left: 30px;  }
+    padding-left: 30px; }
 }
 //REPORT LOST PETS
 input{
   font-size: .75em;
-  width: 500px;
+  width: 100%;
   height: 30px;
   padding-left: 5px;
   margin-bottom: -5px;
