@@ -58,7 +58,8 @@ router.post('/signup', function(req, res, next) {
   })
   .then(function(data){
     res.render('users/userlist', {
-      title: 'User added successfully'
+      title: 'User added successfully',
+      users: user
     })
   })
   .catch(function(err) {
