@@ -12,23 +12,18 @@ block content
         td
           ul
             li= pet.image
-            //- li Name: #{fs.echo(pet.name)}
-            li Name: #{pet.name}
+            li Name: #{fs.echo(pet.name)}
             li Age: #{pet.age}
             if pet.isFound
-              //- li Location: #{fs.echo(pet.location)}
-              li Location: #{pet.location}a
+              li Location: #{fs.echo(pet.location)}
             else 
-              //- li Last Known Location: #{fs.echo(pet.location)}
-              li Last Known Location: #{pet.location}
-            //- li Description: #{fs.echo(pet.description)}
-            li Description: #{pet.description}
+              li Last Known Location: #{fs.echo(pet.location)}
+            li Description: #{fs.echo(pet.description)}
             if pet.isFound
               li Date Found: #{pet.date}
             else 
               li Date Lost: #{pet.date}
             li User: #{pet.username}
-            //- li Contact Info: #{fs.echo(pet.contact)}
-            li Contact Info: #{pet.contact}
+            li Contact Info: #{fs.echo(pet.contact)}
             
       
