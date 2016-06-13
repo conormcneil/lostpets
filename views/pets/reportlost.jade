@@ -7,8 +7,15 @@ block content
     label(for="name") Enter the name of your pet 
     input(type="text" name="name")
     p 
-    label(for="species") Enter the species of your pet 
-    input(type="text" name="species")
+    label(for="dog") Dog 
+    input(type="radio" name="species" id="dog" value="dog")
+    p
+    label(for="cat") Cat 
+    input(type="radio" name="species" id="cat" value="cat")
+    p
+    label(for="other") Other:  
+    input(type="radio" name="species" id="other" value="other")
+    input(type="text" name="other" placeholder="Please enter the species")
     p
     label(for="location") Enter the approximate last known location of your pet 
     input(type="location" name="location")
@@ -17,7 +24,7 @@ block content
     input(type="date" name="date")
     p
     label(for="age") Please enter the age of your pet 
-    input(type="number" name="age")
+    input(type="text" name="age")
     p
     input(type="textarea" name="description" placeholder="Please enter any additional information, such as breed, distinguishing features, characteristics, etc." class="description")
     label(for="description") Please enter any additional information, such as breed, distinguishing features, characteristics, etc. 
