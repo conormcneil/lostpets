@@ -29,7 +29,7 @@ router.get('/all', function(req, res, next) {
       function capitalizeFirst(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
       }
-      res.render('pets/all', { petsAndUsers: petsAndUsers, func: { echo: capitalizeFirst }});
+      res.render('pets/all', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }});
     });
   })
   .catch(function(err) {
@@ -40,8 +40,9 @@ router.get('/all', function(req, res, next) {
 router.get('/browselost', function(req, res, next) {
   knex('pets').then(function(pets) {
     knex('users').fullOuterJoin('pets', 'pets.user_id', 'users.id').where('isFound', 'false').then(function(data) {
-      console.log(data);
+
       var petsAndUsers = data;
+      console.log(petsAndUsers);
       function capitalizeFirst(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
       }
