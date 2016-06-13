@@ -29,11 +29,11 @@ router.get('/all', function(req, res, next) {
       function capitalizeFirst(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
       }
-      res.render('pets/all', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }});
+      res.render('pets/all', { petsAndUsers: petsAndUsers, func: { echo: capitalizeFirst }});
     });
   })
-  .catch(function(data) {
-    next();
+  .catch(function(err) {
+    console.log(err);
   });
 });
 
