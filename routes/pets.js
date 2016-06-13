@@ -31,6 +31,9 @@ router.get('/all', function(req, res, next) {
       }
       res.render('pets/all', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }});
     });
+  })
+  .catch(function(data) {
+    next();
   });
 });
 
