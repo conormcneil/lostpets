@@ -39,9 +39,66 @@ router.get('/all', function(req, res, next) {
   });
 });
 
+router.get('/all/dogs', function(req, res, next) {
+  knex('pets').then(function(pets) {
+    knex('users').fullOuterJoin('pets', 'pets.user_id', 'users.id').whereNot('pets.name', 'null').where('pets.species', 'dog').then(function(data) {
+      var petsAndUsers = data;
+      res.render('pets/all', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }});
+    });
+  });
+});
+
+router.get('/all/cats', function(req, res, next) {
+  knex('pets').then(function(pets) {
+    knex('users').fullOuterJoin('pets', 'pets.user_id', 'users.id').whereNot('pets.name', 'null').where('pets.species', 'cat').then(function(data) {
+      var petsAndUsers = data;
+      res.render('pets/all', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }});
+    });
+  });
+});
+
+router.get('/all/other', function(req, res, next) {
+  knex('pets').then(function(pets) {
+    knex('users').fullOuterJoin('pets', 'pets.user_id', 'users.id').whereNot('pets.name', 'null').whereNot('pets.species', 'dog').whereNot('pets.species', 'cat').then(function(data) {
+      var petsAndUsers = data;
+      res.render('pets/all', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }});
+    });
+  });
+});
+
 router.get('/browselost', function(req, res, next) {
   knex('pets').then(function(pets) {
     knex('users').fullOuterJoin('pets', 'pets.user_id', 'users.id').where('isFound', 'false').then(function(data) {
+      var petsAndUsers = data;
+      console.log(petsAndUsers);
+      res.render('pets/browselost', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }});
+    });
+  });
+});
+
+router.get('/browselost/dogs', function(req, res, next) {
+  knex('pets').then(function(pets) {
+    knex('users').fullOuterJoin('pets', 'pets.user_id', 'users.id').where('isFound', 'false').where('pets.species', 'dog').then(function(data) {
+      var petsAndUsers = data;
+      console.log(petsAndUsers);
+      res.render('pets/browselost', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }});
+    });
+  });
+});
+
+router.get('/browselost/cats', function(req, res, next) {
+  knex('pets').then(function(pets) {
+    knex('users').fullOuterJoin('pets', 'pets.user_id', 'users.id').where('isFound', 'false').where('pets.species', 'cat').then(function(data) {
+      var petsAndUsers = data;
+      console.log(petsAndUsers);
+      res.render('pets/browselost', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }});
+    });
+  });
+});
+
+router.get('/browselost/other', function(req, res, next) {
+  knex('pets').then(function(pets) {
+    knex('users').fullOuterJoin('pets', 'pets.user_id', 'users.id').where('isFound', 'false').whereNot('pets.species', 'dog').whereNot('pets.species', 'cat').then(function(data) {
       var petsAndUsers = data;
       console.log(petsAndUsers);
       res.render('pets/browselost', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }});
@@ -54,6 +111,36 @@ router.get('/browsefound', function(req, res, next) {
     knex('users').fullOuterJoin('pets', 'pets.user_id', 'users.id').where('isFound', 'true').then(function(data) {
       console.log(data);
       var petsAndUsers = data;
+      res.render('pets/browsefound', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }});
+    });
+  });
+});
+
+router.get('/browsefound/dogs', function(req, res, next) {
+  knex('pets').then(function(pets) {
+    knex('users').fullOuterJoin('pets', 'pets.user_id', 'users.id').where('isFound', 'true').where('pets.species', 'dog').then(function(data) {
+      var petsAndUsers = data;
+      console.log(petsAndUsers);
+      res.render('pets/browsefound', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }});
+    });
+  });
+});
+
+router.get('/browsefound/cats', function(req, res, next) {
+  knex('pets').then(function(pets) {
+    knex('users').fullOuterJoin('pets', 'pets.user_id', 'users.id').where('isFound', 'true').where('pets.species', 'cat').then(function(data) {
+      var petsAndUsers = data;
+      console.log(petsAndUsers);
+      res.render('pets/browsefound', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }});
+    });
+  });
+});
+
+router.get('/browsefound/other', function(req, res, next) {
+  knex('pets').then(function(pets) {
+    knex('users').fullOuterJoin('pets', 'pets.user_id', 'users.id').where('isFound', 'true').whereNot('pets.species', 'cat').whereNot('pets.species', 'dog').then(function(data) {
+      var petsAndUsers = data;
+      console.log(petsAndUsers);
       res.render('pets/browsefound', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }});
     });
   });
@@ -114,6 +201,7 @@ router.post('/add/lost', function(req, res, next) {
 });
 
 router.get('/add/pets/success-lost', function(req, res, next) {
+
   res.render('pets/success-lost');
 });
 

@@ -3,8 +3,16 @@ extends ../layout
 block content
   h1 Lost Pets 
   a(href="/pets/all") All Pets 
+  p
   a(href="/pets/browsefound") Found Pets 
   p
+  p Show Me:
+  p
+    a(href="/pets/browselost/dogs") Dogs 
+    p
+    a(href="/pets/browselost/cats") Cats
+    p 
+    a(href="/pets/browselost/other") Other 
   h4= error 
   p
   table
