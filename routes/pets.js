@@ -2,6 +2,11 @@ var express = require('express');
 var router = express.Router();
 var knex = require('../db/knex');
 
+function capitalizeFirst(string) {
+    console.log(string);
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('pets/pets', {
@@ -23,12 +28,9 @@ router.get('/found', function(req, res, next) {
 
 router.get('/all', function(req, res, next) {
   knex('pets').then(function(pets) {
-    knex('users').fullOuterJoin('pets', 'pets.user_id', 'users.id').then(function(data) {
+    knex('users').fullOuterJoin('pets', 'pets.user_id', 'users.id').whereNot('pets.name', 'null').then(function(data) {
       console.log(data);
       var petsAndUsers = data;
-      function capitalizeFirst(string) {
-        return string.charAt(0).toUpperCase() + string.slice(1);
-      }
       res.render('pets/all', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }});
     });
   })
@@ -40,12 +42,8 @@ router.get('/all', function(req, res, next) {
 router.get('/browselost', function(req, res, next) {
   knex('pets').then(function(pets) {
     knex('users').fullOuterJoin('pets', 'pets.user_id', 'users.id').where('isFound', 'false').then(function(data) {
-
       var petsAndUsers = data;
       console.log(petsAndUsers);
-      function capitalizeFirst(string) {
-        return string.charAt(0).toUpperCase() + string.slice(1);
-      }
       res.render('pets/browselost', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }});
     });
   });
@@ -56,9 +54,6 @@ router.get('/browsefound', function(req, res, next) {
     knex('users').fullOuterJoin('pets', 'pets.user_id', 'users.id').where('isFound', 'true').then(function(data) {
       console.log(data);
       var petsAndUsers = data;
-      function capitalizeFirst(string) {
-        return string.charAt(0).toUpperCase() + string.slice(1);
-      }
       res.render('pets/browsefound', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }});
     });
   });
@@ -71,13 +66,16 @@ router.get('/add/lost', function(req, res, next) {
 
 router.post('/add/lost', function(req, res, next) {
   console.log(req.body);
+  var capName = req.body.name.charAt(0).toUpperCase() + req.body.name.slice(1);
+  var capLocation = req.body.location.charAt(0).toUpperCase() + req.body.location.slice(1);
+  var capDescription = req.body.description.charAt(0).toUpperCase() + req.body.description.slice(1);
   knex('pets').insert(
     {
-      name: req.body.name,
+      name: capName,
       species: req.body.species,
-      location: req.body.location,
+      location: capLocation,
       age: req.body.age,
-      description: req.body.description,
+      description: capDescription,
       user_id: req.session.id,
       image: req.body.image,
       contact: req.body.contact,
