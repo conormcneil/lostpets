@@ -66,30 +66,51 @@ router.get('/add/lost', function(req, res, next) {
 
 router.post('/add/lost', function(req, res, next) {
   console.log(req.body);
-  var capName = req.body.name.charAt(0).toUpperCase() + req.body.name.slice(1);
-  var capLocation = req.body.location.charAt(0).toUpperCase() + req.body.location.slice(1);
-  var capDescription = req.body.description.charAt(0).toUpperCase() + req.body.description.slice(1);
-  knex('pets').insert(
-    {
-      name: capName,
-      species: req.body.species,
-      location: capLocation,
-      age: req.body.age,
-      description: capDescription,
-      user_id: req.session.id,
-      image: req.body.image,
-      contact: req.body.contact,
-      date: req.body.date,
-      isFound: 'false'
+  if(req.body.species === 'other') {
+    console.log(req.body.other);
+    knex('pets').insert(
+        {
+          name: req.body.name,
+          species: req.body.other,
+          location: req.body.location,
+          age: req.body.age,
+          description: req.body.description,
+          user_id: req.session.id,
+          image: req.body.image,
+          contact: req.body.contact,
+          date: req.body.date,
+          isFound: 'false'
+        })
+        .then(function(data) {
+          res.redirect('pets/success-found');
+        })
+        .catch(function(err) {
+          console.log(err);
+          res.render('pets/reportfound', { error: "Something went wrong in submitting your form. Please try again." })
+        });
+  }
+    else {
+      knex('pets').insert(
+          {
+            name: req.body.name,
+            species: req.body.species,
+            location: req.body.location,
+            age: req.body.age,
+            description: req.body.description,
+            user_id: req.session.id,
+            image: req.body.image,
+            contact: req.body.contact,
+            date: req.body.date,
+            isFound: 'false'
+          })
+          .then(function(data) {
+            res.redirect('pets/success-lost');
+          })
+          .catch(function(err) {
+            console.log(err);
+            res.render('pets/reportlost', { error: "Something went wrong in submitting your form. Please try again." })
+          });
     }
-  )
-  .then(function(data) {
-    res.redirect('pets/success-lost');
-  })
-  .catch(function(err) {
-    console.log(err);
-    res.render('pets/reportlost', { error: "Something went wrong in submitting your form. Please try again." })
-  });
 });
 
 router.get('/add/pets/success-lost', function(req, res, next) {
@@ -101,27 +122,51 @@ router.get('/add/found', function(req, res, next) {
 });
 
 router.post('/add/found', function(req, res, next) {
-  knex('pets').insert(
-    {
-      name: req.body.name,
-      species: req.body.species,
-      location: req.body.location,
-      age: req.body.age,
-      description: req.body.description,
-      user_id: req.session.id,
-      image: req.body.image,
-      contact: req.body.contact,
-      date: req.body.date,
-      isFound: 'true'
+  if(req.body.species === 'other') {
+    console.log(req.body.other);
+    knex('pets').insert(
+        {
+          name: req.body.name,
+          species: req.body.other,
+          location: req.body.location,
+          age: req.body.age,
+          description: req.body.description,
+          user_id: req.session.id,
+          image: req.body.image,
+          contact: req.body.contact,
+          date: req.body.date,
+          isFound: 'true'
+        })
+        .then(function(data) {
+          res.redirect('pets/success-found');
+        })
+        .catch(function(err) {
+          console.log(err);
+          res.render('pets/reportfound', { error: "Something went wrong in submitting your form. Please try again." })
+        });
+  }
+    else {
+      knex('pets').insert(
+          {
+            name: req.body.name,
+            species: req.body.species,
+            location: req.body.location,
+            age: req.body.age,
+            description: req.body.description,
+            user_id: req.session.id,
+            image: req.body.image,
+            contact: req.body.contact,
+            date: req.body.date,
+            isFound: 'true'
+          })
+          .then(function(data) {
+            res.redirect('pets/success-found');
+          })
+          .catch(function(err) {
+            console.log(err);
+            res.render('pets/reportfound', { error: "Something went wrong in submitting your form. Please try again." })
+          });
     }
-  )
-  .then(function(data) {
-    res.redirect('pets/success-found');
-  })
-  .catch(function(err) {
-    console.log(err);
-    res.render('pets/reportfound', { error: "Something went wrong in submitting your form. Please try again." })
-  });
 });
 
 router.get('/add/pets/success-found', function(req, res, next) {
