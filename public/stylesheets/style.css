@@ -8,7 +8,7 @@ header a button {
   color: #284DCC; }
 
 body {
-  background: linear-gradient(90deg, #6B7599, #FFB68C);
+  background: linear-gradient(90deg, #6B7599, #998D6B);
   font-family: Helvetica, sans-serif;
   font-size: 1.42857em; }
 
@@ -59,7 +59,7 @@ input {
   height: 30px;
   margin-bottom: -5px;
   border-radius: 4px;
-  background: #FFB68C;
+  background: #998D6B;
   color: #284DCC;
   border-bottom: 5px;
   border-right: 5px;
@@ -86,7 +86,7 @@ label {
   margin-right: auto;
   margin-bottom: 50px;
   margin-top: 50px;
-  height: 600px;
-  width: 90%; }
+  height: 400px;
+  width: 70%; }
 
 /*# sourceMappingURL=style.css.map */
