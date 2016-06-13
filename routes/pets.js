@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var knex = require('../db/knex');
+var cloudinary = require('cloudinary');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -61,12 +62,14 @@ router.get('/browsefound', function(req, res, next) {
 });
 
 router.get('/add/lost', function(req, res, next) {
-  console.log(req.session.id);
-  res.render('pets/reportlost');
+  console.log(req.body);
+  res.render('pets/reportlost', {});
 });
 
 router.post('/add/lost', function(req, res, next) {
   console.log(req.body);
+  // res.redirect('/pets/add/lost/addimage');
+  //Upload image to Cloudinary and get hosted URL back
   knex('pets').insert(
     {
       name: req.body.name,
@@ -75,20 +78,25 @@ router.post('/add/lost', function(req, res, next) {
       age: req.body.age,
       description: req.body.description,
       user_id: req.session.id,
-      image: req.body.image,
       contact: req.body.contact,
       date: req.body.date,
       isFound: 'false'
     }
   )
   .then(function(data) {
-    res.redirect('pets/success-lost');
+    console.log(req.params);
+    res.redirect('/pets/add/lost/addimage');
   })
   .catch(function(err) {
     console.log(err);
     res.render('pets/reportlost', { error: "Something went wrong in submitting your form. Please try again." })
   });
 });
+router.get('/add/lost/addimage', function(req, res, next){
+  res.render('pets/reportlostaddimage', {
+    request: req.body,
+  })
+})
 
 router.get('/add/pets/success-lost', function(req, res, next) {
   res.render('pets/success-lost');

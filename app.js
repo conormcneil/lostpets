@@ -8,6 +8,13 @@ var bodyParser = require('body-parser');
 
 var cookieSession = require('cookie-session');
 var knex = require('./db/knex');
+// Image upload module:
+var cloudinary = require('cloudinary');
+cloudinary.config({
+  cloud_name: 'dmuipy77o',
+  api_key: '637964695259743',
+  api_secret: 'fRLzvUi_9SrtKhGfxShCIMgKPlY'
+});
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
