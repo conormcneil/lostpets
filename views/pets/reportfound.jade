@@ -2,7 +2,7 @@ extends ../layout
 
 block content
   h1 Report a Found Pet 
-  p= error 
+  p= error
   form(action='/pets/add/found' method="post")
     label(for="name") Enter the name of the pet. If not known, enter N/A. 
     input(type="text" name="name")

@@ -65,7 +65,9 @@ router.post('/signup', function(req, res, next) {
         password: req.body.password
       })
       .then(function(data){
+        console.log(data);
         res.locals.id = data.id;
+        console.log(res.locals.id);
         res.redirect('/');
       })
       .catch(function(err) {
