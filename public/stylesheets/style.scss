@@ -3,8 +3,6 @@ $fontColor2: #FFB68C;
 $backGroundColor: #6B7599;
 $backGroundColor2: #FFB68C;
 $headerColor: #CC4C28;
-<<<<<<< HEAD
-
 
 body{
   background: $backGroundColor;
@@ -15,7 +13,6 @@ body * {
 header a button {
   color: $fontColor;
 }
-=======
 $headerFont: Helvetica, sans-serif;
 $headerFontSize: (10/7) * 1em;
 
@@ -84,4 +81,3 @@ input{
   webkit-input-placeholder{
     color: $fontColor2;
   }
->>>>>>> 3e8e10b9574f670a04772715becc18d9b36f21a1
