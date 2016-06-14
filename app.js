@@ -94,27 +94,6 @@ app.get('/user', function (req, res) {
   });
 });
 
-// Check if user is signed in before every route
-app.use(function(req, res, next) {
-  // req.session.id = (Array.isArray(req.session.id)) ? req.session.id[0] : req.session.id
-  console.log("app.js line100: ", req.session.id);
-  if (req.session.id) {
-    knex('users')
-    .where({
-      id: req.session.id
-    })
-    .first()
-    .then(function(data) {
-      res.locals.user = data;
-      console.log("app.js line109: ", res.locals.user);
-      next();
-    })
-  }
-  else {
-    next();
-  }
-});
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
