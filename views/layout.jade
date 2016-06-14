@@ -19,7 +19,7 @@ html
         button Report Lost Pet
       a(href="/pets/add/found")
         button Report Found Pet 
-      if user.id
+      if user
         p Welcome, #{user.username}
         a(href="/users/signout")
           button Sign Out
@@ -28,4 +28,18 @@ html
           button Sign In
         a(href="/users/signup")
           button Sign Up
+  script(src="https://cdn.auth0.com/js/lock-7.min.js")
+  script(type="text/javascript").
+    var lock = new Auth0Lock('odLWNoZNGYeONIG3KeVCisJcta40sQeQ', 'findingfido.auth0.com');
+    function signin() {
+      lock.show({
+        callbackURL: 'http://localhost:3000/callback',
+        responseType: 'code',
+        authParams: {
+          scope: 'openid email'
+        }
+      });
+    }
+    
+  button(onclick="window.signin();") Login
   block content
