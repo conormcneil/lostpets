@@ -5,7 +5,7 @@ exports.seed = function(knex, Promise) {
 
         // Inserts seed entries
         knex('pets').insert({
-            id: 1,
+            id:
             name: 'Spot',
             species: 'dog',
             location: 'close to home',
@@ -17,7 +17,7 @@ exports.seed = function(knex, Promise) {
             contact: 'Contact user/owner'
         }),
         knex('pets').insert({
-            id: 2,
+            id:
             name: 'Fido',
             species: 'dog',
             location: '28th & Canyon',
@@ -29,7 +29,7 @@ exports.seed = function(knex, Promise) {
             contact: 'Contact user/owner'
         }),
         knex('pets').insert({
-            id: 3,
+            id:
             name: 'Rose',
             species: 'cat',
             location: 'wherever cats live',
