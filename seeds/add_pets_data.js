@@ -6,38 +6,38 @@ exports.seed = function(knex, Promise) {
         // Inserts seed entries
         knex('pets').insert({
             id: 1,
-            name: 'spot',
+            name: 'Spot',
             species: 'dog',
             location: 'close to home',
-            age: 3,
-            description: 'The cutest Black Lab you ever saw',
+            age: '3 months',
+            description: 'The cutest nearsighted Yellow Lab you ever saw',
             user_id: 1,
             isFound: false,
-            image: 'examplehosting.com/spot.jpg',
+            image: 'https://res.cloudinary.com/dmuipy77o/image/upload/v1465920528/spot_test.jpg',
             contact: 'Contact user/owner'
         }),
         knex('pets').insert({
             id: 2,
-            name: 'fido',
+            name: 'Fido',
             species: 'dog',
             location: '28th & Canyon',
-            age: 7,
-            description: 'Small white Yorkie with pink collar',
+            age: '7 months',
+            description: 'Small, gold Yorkie with cape, allergic to kryptonite',
             user_id: 2,
             isFound: false,
-            image: 'examplehosting.com/fido.jpg',
+            image: 'http://res.cloudinary.com/dmuipy77o/image/upload/v1465920528/fido_test.jpg',
             contact: 'Contact user/owner'
         }),
         knex('pets').insert({
             id: 3,
-            name: 'rose',
+            name: 'Rose',
             species: 'cat',
             location: 'wherever cats live',
-            age: 19,
-            description: 'Rose is a small black cat with brown spots and white paws.',
+            age: '19 years',
+            description: 'Rose is a small black cat with brown stripes and white paws.',
             user_id: 3,
             isFound: true,
-            image: 'examplehosting.com/rose.jpg',
+            image: 'http://res.cloudinary.com/dmuipy77o/image/upload/v1465920528/rose_test.jpg',
             contact: 'Boulder Humane Society'
         })
     );
