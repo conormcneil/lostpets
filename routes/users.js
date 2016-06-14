@@ -23,7 +23,6 @@ router.post('/signin', function(req, res, next) {
   .first()
   .then(function(user) {
     if (!user) {
-<<<<<<< HEAD
       res.send('signinerror');
     } else {
       // Check password
@@ -33,10 +32,6 @@ router.post('/signin', function(req, res, next) {
         console.log("signin route: ", res.locals.user);
         res.redirect('/');
       }
-      else {
-        res.send('signinerror');
-      }
-=======
       res.render('users/signin', {error: 'Username or password is incorrect.'});
     }
     // Check password
@@ -49,7 +44,6 @@ router.post('/signin', function(req, res, next) {
     }
     else {
       res.render('users/signin', {error: 'Username or password is incorrect.'});
->>>>>>> 9b0e3c2ca8e23093a562a0f860f59847fe8f919b
     }
   });
 });
