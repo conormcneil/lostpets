@@ -12,8 +12,8 @@ var knex = require('./db/knex');
 var cloudinary = require('cloudinary');
 cloudinary.config({
   cloud_name: 'dmuipy77o',
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_SECRET
+  api_key: '637964695259743',
+  api_secret: 'fRLzvUi_9SrtKhGfxShCIMgKPlY'
 });
 // Auth0 config
 var passport = require('passport');
@@ -87,12 +87,11 @@ app.get('/user', function (req, res) {
 
 // Check if user is signed in before every route
 app.use(function(req, res, next) {
-  // This line allows code to run before we fix latest migration to make id a string instead of an int
-  // req.session.id = (Array.isArray(req.session.id)) ? req.session.id[0] : req.session.id
+  req.session.id = (Array.isArray(req.session.id)) ? req.session.id[0] : req.session.id
   if (req.session.id) {
     knex('users')
     .where({
-      auth_user_id: req.session.id
+      id: req.session.id
     })
     .first()
     .then(function(data) {

@@ -18,28 +18,47 @@ block content
       a(href="/pets/all/other") Other 
   div.main 
     
-    table
+    table.pets 
       each pet in petsAndUsers 
         tr
           td
             ul
-              img(src='#{pet.image}' style="height: 80px; width: 80px;")
-              li Name: #{fs.echo(pet.name)}
+              img(src='#{pet.image}' style="height: 200px; width: 200px;")
+              li 
+                strong Name: 
+                | #{fs.echo(pet.name)}
               if pet.age 
-                li Age: #{pet.age}
+                li 
+                  strong Age: 
+                  | #{pet.age}
               if pet.isFound
-                li Location: #{fs.echo(pet.location)}
+                li 
+                  strong Location: 
+                  | #{fs.echo(pet.location)}
               else 
-                li Last Known Location: #{fs.echo(pet.location)}
-              li Description: #{fs.echo(pet.description)}
+                li 
+                  strong Last Known Location: 
+                  | #{fs.echo(pet.location)}
+              li 
+                strong Description: 
+                | #{fs.echo(pet.description)}
               if pet.date 
                 if pet.isFound
-                  li Date Found: #{func.call(pet.date)}
+                  li 
+                    strong Date Found: 
+                    | #{func.call(pet.date)}
                 else 
-                  li Date Lost: #{func.call(pet.date)}
+                  li 
+                    strong Date Lost: 
+                    | #{func.call(pet.date)}
               else 
-                li No date available 
-              li User: #{pet.username}
-              li Contact Info: #{fs.echo(pet.contact)}
+                li 
+                  strong No date available 
+              li 
+                strong User: 
+                | #{pet.username}
+              li 
+                strong Contact Info: 
+                | #{fs.echo(pet.contact)}
             
       

@@ -33,6 +33,9 @@ button {
   font-size: 1em;
   font-family: 'Raleway', sans-serif; }
 
+strong {
+  color: black; }
+
 h1 {
   text-align: center;
   color: #284DCC;
@@ -118,5 +121,12 @@ label {
   margin-top: 50px;
   height: 400px;
   width: 70%; }
+
+.pets td {
+  border: solid 1px black;
+  text-align: center; }
+.pets img {
+  border: solid 1px black;
+  border-radius: 50px; }
 
 /*# sourceMappingURL=style.css.map */
