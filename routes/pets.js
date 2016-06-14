@@ -7,6 +7,14 @@ function capitalizeFirst(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
+function shortenDate(date) {
+  var dateString = JSON.stringify(date);
+  var monthDay = dateString.substr(6, 5);
+  var year = dateString.substr(1, 4);
+  var newDateString = monthDay + '-' + year;
+  return newDateString;
+}
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('pets/pets', {
@@ -31,7 +39,7 @@ router.get('/all', function(req, res, next) {
     knex('users').fullOuterJoin('pets', 'pets.user_id', 'users.id').whereNot('pets.name', 'null').then(function(data) {
       console.log(data);
       var petsAndUsers = data;
-      res.render('pets/all', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }});
+      res.render('pets/all', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }, func: { call: shortenDate }});
     });
   })
   .catch(function(err) {
@@ -43,7 +51,7 @@ router.get('/all/dogs', function(req, res, next) {
   knex('pets').then(function(pets) {
     knex('users').fullOuterJoin('pets', 'pets.user_id', 'users.id').whereNot('pets.name', 'null').where('pets.species', 'dog').then(function(data) {
       var petsAndUsers = data;
-      res.render('pets/all', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }});
+      res.render('pets/all', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }, func: { call: shortenDate }});
     });
   });
 });
@@ -52,7 +60,7 @@ router.get('/all/cats', function(req, res, next) {
   knex('pets').then(function(pets) {
     knex('users').fullOuterJoin('pets', 'pets.user_id', 'users.id').whereNot('pets.name', 'null').where('pets.species', 'cat').then(function(data) {
       var petsAndUsers = data;
-      res.render('pets/all', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }});
+      res.render('pets/all', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }, func: { call: shortenDate }});
     });
   });
 });
@@ -61,7 +69,7 @@ router.get('/all/other', function(req, res, next) {
   knex('pets').then(function(pets) {
     knex('users').fullOuterJoin('pets', 'pets.user_id', 'users.id').whereNot('pets.name', 'null').whereNot('pets.species', 'dog').whereNot('pets.species', 'cat').then(function(data) {
       var petsAndUsers = data;
-      res.render('pets/all', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }});
+      res.render('pets/all', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }, func: { call: shortenDate }});
     });
   });
 });
@@ -71,7 +79,7 @@ router.get('/browselost', function(req, res, next) {
     knex('users').fullOuterJoin('pets', 'pets.user_id', 'users.id').where('isFound', 'false').then(function(data) {
       var petsAndUsers = data;
       console.log(petsAndUsers);
-      res.render('pets/browselost', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }});
+      res.render('pets/browselost', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }, func: { call: shortenDate }});
     });
   });
 });
@@ -81,7 +89,7 @@ router.get('/browselost/dogs', function(req, res, next) {
     knex('users').fullOuterJoin('pets', 'pets.user_id', 'users.id').where('isFound', 'false').where('pets.species', 'dog').then(function(data) {
       var petsAndUsers = data;
       console.log(petsAndUsers);
-      res.render('pets/browselost', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }});
+      res.render('pets/browselost', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }, func: { call: shortenDate }});
     });
   });
 });
@@ -91,7 +99,7 @@ router.get('/browselost/cats', function(req, res, next) {
     knex('users').fullOuterJoin('pets', 'pets.user_id', 'users.id').where('isFound', 'false').where('pets.species', 'cat').then(function(data) {
       var petsAndUsers = data;
       console.log(petsAndUsers);
-      res.render('pets/browselost', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }});
+      res.render('pets/browselost', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }, func: { call: shortenDate }});
     });
   });
 });
@@ -101,7 +109,7 @@ router.get('/browselost/other', function(req, res, next) {
     knex('users').fullOuterJoin('pets', 'pets.user_id', 'users.id').where('isFound', 'false').whereNot('pets.species', 'dog').whereNot('pets.species', 'cat').then(function(data) {
       var petsAndUsers = data;
       console.log(petsAndUsers);
-      res.render('pets/browselost', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }});
+      res.render('pets/browselost', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }, func: { call: shortenDate }});
     });
   });
 });
@@ -111,7 +119,7 @@ router.get('/browsefound', function(req, res, next) {
     knex('users').fullOuterJoin('pets', 'pets.user_id', 'users.id').where('isFound', 'true').then(function(data) {
       console.log(data);
       var petsAndUsers = data;
-      res.render('pets/browsefound', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }});
+      res.render('pets/browsefound', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }, func: { call: shortenDate }});
     });
   });
 });
@@ -121,7 +129,7 @@ router.get('/browsefound/dogs', function(req, res, next) {
     knex('users').fullOuterJoin('pets', 'pets.user_id', 'users.id').where('isFound', 'true').where('pets.species', 'dog').then(function(data) {
       var petsAndUsers = data;
       console.log(petsAndUsers);
-      res.render('pets/browsefound', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }});
+      res.render('pets/browsefound', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }, func: { call: shortenDate }});
     });
   });
 });
@@ -131,7 +139,7 @@ router.get('/browsefound/cats', function(req, res, next) {
     knex('users').fullOuterJoin('pets', 'pets.user_id', 'users.id').where('isFound', 'true').where('pets.species', 'cat').then(function(data) {
       var petsAndUsers = data;
       console.log(petsAndUsers);
-      res.render('pets/browsefound', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }});
+      res.render('pets/browsefound', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }, func: { call: shortenDate }});
     });
   });
 });
@@ -141,7 +149,7 @@ router.get('/browsefound/other', function(req, res, next) {
     knex('users').fullOuterJoin('pets', 'pets.user_id', 'users.id').where('isFound', 'true').whereNot('pets.species', 'cat').whereNot('pets.species', 'dog').then(function(data) {
       var petsAndUsers = data;
       console.log(petsAndUsers);
-      res.render('pets/browsefound', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }});
+      res.render('pets/browsefound', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }, func: { call: shortenDate }});
     });
   });
 });
