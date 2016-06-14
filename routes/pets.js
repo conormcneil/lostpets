@@ -169,12 +169,14 @@ router.post('/add/lost', function(req, res, next) {
       date: req.body.date,
       isFound: 'false'
     })
-    .then(function(data) {
-      res.redirect('/lost/:id/addimage');
+    .returning('id')
+    .then(function(id) {
+      console.log("ID: ", id);
+      res.redirect('/pets/add/lost/' + id + '/addimage');
     })
     .catch(function(err) {
       console.log(err);
-      res.render('pets/reportfound', { error: "Something went wrong in submitting your form. Please try again." })
+      res.render('pets/reportlost', { error: "Something went wrong in submitting your form. Please try again." })
     });
   } else {
     knex('pets').insert({
@@ -209,7 +211,7 @@ router.post('/add/lost/addimage', function(req, res, next){
     image: req.body.image
   })
   .then(function(){
-    res.send('success!');
+    res.redirect('/pets/success-lost');
   })
 })
 router.get('/add/lost/:id/addimage', function(req, res, next){
@@ -241,8 +243,7 @@ router.post('/add/lost/:id/addimage', function(req, res, next){
   })
 });
 
-router.get('/add/pets/success-lost', function(req, res, next) {
-
+router.get('/success-lost', function(req, res, next) {
   res.render('pets/success-lost');
 });
 
@@ -265,11 +266,13 @@ router.post('/add/found', function(req, res, next) {
           date: req.body.date,
           isFound: 'true'
         })
-        .then(function(data) {
-          res.redirect('pets/success-found');
+        .returning('id')
+        .then(function(id) {
+          console.log("ID: ", id);
+          res.redirect('/pets/add/found/' + id + '/addimage');
         })
         .catch(function(err) {
-          res.send(err);
+          console.log(err);
           res.render('pets/reportfound', { error: "Something went wrong in submitting your form. Please try again." })
         });
   }
@@ -287,17 +290,60 @@ router.post('/add/found', function(req, res, next) {
             date: req.body.date,
             isFound: 'true'
           })
-          .then(function(data) {
-            res.redirect('pets/success-found');
+          .returning('id')
+          .then(function(id) {
+            console.log("ID: ", id);
+            res.redirect('/pets/add/found/' + id +'/addimage');
           })
           .catch(function(err) {
-            res.send(err);
+            console.log(err);;
             res.render('pets/reportfound', { error: "Something went wrong in submitting your form. Please try again." })
           });
     }
 });
 
-router.get('/add/pets/success-found', function(req, res, next) {
+router.post('/add/found/addimage', function(req, res, next) {
+  console.log(req.body);
+  knex('pets')
+  .where({
+    id: req.body.idInput
+  })
+  .update({
+    image: req.body.image
+  })
+  .then(function(){
+    res.redirect('/pets/success-found');
+  });
+});
+
+router.get('/add/found/:id/addimage', function(req, res, next) {
+  console.log("GET: ", req.params.id);
+  knex('pets')
+  .where({
+    id: req.params.id
+  })
+  .returning('id')
+  .then(function(id){
+    res.locals.petId = id;
+    console.log(res.locals.petId);
+    res.render('pets/imageupload');
+  });
+});
+
+router.post('/add/found/:id/addimage', function(req, res, next) {
+  knex('pets')
+  .where({
+    id: req.params.id
+  })
+  .insert({
+    image: req.body.image
+  })
+  .then(function(){
+    res.render('success-found', {})
+  })
+});
+
+router.get('/success-found', function(req, res, next) {
   res.render('pets/success-found');
 });
 
