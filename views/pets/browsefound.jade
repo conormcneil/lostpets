@@ -16,20 +16,35 @@ block content
       p 
       a(href="/pets/browsefound/other") Other 
   div.main 
-    table
+    table.pets 
       each pet in petsAndUsers  
         tr
           td
             ul
-              img(src='#{pet.image}')
-              li Name: #{fs.echo(pet.name)}
+              img(src='#{pet.image}' style="height: 200px; width: 200px;")
+              li 
+                strong Name: 
+                | #{fs.echo(pet.name)}
               if pet.age 
-                li Age: #{pet.age}
-              li Location: #{fs.echo(pet.location)}
-              li Description: #{fs.echo(pet.description)}
+                li 
+                  strong Age: 
+                  | #{pet.age}
+              li 
+                strong Location: 
+                | #{fs.echo(pet.location)}
+              li 
+                strong Description: 
+                | #{fs.echo(pet.description)}
               if pet.date 
-                li Date Found: #{func.call(pet.date)}
+                li 
+                  strong Date Found: 
+                  | #{func.call(pet.date)}
               else 
-                li No date available 
-              li User: #{pet.username}
-              li Contact Info: #{fs.echo(pet.contact)}
+                li 
+                  strong No date available 
+              li 
+                strong User: 
+                | #{pet.username}
+              li 
+                strong Contact Info: 
+                | #{fs.echo(pet.contact)}
