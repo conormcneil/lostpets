@@ -105,6 +105,19 @@ router.post('/add/lost', function(req, res, next) {
     });
   }
 });
+router.post('/add/lost/addimage', function(req, res, next){
+  console.log(req.body);
+  knex('pets')
+  .where({
+    id: req.body.idInput
+  })
+  .update({
+    image: req.body.image
+  })
+  .then(function(){
+    res.send('success!');
+  })
+})
 router.get('/add/lost/:id/addimage', function(req, res, next){
   console.log("GET: ", req.params.id);
   knex('pets')
