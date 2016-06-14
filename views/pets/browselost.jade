@@ -22,9 +22,13 @@ block content
           ul
             li= pet.image
             li Name: #{fs.echo(pet.name)}
-            li Age: #{pet.age}
+            if pet.age 
+              li Age: #{pet.age}
             li Last Known Location: #{fs.echo(pet.location)}
             li Description: #{fs.echo(pet.description)}
-            li Date Lost: #{pet.date}
+            if pet.date 
+              li Date Lost: #{func.call(pet.date)}
+            else 
+              li No date available 
             li User: #{pet.username}
             li Contact Info: #{fs.echo(pet.contact)}
