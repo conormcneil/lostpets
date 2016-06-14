@@ -25,6 +25,8 @@ block content
             ul
               img(src='#{pet.image}' style="height: 200px; width: 200px;")
               li 
+                strong LOST 
+              li 
                 strong Name: 
                 | #{fs.echo(pet.name)}
               if pet.age 

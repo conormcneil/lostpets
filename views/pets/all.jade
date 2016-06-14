@@ -24,6 +24,12 @@ block content
           td
             ul
               img(src='#{pet.image}' style="height: 200px; width: 200px;")
+              if pet.isFound 
+                li 
+                  strong FOUND 
+              else 
+                li 
+                  strong LOST
               li 
                 strong Name: 
                 | #{fs.echo(pet.name)}
@@ -60,5 +66,5 @@ block content
               li 
                 strong Contact Info: 
                 | #{fs.echo(pet.contact)}
-            
+
       
