@@ -17,6 +17,11 @@ header {
   justify-content: center;
   font-style: Helvetica, sans-serif; }
 
+#title {
+  font-size: 5em;
+  font-family: 'Gloria Hallelujah', cursive;
+  width: 100%; }
+
 button {
   color: #284DCC;
   background: #6B7599;
@@ -25,23 +30,45 @@ button {
   padding-right: 10px;
   margin-right: 10px;
   margin-left: 10px;
-  font-size: 1em; }
+  font-size: 1em;
+  font-family: 'Raleway', sans-serif; }
 
 h1 {
   text-align: center;
-  color: #284DCC; }
+  color: #284DCC;
+  font-family: 'Raleway', sans-serif; }
 
 h2 {
   text-align: center;
-  color: #284DCC; }
+  color: #284DCC;
+  font-family: 'Raleway', sans-serif; }
 
 h4 {
   text-align: center;
-  color: #284DCC; }
+  color: #284DCC;
+  font-family: 'Raleway', sans-serif; }
 
 #p1 {
   text-align: center;
-  color: #284DCC; }
+  color: #284DCC;
+  font-family: 'Raleway', sans-serif; }
+
+p {
+  font-family: 'Raleway', sans-serif; }
+
+a {
+  font-family: 'Raleway', sans-serif; }
+
+ul {
+  list-style-type: none; }
+
+.sidebar {
+  width: 20%;
+  float: left; }
+
+.main {
+  width: 80%;
+  float: left; }
 
 table, form {
   display: flex;
@@ -49,7 +76,8 @@ table, form {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 auto; }
+  margin: 0 auto;
+  font-family: 'Raleway', sans-serif; }
   table th, form th {
     color: #284DCC;
     padding-right: 30px;

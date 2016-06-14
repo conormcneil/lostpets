@@ -29,6 +29,13 @@ header{
   justify-content: center;
   font-style: $headerFont;
 }
+#title {
+  font: {
+    size: 5em;
+    family: 'Gloria Hallelujah', cursive;
+  }
+  width: 100%;
+}
 button{
   color: $fontColor;
   background: $backGroundColor;
@@ -39,24 +46,58 @@ button{
   margin-left: 10px;
   font: {
     size: 1em;
+    family: 'Raleway', sans-serif;
   }
 
 }
 h1 {
   text-align: center;
   color: $fontColor;
+  font: {
+    family: 'Raleway', sans-serif;
+  }
 }
 h2 {
   text-align: center;
   color: $fontColor;
+  font: {
+    family: 'Raleway', sans-serif;
+  }
 }
 h4 {
   text-align: center;
   color: $fontColor;
+  font: {
+    family: 'Raleway', sans-serif;
+  }
 }
 #p1{
   text-align:center;
   color: $fontColor;
+  font: {
+    family: 'Raleway', sans-serif;
+  }
+}
+p {
+  font: {
+    family: 'Raleway', sans-serif;
+  }
+}
+a {
+  font: {
+    family: 'Raleway', sans-serif;
+  }
+}
+ul {
+  list-style-type: none;
+}
+.sidebar {
+  width: 20%;
+  float: left;
+}
+.main {
+  width: 80%;
+  float: left;
 }
 //USERLIST.JADE
 table, form{
@@ -66,6 +107,9 @@ table, form{
   justify-content: center;
   align-items: center;
   margin: 0 auto;
+  font: {
+    family: 'Raleway', sans-serif;
+  }
   th{
     color: $fontColor;
     padding-right: 30px;

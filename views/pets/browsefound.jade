@@ -1,32 +1,35 @@
 extends ../layout 
 
 block content 
-  h1 Found Pets 
-  a(href="/pets/all") All Pets 
-  p
-  a(href="/pets/browselost") Lost Pets
-  p
-  p Show Me:
+  div.top 
+    h1 Found Pets
+  div.sidebar  
+    a(href="/pets/all") All Pets 
     p
-    a(href="/pets/browsefound/dogs") Dogs 
+    a(href="/pets/browselost") Lost Pets
     p
-    a(href="/pets/browsefound/cats") Cats
-    p 
-    a(href="/pets/browsefound/other") Other 
-  table
-    each pet in petsAndUsers  
-      tr
-        td
-          ul
-            li= pet.image
-            li Name: #{fs.echo(pet.name)}
-            if pet.age 
-              li Age: #{pet.age}
-            li Location: #{fs.echo(pet.location)}
-            li Description: #{fs.echo(pet.description)}
-            if pet.date 
-              li Date Found: #{func.call(pet.date)}
-            else 
-              li No date available 
-            li User: #{pet.username}
-            li Contact Info: #{fs.echo(pet.contact)}
+    p Show Me:
+      p
+      a(href="/pets/browsefound/dogs") Dogs 
+      p
+      a(href="/pets/browsefound/cats") Cats
+      p 
+      a(href="/pets/browsefound/other") Other 
+  div.main 
+    table
+      each pet in petsAndUsers  
+        tr
+          td
+            ul
+              img(src='#{pet.image}')
+              li Name: #{fs.echo(pet.name)}
+              if pet.age 
+                li Age: #{pet.age}
+              li Location: #{fs.echo(pet.location)}
+              li Description: #{fs.echo(pet.description)}
+              if pet.date 
+                li Date Found: #{func.call(pet.date)}
+              else 
+                li No date available 
+              li User: #{pet.username}
+              li Contact Info: #{fs.echo(pet.contact)}
