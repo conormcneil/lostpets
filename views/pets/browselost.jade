@@ -20,7 +20,7 @@ block content
       tr
         td
           ul
-            li= pet.image
+            img(src='#{pet.image}')
             li Name: #{fs.echo(pet.name)}
             if pet.age 
               li Age: #{pet.age}
