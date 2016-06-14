@@ -36,6 +36,7 @@ html
     var lock = new Auth0Lock('odLWNoZNGYeONIG3KeVCisJcta40sQeQ', 'findingfido.auth0.com');
     function signin() {
       lock.show({
+        connections: ['facebook', 'google-oauth2'],
         callbackURL: 'http://localhost:3000/callback',
         responseType: 'code',
         authParams: {
@@ -43,6 +44,7 @@ html
         }
       });
     }
+
+  button(onclick="window.signin();") Login (Facebook or Google)
     
-  button(onclick="window.signin();") Login
   block content
