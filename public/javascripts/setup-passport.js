@@ -9,12 +9,15 @@ var strategy = new Auth0Strategy({
     clientSecret: process.env.AUTH0_CLIENT_SECRET,
     callbackURL:  'http://localhost:3000/callback'
   }, function(accessToken, refreshToken, extraParams, profile, done) {
-    console.log(profile._json.email);
+    console.log(profile);
     knex('users')
     .where({
       email: profile._json.email
     })
     .first()
+    .update({
+      auth_user_id: profile.id
+    })
     .then(function(data){
       console.log("KNEX: ", data);
     })

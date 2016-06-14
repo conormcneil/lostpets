@@ -54,7 +54,7 @@ app.get('/callback',
       throw new Error('user null');
     }
     req.session.id = req.user.id;
-    console.log(req.session.id);
+    // console.log(req.session.id);
     res.redirect("/user");
   });
 app.get('/user', function (req, res) {
@@ -65,7 +65,7 @@ app.get('/user', function (req, res) {
 
 // Check if user is signed in before every route
 app.use(function(req, res, next) {
-  console.log(req.session.id);
+  // console.log(req.session.id);
 
   // This line allows code to run before we fix latest migration to make id a string instead of an int
   req.session.id = null;
