@@ -23,6 +23,7 @@ html
       a(href="/pets/add/found")
         button Report Found Pet 
       if !user
+        button(onclick="window.signin();") Sign In (Facebook or Google)
         a(href="/users/signin")
           button Sign In
         a(href="/users/signup")
@@ -46,6 +47,5 @@ html
       });
     }
 
-  button(onclick="window.signin();") Login (Facebook or Google)
     
   block content
