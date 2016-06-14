@@ -88,7 +88,7 @@ app.get('/user', function (req, res) {
 // Check if user is signed in before every route
 app.use(function(req, res, next) {
   // This line allows code to run before we fix latest migration to make id a string instead of an int
-  req.session.id = (Array.isArray(req.session.id)) ? req.session.id[0] : req.session.id
+  // req.session.id = (Array.isArray(req.session.id)) ? req.session.id[0] : req.session.id
   if (req.session.id) {
     knex('users')
     .where({
@@ -101,9 +101,10 @@ app.use(function(req, res, next) {
     })
   }
   else {
-    res.locals.user = {
-      username: 'Guest'
-    }
+    // res.locals.user = null;
+    // res.locals.user = {
+    //   username: 'Guest'
+    // }
     next();
   }
 });

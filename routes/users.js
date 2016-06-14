@@ -38,9 +38,10 @@ router.post('/signin', function(req, res, next) {
 
 router.get('/signout', function(req, res, next) {
   res.clearCookie('session');
-  res.locals.user = {
-    username: 'Guest'
-  }
+  // res.locals.user = {
+  //   username: 'Guest'
+  // }
+  res.locals.user = null;
   res.redirect('/');
 });
 
