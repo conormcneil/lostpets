@@ -40,6 +40,26 @@ app.use(cookieSession({
     process.env.SESSION_KEY3
   ]
 }));
+// Check if user is signed in prior to each route
+app.use(function(req, res, next) {
+  console.log("test:  ", req.session.id);
+  if (req.session.id) {
+    knex('users')
+    .where({
+      auth_user_id: req.session.id
+    })
+    .first()
+    .then(function(data) {
+      res.locals.user = data;
+      next();
+    })
+  } else {
+    res.locals.user = {
+      username: null
+    }
+    next();
+  }
+});
 // Enable Auth0 middleware
 app.use(passport.initialize());
 app.use(passport.session());
@@ -54,6 +74,10 @@ app.get('/callback',
       throw new Error('user null');
     }
     req.session.id = req.user.id;
+    res.locals.user = req.user;
+    console.log("locals: ", res.locals.user);
+    console.log("session: ", req.session.id);
+    console.log("user: ", req.user);
     // console.log(req.session.id);
     res.redirect("/user");
   });
@@ -68,12 +92,11 @@ app.use(function(req, res, next) {
   // console.log(req.session.id);
 
   // This line allows code to run before we fix latest migration to make id a string instead of an int
-  req.session.id = null;
   req.session.id = (Array.isArray(req.session.id)) ? req.session.id[0] : req.session.id
   if (req.session.id) {
     knex('users')
     .where({
-      id: req.session.id
+      auth_user_id: req.session.id
     })
     .first()
     .then(function(data) {
