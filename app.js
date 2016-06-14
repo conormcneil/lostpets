@@ -12,8 +12,8 @@ var knex = require('./db/knex');
 var cloudinary = require('cloudinary');
 cloudinary.config({
   cloud_name: 'dmuipy77o',
-  api_key: '637964695259743',
-  api_secret: 'fRLzvUi_9SrtKhGfxShCIMgKPlY'
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_SECRET
 });
 // Auth0 config
 var passport = require('passport');
@@ -53,7 +53,7 @@ app.get('/callback',
     if (!req.user) {
       throw new Error('user null');
     }
-    // req.session.id = req.user.id;
+    req.session.id = req.user.id;
     console.log(req.session.id);
     res.redirect("/user");
   });
@@ -69,7 +69,7 @@ app.use(function(req, res, next) {
 
   // This line allows code to run before we fix latest migration to make id a string instead of an int
   req.session.id = null;
-  // req.session.id = (Array.isArray(req.session.id)) ? req.session.id[0] : req.session.id
+  req.session.id = (Array.isArray(req.session.id)) ? req.session.id[0] : req.session.id
   if (req.session.id) {
     knex('users')
     .where({

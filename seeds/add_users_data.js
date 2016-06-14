@@ -28,7 +28,7 @@ exports.seed = function(knex, Promise) {
             id: 3,
             username: 'conor',
             password: 'conor',
-            email: 'conor@conor.com',
+            email: 'cmkingston21@gmail.com',
             image: 'examplehosting.com/conor.jpg',
             first_name: 'conor',
             last_name: 'kingston',

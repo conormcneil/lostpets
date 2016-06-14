@@ -1,5 +1,7 @@
 var passport = require('passport');
 var Auth0Strategy = require('passport-auth0');
+var knex = require('../../db/knex');
+
 
 var strategy = new Auth0Strategy({
     domain:       'findingfido.auth0.com',
@@ -7,6 +9,15 @@ var strategy = new Auth0Strategy({
     clientSecret: process.env.AUTH0_CLIENT_SECRET,
     callbackURL:  'http://localhost:3000/callback'
   }, function(accessToken, refreshToken, extraParams, profile, done) {
+    console.log(profile._json.email);
+    knex('users')
+    .where({
+      email: profile._json.email
+    })
+    .first()
+    .then(function(data){
+      console.log("KNEX: ", data);
+    })
     // accessToken is the token to call Auth0 API (not needed in the most cases)
     // extraParams.id_token has the JSON Web Token
     // profile has all the information from the user
