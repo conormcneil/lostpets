@@ -4,11 +4,14 @@ html
     title= title
     //- link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css")
     script(src='https://code.jquery.com/jquery-2.2.4.min.js')
+    link(href='https://fonts.googleapis.com/css?family=Gloria+Hallelujah', rel='stylesheet', type='text/css')
+    link(href='https://fonts.googleapis.com/css?family=Raleway', rel='stylesheet', type='text/css')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     script(src='//cdn.auth0.com/js/lock-9.1.min.js')
     meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
-    header
+    h1#title Finding Fido 
+    header     
       a(href="/")
         button Home
       a(href="/pets/all")
@@ -19,7 +22,7 @@ html
         button Report Lost Pet
       a(href="/pets/add/found")
         button Report Found Pet 
-      if user.id
+      if user
         p Welcome, #{user.username}
         a(href="/users/signout")
           button Sign Out
@@ -28,4 +31,18 @@ html
           button Sign In
         a(href="/users/signup")
           button Sign Up
+  script(src="https://cdn.auth0.com/js/lock-7.min.js")
+  script(type="text/javascript").
+    var lock = new Auth0Lock('odLWNoZNGYeONIG3KeVCisJcta40sQeQ', 'findingfido.auth0.com');
+    function signin() {
+      lock.show({
+        callbackURL: 'http://localhost:3000/callback',
+        responseType: 'code',
+        authParams: {
+          scope: 'openid email'
+        }
+      });
+    }
+    
+  button(onclick="window.signin();") Login
   block content

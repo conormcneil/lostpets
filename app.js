@@ -15,6 +15,14 @@ cloudinary.config({
   api_key: '637964695259743',
   api_secret: 'fRLzvUi_9SrtKhGfxShCIMgKPlY'
 });
+// Auth0 config
+var passport = require('passport');
+// This is the file we created in step 2.
+// This will configure Passport to use Auth0
+var strategy = require('./public/javascripts/setup-passport');
+// Session and cookies middlewares to keep user logged in
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -32,10 +40,36 @@ app.use(cookieSession({
     process.env.SESSION_KEY3
   ]
 }));
+// Enable Auth0 middleware
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(cookieParser());
+// See express session docs for information on the options: https://github.com/expressjs/session
+app.use(session({ secret: process.env.AUTH0_SECRET, resave: false,  saveUninitialized: false }));
+// Auth0 callback handler
+app.get('/callback',
+  passport.authenticate('auth0', { failureRedirect: '/error' }),
+  function(req, res) {
+    if (!req.user) {
+      throw new Error('user null');
+    }
+    // req.session.id = req.user.id;
+    console.log(req.session.id);
+    res.redirect("/user");
+  });
+app.get('/user', function (req, res) {
+  res.render('index', {
+    tilte: req.user
+  });
+});
 
 // Check if user is signed in before every route
 app.use(function(req, res, next) {
-  req.session.id = (Array.isArray(req.session.id)) ? req.session.id[0] : req.session.id
+  console.log(req.session.id);
+
+  // This line allows code to run before we fix latest migration to make id a string instead of an int
+  req.session.id = null;
+  // req.session.id = (Array.isArray(req.session.id)) ? req.session.id[0] : req.session.id
   if (req.session.id) {
     knex('users')
     .where({
@@ -63,7 +97,7 @@ app.set('view engine', 'jade');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
+// app.use(cookieParser()); Moved to Auth0 config (above)
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);

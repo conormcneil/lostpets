@@ -8,7 +8,7 @@ block content
   form(action='/pets/add/found' method="post")
     label(for="name") Enter the name of the pet. If not known, enter N/A. 
     input(type="text" name="name")
-    p 
+    p Dog
     label(for="dog") 
     input(type="radio" name="species" id="dog" value="dog")
     p
@@ -39,6 +39,8 @@ block content
     input(type="textarea" name="contact")
     p
     input(type="submit" value="Report Your Found Pet")
+    p
+    input(type="button" value="Show Nearest Humane Society" id="humaneSoc")
     br
     br
     p
