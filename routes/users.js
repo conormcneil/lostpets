@@ -23,18 +23,21 @@ router.post('/signin', function(req, res, next) {
   .first()
   .then(function(user) {
     if (!user) {
-      res.send('signinerror');
+      res.render('users/signin', {error: 'Username or password is incorrect.'});
     }
     // Check password
     if (req.body.password === user.password) {
       req.session.id = (Array.isArray(user.id)) ? user.id[0] : user.id
+      console.log("USER: ", user);
+      res.locals.user = user;
+      console.log("RES.LOCALS", res.locals);
       res.redirect('/');
     }
     else {
-      res.send('signinerror');
+      res.render('users/signin', {error: 'Username or password is incorrect.'});
     }
-  })
-})
+  });
+});
 
 router.get('/signout', function(req, res, next) {
   res.clearCookie('session');

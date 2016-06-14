@@ -3,6 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  console.log("INDEX: ", res.locals.user);
   res.render('index', {
     title: 'Lost Pets!'
   });

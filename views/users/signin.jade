@@ -2,9 +2,9 @@ extends ../layout
 
 block content
   h2= title
-  h4= error
   
   form(id="signin" method="post" action="/users/signin")
+    p= error 
     label(for="username") Username
     input(name="username" type="text" placeholder="username" autofocus class="signinInput")
     br
