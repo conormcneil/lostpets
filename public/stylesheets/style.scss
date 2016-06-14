@@ -1,5 +1,5 @@
 $fontColor: #284DCC;
-$fontColor2: #FFB68C;
+$fontColor2: #998D6B;
 $backGroundColor: #6B7599;
 $backGroundColor2: #FFB68C;
 $headerColor: #CC4C28;
@@ -16,7 +16,7 @@ header a button {
 $headerFont: Helvetica, sans-serif;
 $headerFontSize: (10/7) * 1em;
 
-//INDEX AND LAYOUT PAGES
+
 body{
   background: linear-gradient(90deg, $backGroundColor, $fontColor2);
   font: {
@@ -42,7 +42,15 @@ button{
   }
 
 }
-h1{
+h1 {
+  text-align: center;
+  color: $fontColor;
+}
+h2 {
+  text-align: center;
+  color: $fontColor;
+}
+h4 {
   text-align: center;
   color: $fontColor;
 }
@@ -63,23 +71,39 @@ table, form{
     padding-right: 30px;
     padding-left: 30px; }
 }
-//REPORT LOST PETS
 input{
-  font-size: .75em;
   width: 100%;
+  font-size: .65em;
   height: 30px;
-  padding-left: 5px;
   margin-bottom: -5px;
   border-radius: 4px;
   background: $fontColor2;
   color: $fontColor;
   border-bottom: 5px;
-  border-right:5px;}
-
-  label{
+  border-right:5px;
+  margin-top: 15px;
+}
+.signinInput {
+  margin-top: 15px;
+}
+#signinSubmit{
+  margin-left: 116px;
+}
+.description{
+    font-size: .48em;
+  }
+label{
+    padding-right: 10px;
     color: $fontColor;
   }
-
-  webkit-input-placeholder{
-    color: $fontColor2;
+#passwordLabel{
+    padding-right:14px;
   }
+#map {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  height: 400px;
+  width: 70%;
+}

@@ -4,8 +4,16 @@ block content
   h1 All Pets (Lost and Found)
   p
   a(href="/pets/browselost") Lost Pets 
+  p
   a(href="/pets/browsefound") Found Pets 
   p
+  p Show Me:
+  p
+    a(href="/pets/all/dogs") Dogs 
+    p
+    a(href="/pets/all/cats") Cats
+    p 
+    a(href="/pets/all/other") Other 
   table
     each pet in petsAndUsers 
       tr
@@ -13,16 +21,20 @@ block content
           ul
             img(src='#{pet.image}' style="height: 80px; width: 80px;")
             li Name: #{fs.echo(pet.name)}
-            li Age: #{pet.age}
+            if pet.age 
+              li Age: #{pet.age}
             if pet.isFound
               li Location: #{fs.echo(pet.location)}
             else 
               li Last Known Location: #{fs.echo(pet.location)}
             li Description: #{fs.echo(pet.description)}
-            if pet.isFound
-              li Date Found: #{pet.date}
+            if pet.date 
+              if pet.isFound
+                li Date Found: #{func.call(pet.date)}
+              else 
+                li Date Lost: #{func.call(pet.date)}
             else 
-              li Date Lost: #{pet.date}
+              li No date available 
             li User: #{pet.username}
             li Contact Info: #{fs.echo(pet.contact)}
             
