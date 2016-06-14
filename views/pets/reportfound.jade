@@ -1,13 +1,15 @@
 extends ../layout
 
+head
 block content
+  script(type='text/javascript', src='../../../../javascripts/reportfound.js')
   h1 Report a Found Pet 
   p= error
   form(action='/pets/add/found' method="post")
     label(for="name") Enter the name of the pet. If not known, enter N/A. 
     input(type="text" name="name")
-    p 
-    label(for="dog") Dog 
+    p Dog
+    label(for="dog") 
     input(type="radio" name="species" id="dog" value="dog")
     p
     label(for="cat") Cat 
@@ -33,6 +35,8 @@ block content
     input(type="textarea" name="contact")
     p
     input(type="submit" value="Report Your Found Pet")
+    p
+    input(type="button" value="Show Nearest Humane Society" id="humaneSoc")
     br
     br
     p
