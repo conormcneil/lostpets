@@ -40,23 +40,6 @@ app.use(cookieSession({
     process.env.SESSION_KEY3
   ]
 }));
-// Check if user is signed in prior to each route
-app.use(function(req, res, next) {
-  console.log("test:  ", req.session.id);
-  if (req.session.id) {
-    knex('users')
-    .where({
-      auth_user_id: req.session.id
-    })
-    .first()
-    .then(function(data) {
-      res.locals.user = data;
-      next();
-    })
-  } else {
-    next();
-  }
-});
 // Enable Auth0 middleware
 app.use(passport.initialize());
 app.use(passport.session());
@@ -71,23 +54,25 @@ app.get('/callback',
       throw new Error('user null');
     }
     else {
-      req.session.id = req.user.id;
-      res.locals.user = req.user;
-      console.log("locals: ", res.locals.user);
-      console.log("session: ", req.session.id);
-      console.log("user: ", req.user);
-      res.redirect("/user");
+      // req.session.id = req.user.id;
+      knex('users')
+      .where({
+        auth_user_id: req.user._json.user_id
+      })
+      .returning('id')
+      .first()
+      .then(function(data){
+        req.session.id = data.id;
+        res.locals.user = data;
+        // res.locals.passport.user = req.user;
+        console.log("res.locals.user: ", res.locals.user);
+        console.log("sessionId: ", req.session.id);
+        res.redirect("/user");
+      })
     }
   });
-app.get('/user', function (req, res) {
-  res.render('index', {
-    tilte: req.user
-  });
-});
-
-// Check if user is signed in before every route
+// Check if user is signed in prior to each route
 app.use(function(req, res, next) {
-  req.session.id = (Array.isArray(req.session.id)) ? req.session.id[0] : req.session.id
   if (req.session.id) {
     knex('users')
     .where({
@@ -96,14 +81,36 @@ app.use(function(req, res, next) {
     .first()
     .then(function(data) {
       res.locals.user = data;
+      console.log("app.js line53: ", res.locals.user);
+      next();
+    })
+  } else {
+    next();
+  }
+});
+app.get('/user', function (req, res) {
+  res.render('index', {
+    tilte: req.user
+  });
+});
+
+// Check if user is signed in before every route
+app.use(function(req, res, next) {
+  // req.session.id = (Array.isArray(req.session.id)) ? req.session.id[0] : req.session.id
+  console.log("app.js line100: ", req.session.id);
+  if (req.session.id) {
+    knex('users')
+    .where({
+      id: req.session.id
+    })
+    .first()
+    .then(function(data) {
+      res.locals.user = data;
+      console.log("app.js line109: ", res.locals.user);
       next();
     })
   }
   else {
-    // res.locals.user = null;
-    // res.locals.user = {
-    //   username: 'Guest'
-    // }
     next();
   }
 });

@@ -24,24 +24,23 @@ router.post('/signin', function(req, res, next) {
   .then(function(user) {
     if (!user) {
       res.send('signinerror');
-    }
-    // Check password
-    if (req.body.password === user.password) {
-      req.session.id = (Array.isArray(user.id)) ? user.id[0] : user.id
-      res.redirect('/');
-    }
-    else {
-      res.send('signinerror');
+    } else {
+      // Check password
+      if (req.body.password === user.password) {
+        req.session.id = (Array.isArray(user.id)) ? user.id[0] : user.id
+        res.locals.user = user;
+        console.log("signin route: ", res.locals.user);
+        res.redirect('/');
+      }
+      else {
+        res.send('signinerror');
+      }
     }
   })
 })
 
 router.get('/signout', function(req, res, next) {
   res.clearCookie('session');
-  // res.locals.user = {
-  //   username: 'Guest'
-  // }
-  res.locals.user = null;
   res.redirect('/');
 });
 
