@@ -3,8 +3,8 @@ var Auth0Strategy = require('passport-auth0');
 
 var strategy = new Auth0Strategy({
     domain:       'findingfido.auth0.com',
-    clientID:     'odLWNoZNGYeONIG3KeVCisJcta40sQeQ',
-    clientSecret: 'AgefF9BdjyrWYjlS3BxW4njA3jnvMY-eiR9Dhb_k2QNzL5FULyWLeS3tAab9YFND',
+    clientID:     process.env.AUTH0_CLIENT_ID,
+    clientSecret: process.env.AUTH0_CLIENT_SECRET,
     callbackURL:  'http://localhost:3000/callback'
   }, function(accessToken, refreshToken, extraParams, profile, done) {
     // accessToken is the token to call Auth0 API (not needed in the most cases)
