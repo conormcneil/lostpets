@@ -54,9 +54,6 @@ app.use(function(req, res, next) {
       next();
     })
   } else {
-    res.locals.user = {
-      username: null
-    }
     next();
   }
 });
@@ -73,13 +70,14 @@ app.get('/callback',
     if (!req.user) {
       throw new Error('user null');
     }
-    req.session.id = req.user.id;
-    res.locals.user = req.user;
-    console.log("locals: ", res.locals.user);
-    console.log("session: ", req.session.id);
-    console.log("user: ", req.user);
-    // console.log(req.session.id);
-    res.redirect("/user");
+    else {
+      req.session.id = req.user.id;
+      res.locals.user = req.user;
+      console.log("locals: ", res.locals.user);
+      console.log("session: ", req.session.id);
+      console.log("user: ", req.user);
+      res.redirect("/user");
+    }
   });
 app.get('/user', function (req, res) {
   res.render('index', {
@@ -89,8 +87,6 @@ app.get('/user', function (req, res) {
 
 // Check if user is signed in before every route
 app.use(function(req, res, next) {
-  // console.log(req.session.id);
-
   // This line allows code to run before we fix latest migration to make id a string instead of an int
   req.session.id = (Array.isArray(req.session.id)) ? req.session.id[0] : req.session.id
   if (req.session.id) {
