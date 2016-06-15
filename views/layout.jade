@@ -42,7 +42,7 @@ html
     function signin() {
       lock.show({
         connections: ['facebook', 'google-oauth2'],
-        callbackURL: process.env.PRODUCTION_CALLBACK_URL,
+        callbackURL: 'http://localhost:3000/callback',
         responseType: 'code',
         authParams: {
           scope: 'openid email'
