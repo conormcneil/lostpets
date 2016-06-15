@@ -66,5 +66,7 @@ block content
               li 
                 strong Contact Info: 
                 | #{fs.echo(pet.contact)}
-
-      
+              if !pet.isFound
+                li 
+                  a(href="/twilio/#{pet.id}")
+                    button#found I found this pet!

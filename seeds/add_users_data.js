@@ -12,6 +12,7 @@ exports.seed = function(knex, Promise) {
             image: 'examplehosting.com/andrew.jpg',
             first_name: 'andrew',
             last_name: 'west',
+            phone_number: 15202751232,
             isAdmin: true
         }),
         knex('users').insert({
@@ -22,6 +23,7 @@ exports.seed = function(knex, Promise) {
             image: 'examplehosting.com/lizzie.jpg',
             first_name: 'lizzie',
             last_name: 'szoke',
+            phone_number: 15202751232,
             isAdmin: true
         }),
         knex('users').insert({
@@ -32,6 +34,7 @@ exports.seed = function(knex, Promise) {
             image: 'examplehosting.com/conor.jpg',
             first_name: 'conor',
             last_name: 'kingston',
+            phone_number: 15202751232,
             isAdmin: true
         })
     );

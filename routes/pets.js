@@ -358,6 +358,10 @@ router.get('/success-found', function(req, res, next) {
   res.render('pets/success-found');
 });
 
+router.get('/confirmfound', function(req, res, next){
+  res.render('pets/confirmfound')
+})
+
 
 
 module.exports = router;
