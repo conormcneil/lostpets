@@ -14,6 +14,45 @@ block content
       cloudinary.openUploadWidget({ cloud_name: 'dmuipy77o', upload_preset: 'qpt4sw9g'},
       function(error, result) { console.log(error); window.localStorage.setItem('image_url', result[0].secure_url) });
       }, false);
+    br
+    br
+    br
+    label(for="image")
+    input(type="text" id="imageInput" name="image")
+    br
+    br
+    label(for="id")
+    input(type="number" id="idInput" name="idInput" value='#{petId[0].id}')
+    br
+    br
+    br
+    input(id="button" type="submit" value="Add Picture")
+    br
+    input(type="button" value="Show Nearest Humane Societies" id="humaneSoc")
+    p
+    div(id="addresses")
+      div(id="address1")
+      div(id="address2")
+      div(id="address3")
+    p
+      div(id="map")
+
+    style.
+      html {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      }
+      #map
+    script.
+      var map;
+      function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 40.015, lng: -105.2705},
+      zoom: 8
+      });
+      }
+    script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDKlEoatQMCNbV8_y7_i-8oR_Ven7dFMTM&callback=initMap', async='', defer='')
     input(id="button" type="submit" value="Add Picture" class="submit")
     input(style="display: none;" type="text" id="imageInput" name="image")
     input(style="display: none;" type="number" id="idInput" name="idInput" value='#{petId[0].id}')

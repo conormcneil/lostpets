@@ -1,3 +1,27 @@
+body {
+}
 p {
   text-align: center;
+}
+.main {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+}
+.welcome {
+  float: left;
+}
+.info {
+  float: right;
+  border-style: solid;
+  border-color: black;
+  border-width: thin;
+}
+.info * {
+  padding: 10px;
+}
+li {
+  list-style-type: disc;
+  list-style-position: inside;
 }
