@@ -2,8 +2,11 @@ extends layout
 
 block content
   link(rel='stylesheet', href='/stylesheets/index.css')
-  div.main 
-    p(id="p1") Welcome to Finding Fido!
-    h2 Finding Fido is dedicated to helping people connect each other with their lost pets.
-    p A family pet is lost every 2 seconds.
-    p Of those pets, about 10% are successfully returned to their homes.
+  div.main
+    div.welcome 
+      h2(id="p1") Welcome to Finding Fido!
+      h3(id="p1") Finding Fido is dedicated to helping pet-owners reunite each other with their lost pets.
+    div.info
+      ul
+        li A family pet is lost every 2 seconds in the US.
+        li Of those pets, about 1 in 10 are successfully returned to their homes.
