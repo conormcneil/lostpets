@@ -9,11 +9,11 @@ window.onload = function(){
   var token = 'e7eec834ba1b3988fe88d7d60c784edf';
   console.log(keySecret);
   x.addEventListener('click', function(){
-  $.ajax({
-    url: 'http://api.petfinder.com/shelter.find?format=json&key=6bed824d0eff95a80bc97183e9046459&location=80304',
-    method: "GET"
-  }).done(function(data){
+  $.getJSON('http://api.petfinder.com/shelter.find?key=6bed824d0eff95a80bc97183e9046459&location=80304&format=json&callback=?').done(function(data){
     console.log(data);
+  })
+  .error(function (err) {
+    console.log(err);
   });
 })
 }
