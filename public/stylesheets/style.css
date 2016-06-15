@@ -1,5 +1,6 @@
 * {
-  margin: 0; }
+  margin: 0;
+  padding: 0; }
 
 header a button {
   color: #284DCC; }
@@ -213,8 +214,8 @@ label {
     font-size: 1em;
     font-family: 'Raleway', sans-serif; }
   #lostform .textarea {
-    width: 400px;
-    max-width: 400px;
+    width: 600px;
+    max-width: 600px;
     height: 150px;
     line-height: 150%; }
   #lostform input:hover, #lostform textarea:hover,

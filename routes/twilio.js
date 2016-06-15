@@ -21,6 +21,16 @@ var knex = require('../db/knex');
 //   });
 // });
 
+router.use(function(req, res, next){
+  if (!res.locals.user) {
+    res.render('pets/error', {
+      error: 'Thanks for finding a pet! Please sign in to notify the owner.'
+    });
+  } else {
+    next();
+  }
+})
+
 router.get('/:id', function(req, res, next){
   knex('pets')
   .where({

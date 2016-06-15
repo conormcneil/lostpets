@@ -156,7 +156,9 @@ router.get('/add/lost', function(req, res, next) {
     res.render('pets/reportlost', {});
   }
   else {
-    res.render('pets/error');
+    res.render('pets/error', {
+      error: 'You must be signed in to submit a pet. Please sign in or create an account to access this form!'
+    });
   }
 });
 
@@ -360,8 +362,21 @@ router.get('/success-found', function(req, res, next) {
 
 router.get('/confirmfound', function(req, res, next){
   res.render('pets/confirmfound')
+});
+
+router.get('/:id/profile', function(req, res, next){
+  knex('pets')
+  .where({
+    id: req.params.id
+  })
+  .first()
+  .then(function(pet){
+    console.log(pet);
+    res.render('pets/profile', {
+      pet: pet,
+      func: { call: shortenDate }
+    })
+  })
 })
-
-
 
 module.exports = router;

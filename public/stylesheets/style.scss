@@ -6,16 +6,14 @@ $headerColor: #CC4C28;
 
 * {
   margin: 0;
+  padding: 0;
 }
-// body * {
-//   color: black;
-// }
+
 header a button {
   color: $fontColor;
 }
 $headerFont: Helvetica, sans-serif;
 $headerFontSize: (10/7) * 1em;
-
 
 body{
   background: white;
@@ -27,7 +25,6 @@ body{
   min-height: 40em;
   margin-bottom: -50px;
   padding-bottom: 50px;
-  // margin: 0 auto -100px;
 }
 
 header{
@@ -38,7 +35,6 @@ header{
   font-style: $headerFont;
   background: linear-gradient(90deg, $backGroundColor, $fontColor2);
   padding-bottom: 20px;
-
 }
 #title {
   font: {
@@ -302,8 +298,8 @@ label{
       }
     }
   .textarea {
-      width: 400px;
-      max-width: 400px;
+      width: 600px;
+      max-width: 600px;
       height: 150px;
       line-height: 150%;
     }
