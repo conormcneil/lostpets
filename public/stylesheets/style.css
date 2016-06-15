@@ -122,6 +122,9 @@ label {
   height: 400px;
   width: 70%; }
 
+.form {
+  padding-bottom: 50px; }
+
 .pets {
   padding-bottom: 50px; }
   .pets td {

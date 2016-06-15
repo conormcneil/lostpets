@@ -3,7 +3,7 @@ extends ../layout
 block content
   h1 Report a Lost Pet 
   p= error
-  form(action='/pets/add/lost' method="post")
+  form(action='/pets/add/lost' method="post" class="form")
     label(for="name") Enter the name of your pet 
     input(type="text" name="name")
     p 

@@ -152,7 +152,12 @@ router.get('/browsefound/other', function(req, res, next) {
 });
 
 router.get('/add/lost', function(req, res, next) {
-  res.render('pets/reportlost', {});
+  if(req.session.id) {
+    res.render('pets/reportlost', {});
+  }
+  else {
+    res.render('pets/error');
+  }
 });
 
 router.post('/add/lost', function(req, res, next) {
@@ -248,7 +253,13 @@ router.get('/success-lost', function(req, res, next) {
 });
 
 router.get('/add/found', function(req, res, next) {
-  res.render('pets/reportfound');
+  // console.log("FOUND: ", req.session.id);
+  if(req.session.id) {
+    res.render('pets/reportfound');
+  }
+  else {
+    res.render('pets/error');
+  }
 });
 
 router.post('/add/found', function(req, res, next) {
