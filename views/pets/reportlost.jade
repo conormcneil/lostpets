@@ -1,7 +1,7 @@
 extends ../layout
 
 block content
-  h1.reportheading Report a Lost Pet 
+  h1.formheading Report a Lost Pet 
   p= error
   form(action='/pets/add/lost' method="post" id="lostform")
     label(for="name") Enter the name of your pet 

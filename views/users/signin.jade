@@ -1,7 +1,7 @@
 extends ../layout
 
 block content
-  h2= title
+  h2.formheading= title
   
   form(id="signin" method="post" action="/users/signin" class="form")
     p.error= error 
@@ -10,4 +10,4 @@ block content
     br
     label(for="password" id="passwordLabel") Password
     input(name="password" type="password" placeholder="password" class="signinInput")
-    input(type="submit" value="Submit" class="signinInput" id="signinSubmit")
+    input(type="submit" value="Submit" class="submit" id="signinSubmit")
