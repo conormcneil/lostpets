@@ -134,4 +134,9 @@ label {
     border: solid 1px black;
     border-radius: 50px; }
 
+.error {
+  color: red;
+  text-align: center;
+  font-family: 'Raleway', sans-serif; }
+
 /*# sourceMappingURL=style.css.map */
