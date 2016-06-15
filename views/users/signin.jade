@@ -4,7 +4,7 @@ block content
   h2= title
   
   form(id="signin" method="post" action="/users/signin" class="form")
-    p= error 
+    p.error= error 
     label(for="username") Username
     input(name="username" type="text" placeholder="username" autofocus class="signinInput")
     br

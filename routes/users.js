@@ -33,7 +33,9 @@ router.post('/signin', function(req, res, next) {
   .first()
   .then(function(user) {
     if (!user) {
-      res.send('signinerror');
+      res.render('users/signin', {
+        error: "Invalid username/password"
+      });
     } else {
       // Check password
       if (bcrypt.compareSync(req.body.password,user.password)) {
