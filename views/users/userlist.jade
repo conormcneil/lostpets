@@ -12,6 +12,7 @@ block content
     th Username
     th Password
     th Email
+    th Admin
     th
       for user in users
         tr
@@ -21,4 +22,6 @@ block content
           td= user.username
           td= user.password
           td= user.email
+          td
+            a(href='/admin/users/#{user.id}/#{!user.isAdmin}')= user.isAdmin
           td Edit

@@ -26,4 +26,17 @@ router.get('/users', function(req, res, next) {
   })
 })
 
+router.get('/users/:id/:isAdmin', function(req, res, next){
+  knex('users')
+  .where({
+    id: req.params.id
+  })
+  .update({
+    isAdmin: req.params.isAdmin
+  })
+  .then(function(users) {
+    res.redirect('/admin/users');
+  })
+})
+
 module.exports = router;
