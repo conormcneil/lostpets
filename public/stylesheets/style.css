@@ -115,12 +115,16 @@ label {
   padding-right: 14px; }
 
 #map {
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 50px;
-  margin-top: 50px;
+  margin-bottom: 25px;
+  margin-top: 25px;
   height: 400px;
-  width: 70%; }
+  width: 800px; }
+
+#addresses {
+  width: 700px;
+  display: flex;
+  justify-content: space-between;
+  font-size: .65em; }
 
 .pets td {
   border: solid 1px black;
