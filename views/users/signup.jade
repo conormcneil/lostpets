@@ -1,7 +1,7 @@
 extends ../layout
 
 block content
-  h2= title
+  h2.formheading= title
   h4= error
   
   form(id="signup" method="post" action="/users/signup" class="form")
@@ -25,4 +25,4 @@ block content
       
     br
     br
-    input(type="submit" value="Create Account")
+    input(type="submit" value="Create Account" class="submit")
