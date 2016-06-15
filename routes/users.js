@@ -32,7 +32,7 @@ router.post('/signin', function(req, res, next) {
       res.send('signinerror');
     } else {
       // Check password
-      if (req.body.password === user.password) {
+      if (bcrypt.compareSync(req.body.password,user.password)) {
         req.session.id = (Array.isArray(user.id)) ? user.id[0] : user.id
         res.locals.user = user;
         console.log("signin route: ", res.locals.user);
