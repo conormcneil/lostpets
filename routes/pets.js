@@ -156,9 +156,7 @@ router.get('/add/lost', function(req, res, next) {
     res.render('pets/reportlost', {});
   }
   else {
-    res.render('pets/error', {
-      error: 'You must be signed in to submit a pet. Please sign in or create an account to access this form!'
-    });
+    res.render('pets/error');
   }
 });
 
