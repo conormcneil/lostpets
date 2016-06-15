@@ -1,27 +1,25 @@
 extends ../layout
 
 block content
-  
-  h1 Users
-  h3= title
-  
-  table
-    th ID
-    th First Name
-    th Last Name
-    th Username
-    th Password
-    th Email
-    th Admin
-    th
-      for user in users
-        tr
-          td= user.id
-          td= user.first_name
-          td= user.last_name
-          td= user.username
-          td= user.password
-          td= user.email
-          td
-            a(href='/admin/users/#{user.id}/#{!user.isAdmin}')= user.isAdmin
-          td Edit
+  div.main
+    h1 Users
+    h3= title
+    
+    table#users
+      th ID
+      th First Name
+      th Last Name
+      th Username
+      th Email
+      th Admin
+      th
+        for user in users
+          tr
+            td= user.id
+            td= user.first_name
+            td= user.last_name
+            td= user.username
+            td= user.email
+            td
+              a(href='/admin/users/#{user.id}/#{!user.isAdmin}')= user.isAdmin
+            td Edit

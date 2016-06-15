@@ -5,48 +5,47 @@ block content
     h1 Found Pets
   div.sidebar  
     a(href="/pets/all") All Pets 
-    p
+    p.show
     a(href="/pets/browselost") Lost Pets
-    p
+    p.show
     p Show Me:
       p
       a(href="/pets/browsefound/dogs") Dogs 
-      p
+      p.show 
       a(href="/pets/browsefound/cats") Cats
-      p 
+      p.show  
       a(href="/pets/browsefound/other") Other 
   div.main 
-    table.pets 
+    div.pets 
       each pet in petsAndUsers  
-        tr
-          td
-            ul
-              img(src='#{pet.image}' style="height: 200px; width: 200px;")
+        div.eachpet 
+          ul
+            img(src='#{pet.image}' style="height: 200px; width: 200px;")
+            li 
+              strong FOUND 
+            li 
+              strong Name: 
+              | #{fs.echo(pet.name)}
+            if pet.age 
               li 
-                strong FOUND 
+                strong Age: 
+                | #{pet.age}
+            li 
+              strong Location: 
+              | #{fs.echo(pet.location)}
+            li 
+              strong Description: 
+              | #{fs.echo(pet.description)}
+            if pet.date 
               li 
-                strong Name: 
-                | #{fs.echo(pet.name)}
-              if pet.age 
-                li 
-                  strong Age: 
-                  | #{pet.age}
+                strong Date Found: 
+                | #{func.call(pet.date)}
+            else 
               li 
-                strong Location: 
-                | #{fs.echo(pet.location)}
-              li 
-                strong Description: 
-                | #{fs.echo(pet.description)}
-              if pet.date 
-                li 
-                  strong Date Found: 
-                  | #{func.call(pet.date)}
-              else 
-                li 
-                  strong No date available 
-              li 
-                strong User: 
-                | #{pet.username}
-              li 
-                strong Contact Info: 
-                | #{fs.echo(pet.contact)}
+                strong No date available 
+            li 
+              strong User: 
+              | #{pet.username}
+            li 
+              strong Contact Info: 
+              | #{fs.echo(pet.contact)}
