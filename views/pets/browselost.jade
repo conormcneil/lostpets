@@ -23,31 +23,32 @@ block content
         div.eachpet
           ul
             img(src='#{pet.image}' style="height: 300px; width: 300px;")
-            li 
-              strong LOST 
-            li 
-              strong Name: 
-              | #{fs.echo(pet.name)}
-            if pet.age 
+            div.content 
               li 
-                strong Age: 
-                | #{pet.age}
-            li 
-              strong Last Known Location: 
-              | #{fs.echo(pet.location)}
-            li 
-              strong Description: 
-              | #{fs.echo(pet.description)}
-            if pet.date 
+                strong LOST 
               li 
-                strong Date Lost: 
-                | #{func.call(pet.date)}
-            else 
+                strong Name: 
+                | #{fs.echo(pet.name)}
+              if pet.age 
+                li 
+                  strong Age: 
+                  | #{pet.age}
               li 
-                strong No date available 
-            li 
-              strong User: 
-              | #{pet.username}
-            li 
-              strong Contact Info: 
-              | #{fs.echo(pet.contact)}
+                strong Last Known Location: 
+                | #{fs.echo(pet.location)}
+              li 
+                strong Description: 
+                | #{fs.echo(pet.description)}
+              if pet.date 
+                li 
+                  strong Date Lost: 
+                  | #{func.call(pet.date)}
+              else 
+                li 
+                  strong No date available 
+              li 
+                strong User: 
+                | #{pet.username}
+              li 
+                strong Contact Info: 
+                | #{fs.echo(pet.contact)}

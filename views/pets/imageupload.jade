@@ -14,7 +14,6 @@ block content
       cloudinary.openUploadWidget({ cloud_name: 'dmuipy77o', upload_preset: 'qpt4sw9g'},
       function(error, result) { console.log(error); window.localStorage.setItem('image_url', result[0].secure_url) });
       }, false);
-<<<<<<< HEAD
     br
     br
     br
@@ -54,8 +53,6 @@ block content
       });
       }
     script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDKlEoatQMCNbV8_y7_i-8oR_Ven7dFMTM&callback=initMap', async='', defer='')
-=======
     input(id="button" type="submit" value="Add Picture" class="submit")
     input(style="display: none;" type="text" id="imageInput" name="image")
     input(style="display: none;" type="number" id="idInput" name="idInput" value='#{petId[0].id}')
->>>>>>> upstream/master
