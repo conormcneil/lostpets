@@ -19,8 +19,8 @@ block content
     input(type="radio" name="species" id="other" value="other")
     input(type="text" name="other" placeholder="Please enter the species")
     p
-    label(for="location") Enter the approximate location where the pet currently is. 
-    input(type="location" name="location")
+    label(for="location") Enter the approximate location of the pet, and please include a zip code. 
+    input(type="location" name="location" id="location")
     p
     label(for="date") Please add the date the pet was found. 
     input(type="date" name="date")
@@ -34,33 +34,7 @@ block content
     label(for="contact") Please enter your preferred contact information. 
     input(type="textarea" name="contact")
     p
-    input(type="submit" value="Report Your Found Pet")
+    input(type="submit" value="Report Your Found Pet" id="submit")
     p
-    input(type="button" value="Show Nearest Humane Societies" id="humaneSoc")
     br
-    div(id="addresses")
-      div(id="address1")
-      br
-      div(id="address2")
-      br
-      div(id="address3")
     br
-    p
-      div(id="map")
-    
-    style.
-      html {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      }
-      #map
-    script.
-      var map;
-      function initMap() {
-      map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: 40.015, lng: -105.2705},
-      zoom: 8
-      });
-      }
-    script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDKlEoatQMCNbV8_y7_i-8oR_Ven7dFMTM&callback=initMap', async='', defer='')
