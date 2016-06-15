@@ -1,6 +1,16 @@
 var express = require('express');
 var router = express.Router();
 var knex = require('../db/knex');
+var bcrypt = require('bcrypt');
+
+// Function List
+function capitalizeFirst(string) {
+  console.log(string);
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+function phoneNumber(str){
+  return str.split('-').join('').split(' ').join('').split('(').join('').split(')').join('');
+}
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -23,25 +33,35 @@ router.post('/signin', function(req, res, next) {
   .first()
   .then(function(user) {
     if (!user) {
-      res.send('signinerror');
+      res.render('users/signin', {
+        error: "Invalid username/password"
+      });
+    } else {
+      // Check password
+      if (bcrypt.compareSync(req.body.password,user.password)) {
+        req.session.id = (Array.isArray(user.id)) ? user.id[0] : user.id
+        res.locals.user = user;
+        console.log("signin route: ", res.locals.user);
+        res.redirect('/');
+      }
+      res.render('users/signin', {error: 'Username or password is incorrect.'});
     }
     // Check password
     if (req.body.password === user.password) {
       req.session.id = (Array.isArray(user.id)) ? user.id[0] : user.id
+      console.log("USER: ", user);
+      res.locals.user = user;
+      console.log("RES.LOCALS", res.locals);
       res.redirect('/');
     }
     else {
-      res.send('signinerror');
+      res.render('users/signin', {error: 'Username or password is incorrect.'});
     }
-  })
-})
+  });
+});
 
 router.get('/signout', function(req, res, next) {
   res.clearCookie('session');
-  // res.locals.user = {
-  //   username: 'Guest'
-  // }
-  res.locals.user = null;
   res.redirect('/');
 });
 
@@ -49,9 +69,13 @@ router.get('/signup', function(req, res, next) {
   res.render('users/signup', {
     title: 'Sign up for a new account'
   })
-})
+});
+
 router.post('/signup', function(req, res, next) {
   console.log(req.body);
+  var $phone_number = phoneNumber(req.body.phone_number);
+  console.log($phone_number);
+  var password = bcrypt.hashSync(req.body.password,8);
   // Check if username exists in database
   knex('users')
   .where({
@@ -62,15 +86,17 @@ router.post('/signup', function(req, res, next) {
     if(!data){
       knex('users')
       .insert({
-        first_name: req.body.first_name,
-        last_name: req.body.last_name,
+        first_name: capitalizeFirst(req.body.first_name),
+        last_name: capitalizeFirst(req.body.last_name),
         email: req.body.email,
         username: req.body.username,
-        password: req.body.password
+        password: password,
+        phone_number: $phone_number
       })
       .then(function(data){
         console.log(data);
         res.locals.id = data.id;
+        res.locals.user = data;
         console.log(res.locals.id);
         res.redirect('/');
       })

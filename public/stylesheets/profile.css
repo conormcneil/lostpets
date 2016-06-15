@@ -1,0 +1,25 @@
+body {
+  text-align: center;
+}
+.back {
+  text-align: left;
+}
+img {
+  height: 250px;
+  width: 250px;
+  border-style: solid;
+}
+.profile {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+.profile-right {
+  align-self: center;
+}
+a {
+  text-decoration: none;
+}
+a h3 {
+  color: black;
+}

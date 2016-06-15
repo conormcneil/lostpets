@@ -4,12 +4,9 @@ var knex = require('../db/knex');
 // Include functions from /routes/lib/users.js
 var admin = require('./lib/admin.js');
 
-
-// Authorize User as Admin
-// router.use(admin.userIsAuth);
-
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  console.log("amdin.js route line13: ", res.locals.user.isAdmin);
   res.render('index', {
     title: 'Admin Route'
   });
@@ -20,9 +17,31 @@ router.get('/users', function(req, res, next) {
   knex('users')
   .orderBy('id','asc')
   .then(function(users) {
-    res.render('users/userlist', {
-      users: users
-    })
+    console.log("REQ.SESSION IS: ", res.locals.user);
+    if(res.locals.user == undefined) {
+      res.render('users/error');
+    }
+    else if(res.locals.user.isAdmin) {
+      res.render('users/userlist', {
+        users: users
+      });
+    }
+    else {
+      res.render('users/error');
+    }
+  });
+});
+
+router.get('/users/:id/:isAdmin', function(req, res, next){
+  knex('users')
+  .where({
+    id: req.params.id
+  })
+  .update({
+    isAdmin: req.params.isAdmin
+  })
+  .then(function(users) {
+    res.redirect('/admin/users');
   })
 })
 

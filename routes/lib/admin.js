@@ -1,6 +1,7 @@
 var knex = require('../../db/knex');
 
 function userIsAuth(req, res, next) {
+  console.log('userIsAuth function: ', res.locals.user.isAdmin);
   if (res.locals.user.isAdmin) {
     next();
   } else {

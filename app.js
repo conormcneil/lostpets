@@ -28,6 +28,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var admin = require('./routes/admin');
 var pets = require('./routes/pets');
+var twilio = require('./routes/twilio');
 
 var app = express();
 
@@ -40,29 +41,12 @@ app.use(cookieSession({
     process.env.SESSION_KEY3
   ]
 }));
-// Check if user is signed in prior to each route
-app.use(function(req, res, next) {
-  console.log("test:  ", req.session.id);
-  if (req.session.id) {
-    knex('users')
-    .where({
-      auth_user_id: req.session.id
-    })
-    .first()
-    .then(function(data) {
-      res.locals.user = data;
-      next();
-    })
-  } else {
-    next();
-  }
-});
 // Enable Auth0 middleware
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(cookieParser());
 // See express session docs for information on the options: https://github.com/expressjs/session
-app.use(session({ secret: process.env.AUTH0_SECRET, resave: false,  saveUninitialized: false }));
+app.use(session({ secret: process.env.AUTH0_CLIENT_SECRET, resave: false,  saveUninitialized: false }));
 // Auth0 callback handler
 app.get('/callback',
   passport.authenticate('auth0', { failureRedirect: '/error' }),
@@ -71,23 +55,23 @@ app.get('/callback',
       throw new Error('user null');
     }
     else {
-      req.session.id = req.user.id;
-      res.locals.user = req.user;
-      console.log("locals: ", res.locals.user);
-      console.log("session: ", req.session.id);
-      console.log("user: ", req.user);
-      res.redirect("/user");
+      // req.session.id = req.user.id;
+      knex('users')
+      .where({
+        auth_user_id: req.user._json.user_id
+      })
+      .returning('id')
+      .first()
+      .then(function(data){
+        req.session.id = data.id;
+        res.locals.user = data;
+        // res.locals.passport.user = req.user;
+        res.redirect("/user");
+      })
     }
   });
-app.get('/user', function (req, res) {
-  res.render('index', {
-    tilte: req.user
-  });
-});
-
-// Check if user is signed in before every route
+// Check if user is signed in prior to each route
 app.use(function(req, res, next) {
-  req.session.id = (Array.isArray(req.session.id)) ? req.session.id[0] : req.session.id
   if (req.session.id) {
     knex('users')
     .where({
@@ -98,14 +82,15 @@ app.use(function(req, res, next) {
       res.locals.user = data;
       next();
     })
-  }
-  else {
-    // res.locals.user = null;
-    // res.locals.user = {
-    //   username: 'Guest'
-    // }
+  } else {
     next();
   }
+});
+
+app.get('/user', function (req, res) {
+  res.render('index', {
+    tilte: req.user
+  });
 });
 
 // view engine setup
@@ -124,6 +109,7 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/admin', admin);
 app.use('/pets', pets);
+app.use('/twilio', twilio);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

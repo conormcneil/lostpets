@@ -4,7 +4,7 @@ block content
   h2= title
   h4= error
   
-  form(id="signup" method="post" action="/users/signup")
+  form(id="signup" method="post" action="/users/signup" class="form")
     label(for="first_name") First Name:
     input(name="first_name" type="text" placeholder="Johnny" autofocus)
     br
@@ -19,6 +19,9 @@ block content
     br
     label(for="password") Choose a password
     input(name="password" type="password" placeholder="password")
+    br
+    label(for="phone_number") 10-digit Phone Number
+    input(name="phone_number" type="text" placeholder="520-555-1234")
       
     br
     br
