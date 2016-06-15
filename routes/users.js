@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var knex = require('../db/knex');
+var bcrypt = require('bcrypt');
 
 function capitalizeFirst(string) {
     console.log(string);
@@ -62,9 +63,11 @@ router.get('/signup', function(req, res, next) {
   res.render('users/signup', {
     title: 'Sign up for a new account'
   })
-})
+});
+
 router.post('/signup', function(req, res, next) {
   console.log(req.body);
+  var password = bcrypt.hashSync(req.body.password,8);
   // Check if username exists in database
   knex('users')
   .where({
@@ -79,7 +82,7 @@ router.post('/signup', function(req, res, next) {
         last_name: capitalizeFirst(req.body.last_name),
         email: req.body.email,
         username: req.body.username,
-        password: req.body.password
+        password: password
       })
       .then(function(data){
         console.log(data);
