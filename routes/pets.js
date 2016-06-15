@@ -360,8 +360,20 @@ router.get('/success-found', function(req, res, next) {
 
 router.get('/confirmfound', function(req, res, next){
   res.render('pets/confirmfound')
+});
+
+router.get('/:id/profile', function(req, res, next){
+  knex('pets')
+  .where({
+    id: req.params.id
+  })
+  .first()
+  .then(function(pet){
+    console.log(pet);
+    res.render('pets/profile', {
+      pet: pet
+    })
+  })
 })
-
-
 
 module.exports = router;

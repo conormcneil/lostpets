@@ -1,0 +1,21 @@
+extends ../layout
+
+block content
+  link(rel='stylesheet', href='/stylesheets/profile.css')
+  a(class="back" href="/pets/all") 
+    p Back
+  
+  div.profile
+    div.profile-left
+      h1= pet.name
+      img(src="#{pet.image}")
+    div.profile-right
+      p Age: #{pet.age}
+      if pet.isFound
+        p Date Found: #{pet.date}
+      else
+        p Date Lost: #{pet.date}
+      p Description: #{pet.description}
+      br
+      a(href="/twilio/#{pet.id}") 
+        h3 I found #{pet.name}!
