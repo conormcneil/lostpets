@@ -1,35 +1,35 @@
 extends ../layout
 
 block content
-  h1 Report a Lost Pet 
+  h1.reportheading Report a Lost Pet 
   p= error
-  form(action='/pets/add/lost' method="post" class="form")
+  form(action='/pets/add/lost' method="post" id="lostform")
     label(for="name") Enter the name of your pet 
-    input(type="text" name="name")
+      input(type="text" name="name")
     p 
-    label(for="dog") Dog 
-    input(type="radio" name="species" id="dog" value="dog")
-    p
-    label(for="cat") Cat 
-    input(type="radio" name="species" id="cat" value="cat")
-    p
-    label(for="other") Other:  
-    input(type="radio" name="species" id="other" value="other")
-    input(type="text" name="other" placeholder="Please enter the species")
+    div.radio 
+      label(for="dog") Dog 
+        input(type="radio" name="species" id="dog" value="dog")
+      label(for="cat") Cat 
+        input(type="radio" name="species" id="cat" value="cat")
+      label(for="other") Other  
+        input(type="radio" name="species" id="other" value="other")
+      label(for="othertext")  If other, please enter the species: 
+      input(type="text" name="other" id="othertext")
     p
     label(for="location") Enter the approximate last known location of your pet 
-    input(type="location" name="location")
+      input(type="location" name="location")
     p
     label(for="date") Please add the date the pet was lost 
-    input(type="date" name="date")
+      input(type="date" name="date")
     p
     label(for="age") Please enter the age of your pet 
-    input(type="text" name="age")
+      input(type="text" name="age")
     p
     label(for="description") Please enter any additional information, such as breed, distinguishing features, characteristics, etc. 
-    input(type="textarea" name="description")
+    textarea(type="textarea" name="description" class="textarea")
     p
-    label(for="contact") Please enter your preferred contact information 
-    input(type="textarea" name="contact")
+    label(for="contact") Please enter your phone number  
+      input(type="text" name="contact")
     p
-    input(type="submit" value="Report Your Lost Pet")
+    input(type="submit" value="Report Your Lost Pet" class="submit")
