@@ -20,10 +20,19 @@ router.get('/users', function(req, res, next) {
   knex('users')
   .orderBy('id','asc')
   .then(function(users) {
-    res.render('users/userlist', {
-      users: users
-    })
-  })
-})
+    console.log("REQ.SESSION IS: ", res.locals.user);
+    if(res.locals.user == undefined) {
+      res.render('users/error');
+    }
+    else if(res.locals.user.isAdmin) {
+      res.render('users/userlist', {
+        users: users
+      });
+    }
+    else {
+      res.render('users/error');
+    }
+  });
+});
 
 module.exports = router;

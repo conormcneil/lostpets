@@ -2,6 +2,11 @@ var express = require('express');
 var router = express.Router();
 var knex = require('../db/knex');
 
+function capitalizeFirst(string) {
+    console.log(string);
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.render('index', {
@@ -70,8 +75,8 @@ router.post('/signup', function(req, res, next) {
     if(!data){
       knex('users')
       .insert({
-        first_name: req.body.first_name,
-        last_name: req.body.last_name,
+        first_name: capitalizeFirst(req.body.first_name),
+        last_name: capitalizeFirst(req.body.last_name),
         email: req.body.email,
         username: req.body.username,
         password: req.body.password
@@ -79,6 +84,7 @@ router.post('/signup', function(req, res, next) {
       .then(function(data){
         console.log(data);
         res.locals.id = data.id;
+        res.locals.user = data;
         console.log(res.locals.id);
         res.redirect('/');
       })
