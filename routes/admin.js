@@ -4,10 +4,6 @@ var knex = require('../db/knex');
 // Include functions from /routes/lib/users.js
 var admin = require('./lib/admin.js');
 
-
-// Authorize User as Admin
-// router.use(admin.userIsAuth);
-
 /* GET home page. */
 router.get('/', function(req, res, next) {
   console.log("amdin.js route line13: ", res.locals.user.isAdmin);
