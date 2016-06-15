@@ -10,29 +10,31 @@ html
   body
     script(src='//cdn.auth0.com/js/lock-9.1.min.js')
     meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
-    h1#title Finding Fido 
-    header     
-      a(href="/")
-        button Home
-      a(href="/pets/all")
-        button Find Pets 
-      a(href="/admin/users")
-        button Users
-      a(href="/pets/add/lost")
-        button Report Lost Pet
-      a(href="/pets/add/found")
-        button Report Found Pet 
-      if !user
-        button(onclick="window.signin();") Sign In (Facebook or Google)
-        a(href="/users/signin")
-          button Sign In
-        a(href="/users/signup")
-          button Sign Up
-      else
-        p Welcome, #{user.first_name}
-        a(href="/users/signout")
-          button Sign Out
-      p
+    header 
+      h1#title Finding Fido 
+    div#buttons 
+      div#buttonsInButtons    
+        a(href="/")
+          button Home
+        a(href="/pets/all")
+          button Find Pets 
+        a(href="/admin/users")
+          button Users
+        a(href="/pets/add/lost")
+          button Report Lost Pet
+        a(href="/pets/add/found")
+          button Report Found Pet 
+        if !user
+          button(onclick="window.signin();") Sign In (Facebook or Google)
+          a(href="/users/signin")
+            button Sign In
+          a(href="/users/signup")
+            button Sign Up
+        else
+          p Welcome, #{user.first_name}
+          a(href="/users/signout")
+            button Sign Out
+        
       
   script(src="https://cdn.auth0.com/js/lock-7.min.js")
   script(type="text/javascript").
@@ -50,3 +52,8 @@ html
 
     
   block content
+  
+  block footer 
+    footer.footer 
+      p Copyright (c) Finding Fido 
+  
