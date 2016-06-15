@@ -3,38 +3,35 @@ extends ../layout
 head
 block content
   script(type='text/javascript', src='../../../../javascripts/reportfound.js')
-  h1 Report a Found Pet 
+  h1.formheading Report a Found Pet 
   p= error
-  form(action='/pets/add/found' method="post" class="form")
+  form(action='/pets/add/found' method="post" class="form" id="foundform")
     label(for="name") Enter the name of the pet. If not known, enter N/A. 
-    input(type="text" name="name")
+      input(type="text" name="name")
     p 
-    label(for="dog") Dog 
-    input(type="radio" name="species" id="dog" value="dog")
+    div.radio 
+      label(for="dog") Dog 
+        input(type="radio" name="species" id="dog" value="dog")
+      label(for="cat") Cat 
+        input(type="radio" name="species" id="cat" value="cat")
+      label(for="other") Other  
+        input(type="radio" name="species" id="other" value="other")
+      label(for="othertext")  If other, please enter the species: 
+      input(type="text" name="other" id="othertext")
     p
-    label(for="cat") Cat 
-    input(type="radio" name="species" id="cat" value="cat")
-    p
-    label(for="other") Other:  
-    input(type="radio" name="species" id="other" value="other")
-    input(type="text" name="other" placeholder="Please enter the species")
-    p
-    label(for="location") Enter the approximate location of the pet, and please include a zip code. 
-    input(type="location" name="location" id="location")
+    label(for="location") Enter the approximate location of the pet (including zip code) 
+      input(type="location" name="location" id="location")
     p
     label(for="date") Please add the date the pet was found. 
-    input(type="date" name="date")
+      input(type="date" name="date")
     p
     label(for="age") Enter the age of the pet (best guess if not known) 
-    input(type="text" name="age")
+      input(type="text" name="age")
     p
     label(for="description") Please enter any additional information, such as breed, distinguishing features, characteristics, etc. 
-    input(type="textarea" name="description")
+    textarea(type="textarea" name="description" class="textarea")
     p
     label(for="contact") Please enter your preferred contact information. 
-    input(type="textarea" name="contact")
+      input(type="text" name="contact")
     p
-    input(type="submit" value="Report Your Found Pet" id="submit")
-    p
-    br
-    br
+    input(type="submit" value="Report Your Found Pet" id="submit" class="submit")
