@@ -28,6 +28,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var admin = require('./routes/admin');
 var pets = require('./routes/pets');
+var twilio = require('./routes/twilio');
 
 var app = express();
 
@@ -85,6 +86,7 @@ app.use(function(req, res, next) {
     next();
   }
 });
+
 app.get('/user', function (req, res) {
   res.render('index', {
     tilte: req.user
@@ -107,6 +109,7 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/admin', admin);
 app.use('/pets', pets);
+app.use('/twilio', twilio);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
