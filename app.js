@@ -65,8 +65,6 @@ app.get('/callback',
         req.session.id = data.id;
         res.locals.user = data;
         // res.locals.passport.user = req.user;
-        console.log("res.locals.user: ", res.locals.user);
-        console.log("sessionId: ", req.session.id);
         res.redirect("/user");
       })
     }
@@ -81,7 +79,6 @@ app.use(function(req, res, next) {
     .first()
     .then(function(data) {
       res.locals.user = data;
-      console.log("app.js line53: ", res.locals.user);
       next();
     })
   } else {
