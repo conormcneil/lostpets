@@ -4,19 +4,18 @@ block content
   div.top 
     h1 All Pets (Lost and Found)
     p Click on a pet's image to view more info  
-  div.sidebar 
+  div.sidebar  
+    a(href="/pets/all") All Pets 
     p.show
-    a(href="/pets/browselost") Lost Pets 
+    a(href="/pets/browselost") Lost Pets
     p.show
-    a(href="/pets/browsefound") Found Pets 
-    p.show
-    p Show Me:
-    p.show
-      a(href="/pets/all/dogs") Dogs 
+    p.show Show Me:
       p
-      a(href="/pets/all/cats") Cats
+      a(href="/pets/browsefound/dogs") Dogs 
       p.show 
-      a(href="/pets/all/other") Other 
+      a(href="/pets/browsefound/cats") Cats
+      p.show  
+      a(href="/pets/browsefound/other") Other 
   div.main
     
     div.pets 
