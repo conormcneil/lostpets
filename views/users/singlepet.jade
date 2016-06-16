@@ -2,7 +2,7 @@ extends ../layout
 
 block content
  link(rel='stylesheet', href='/stylesheets/profile.css')
- a(class="back" href="/users/") 
+ a(class="back" href="/users/profile/mypets") 
    p Back
  
  div.profile
@@ -14,8 +14,11 @@ block content
      if pet.isFound
        p Date Found: #{pet.date}
      else
-       p Date Lost: #{func.call(pet.date)}
+       p Date Lost: #{pet.date}
      p Description: #{pet.description}
      br
-     a(href="/twilio/#{pet.id}") 
-       h3 I found #{pet.name}!
+     a(href="/users/#{pet.id}/profile/update") Update this pet 
+     br
+     a(href="/users/#{pet.id}/profile/update/image") Update this pet's image 
+     br 
+     a(href="/users/#{pet.id}/profile/delete") Delete this pet 
