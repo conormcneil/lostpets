@@ -3,7 +3,7 @@ extends ../layout
 block content
   script(src='../../../../javascripts/imageupload.js')
   
-  h1.reportheading Upload Images
+  h1.formheading Upload Images
   
   p
   form(action='/pets/add/lost/addimage' method="post" id="lostform")
@@ -15,18 +15,11 @@ block content
       function(error, result) { console.log(error); window.localStorage.setItem('image_url', result[0].secure_url) });
       }, false);
     br
-    br
-    br
     label(for="image")
-    input(type="text" id="imageInput" name="image")
-    br
-    br
+    input(type="text" id="imageInput" name="image" style="display: none;")
     label(for="id")
-    input(type="number" id="idInput" name="idInput" value='#{petId[0].id}')
-    br
-    br
-    br
-    input(id="button" type="submit" value="Add Picture")
+    input(type="number" id="idInput" name="idInput" value='#{petId[0].id}' style="display: none;")
+    input(id="button" type="submit" value="Add Picture" class="submit")
     br
     input(type="button" value="Show Nearest Humane Societies" id="humaneSoc")
     p
@@ -53,6 +46,4 @@ block content
       });
       }
     script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDKlEoatQMCNbV8_y7_i-8oR_Ven7dFMTM&callback=initMap', async='', defer='')
-    input(id="button" type="submit" value="Add Picture" class="submit")
-    input(style="display: none;" type="text" id="imageInput" name="image")
-    input(style="display: none;" type="number" id="idInput" name="idInput" value='#{petId[0].id}')
+    

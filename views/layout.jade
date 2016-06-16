@@ -34,15 +34,14 @@ html
           p Welcome, #{user.first_name}
           a(href="/users/signout")
             button Sign Out
-        
-      
+
   script(src="https://cdn.auth0.com/js/lock-7.min.js")
   script(type="text/javascript").
     var lock = new Auth0Lock('odLWNoZNGYeONIG3KeVCisJcta40sQeQ', 'findingfido.auth0.com');
     function signin() {
       lock.show({
         connections: ['facebook', 'google-oauth2'],
-        callbackURL: process.env.PRODUCTION_CALLBACK_URL,
+        callbackURL: 'http://localhost:3000/callback',
         responseType: 'code',
         authParams: {
           scope: 'openid email'
@@ -50,10 +49,8 @@ html
       });
     }
 
-    
   block content
-  
+
   block footer 
     footer.footer 
-      p Copyright (c) Finding Fido 
-  
+      p Copyright © Finding Fido 
