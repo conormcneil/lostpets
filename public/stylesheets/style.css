@@ -142,7 +142,7 @@ ul {
   justify-content: space-around;
   margin-bottom: 25px;
   padding-bottom: 30px;
-  width: 85%; }
+  width: 100%; }
 
 table, form {
   display: flex;
