@@ -195,4 +195,62 @@ router.post('/:id/profile/update/image', function(req, res, next) {
   })
 });
 
+router.get('/account', function(req, res, next) {
+  knex('users').where({id: res.locals.user.id}).first().then(function(data) {
+    console.log(data);
+    users = data
+    res.render('users/account', {users: users});
+  });
+});
+
+router.post('/account', function(req, res, next) {
+  knex('users')
+  .where({id: res.locals.user.id}).first()
+  .update(req.body)
+  .then(function(data) {
+    res.redirect('/users/profile');
+  })
+  .catch(function(err) {
+    res.render('users/account', {users: users, error: "There was an error, please try again."});
+  });
+});
+
+router.get('/account/password', function(req, res, next) {
+  res.render('users/password');
+});
+
+router.post('/account/password', function(req, res, next) {
+  knex('users').where({id: res.locals.user.id}).first()
+  .then(function(data) {
+    if(bcrypt.compareSync(req.body.password,data.password)) {
+      req.session.id = data.id;
+      res.redirect('/users/account/password/change');
+    }
+    else {
+      res.render('users/password', {error: "That password is incorrect"});
+    }
+  });
+});
+
+router.get('/account/password/change', function(req, res, next) {
+  res.render('users/passwordchange');
+});
+
+router.post('/account/password/change', function(req, res, next) {
+  if(!req.body.password || !req.body.password2) {
+    res.render('users/passwordchange', {error: "Please enter a password in both fields"});
+  }
+  else if(req.body.password === req.body.password2) {
+    var password = bcrypt.hashSync(req.body.password,8);
+    knex('users').where({id: res.locals.user.id}).first().then(function(data) {
+      knex('users').update({password: password}).then(function(data) {
+        res.redirect(res.redirect('/users/profile'));
+      })
+    })
+  }
+  else {
+    res.render('users/passwordchange', {error: "There was an error, please try again"});
+  }
+});
+
 module.exports = router;

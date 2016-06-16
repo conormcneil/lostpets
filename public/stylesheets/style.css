@@ -182,9 +182,6 @@ label {
   height: 400px;
   width: 70%; }
 
-.form {
-  padding-bottom: 50px; }
-
 .top {
   margin-bottom: 15px; }
 
@@ -250,16 +247,17 @@ label {
 #humaneSoc {
   text-align: center; }
 
-#lostform {
+#lostform, .form {
   margin-bottom: 50px;
+  padding-bottom: 50px;
   text-align: left;
   align-items: center;
   width: 85%; }
-  #lostform a {
+  #lostform a, .form a {
     margin-bottom: 20px; }
-  #lostform .radio {
+  #lostform .radio, .form .radio {
     float: left; }
-  #lostform input, #lostform textarea {
+  #lostform input, #lostform textarea, .form input, .form textarea {
     padding: 9px;
     border: solid 1px #E5E5E5;
     outline: 0;
@@ -272,16 +270,17 @@ label {
     margin: 5px;
     font-size: 1em;
     font-family: 'Raleway', sans-serif; }
-  #lostform .textarea {
+  #lostform .textarea, .form .textarea {
     width: 600px;
     max-width: 600px;
     height: 150px;
     line-height: 150%; }
   #lostform input:hover, #lostform textarea:hover,
-  #lostform input:focus, #lostform textarea:focus {
+  #lostform input:focus, #lostform textarea:focus, .form input:hover, .form textarea:hover,
+  .form input:focus, .form textarea:focus {
     border-color: #C9C9C9;
     -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px; }
-  #lostform .submit {
+  #lostform .submit, .form .submit {
     width: auto;
     padding: 9px 15px;
     background: #617798;
