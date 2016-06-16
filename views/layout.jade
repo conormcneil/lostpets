@@ -36,7 +36,6 @@ html
           button Report Lost Pet
         a(href="/pets/add/found")
           button Report Found Pet 
-        
 
   script(src="https://cdn.auth0.com/js/lock-7.min.js")
   script(type="text/javascript").
@@ -44,7 +43,7 @@ html
     function signin() {
       lock.show({
         connections: ['facebook', 'google-oauth2'],
-        callbackURL: 'http://localhost:3000/callback',
+        callbackURL: 'https://findingfido.herokuapp.com/callback',
         responseType: 'code',
         authParams: {
           scope: 'openid email'
