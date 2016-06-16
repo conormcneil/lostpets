@@ -3,26 +3,25 @@ extends ../layout
 block content
   h2.formheading= title
   h4= error
-  
-  form(id="signup" method="post" action="/users/signup" class="form")
-    label(for="first_name") First Name:
-    input(name="first_name" type="text" placeholder="Johnny" autofocus)
-    br
-    label(for="last_name") Last Name:
-    input(name="last_name" type="text" placeholder="Appleseed")
-    br
-    label(for="email") Enter your email address: 
-    input(name="email" type="text" placeholder="johnny@example.com")
-    br
-    label(for="username") Choose a username
-    input(name="username" type="text" placeholder="username" )
-    br
-    label(for="password") Choose a password
-    input(name="password" type="password" placeholder="password")
-    br
-    label(for="phone_number") 10-digit Phone Number
-    input(name="phone_number" type="text" placeholder="520-555-1234")
-      
-    br
-    br
-    input(type="submit" value="Create Account" class="submit")
+  div.sign
+    button(onclick="window.signin();" class="submit") Sign Up (Facebook or Google)
+    form(id="signup" method="post" action="/users/signup" class="form")
+      label(for="first_name") First Name:
+      input(name="first_name" type="text" placeholder="Johnny" autofocus)
+      br
+      label(for="last_name") Last Name:
+      input(name="last_name" type="text" placeholder="Appleseed")
+      br
+      label(for="email") Enter your email address: 
+      input(name="email" type="text" placeholder="johnny@example.com")
+      br
+      label(for="username") Choose a username
+      input(name="username" type="text" placeholder="username" )
+      br
+      label(for="password") Choose a password
+      input(name="password" type="password" placeholder="password")
+      br
+      label(for="phone_number") 10-digit Phone Number
+      input(name="phone_number" type="text" placeholder="520-555-1234")        
+      br
+      input(type="submit" value="Create Account" class="submit")
