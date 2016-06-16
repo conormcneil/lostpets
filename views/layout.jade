@@ -12,6 +12,18 @@ html
     meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
     header 
       h1#title Finding Fido 
+      div#signLinks
+        if !user
+          
+          a(href="/users/signin") Sign In
+            //- button Sign In
+          br
+          a(href="/users/signup")
+            button Sign Up
+        else
+          p Welcome, #{user.first_name}
+          a(href="/users/signout")
+            button Sign Out
     div#buttons 
       div#buttonsInButtons    
         a(href="/")
@@ -24,16 +36,6 @@ html
           button Report Lost Pet
         a(href="/pets/add/found")
           button Report Found Pet 
-          
-        if !user
-          a(href="/users/signin")
-            button Sign In
-          a(href="/users/signup")
-            button Sign Up
-        else
-          p Welcome, #{user.first_name}
-          a(href="/users/signout")
-            button Sign Out
 
   script(src="https://cdn.auth0.com/js/lock-7.min.js")
   script(type="text/javascript").
@@ -53,4 +55,4 @@ html
 
   block footer 
     footer.footer 
-      p Copyright © Finding Fido 
+      p Copyright © 2016 Finding Fido 
