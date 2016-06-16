@@ -14,40 +14,32 @@ html
       h1#title Finding Fido 
       div#signLinks
         if !user
-          
           a(href="/users/signin") Sign In
-            //- button Sign In
-          br
-          a(href="/users/signup")
-            button Sign Up
+          p or
+          a(href="/users/signup") Sign Up
         else
           p Welcome, #{user.first_name}
-          a(href="/users/signout")
-            button Sign Out
+          a(href="/users/signout") Sign Out
     div#buttons 
-      div#buttonsInButtons    
-        a(href="/")
-          button Home
-        a(href="/pets/all")
-          button Find Pets 
-        a(href="/admin/users")
-          button Users
-        a(href="/pets/add/lost")
-          button Report Lost Pet
-        a(href="/pets/add/found/initial")
-          button Report Found Pet 
+      div#nav-bar    
+        a(href="/") Home
+        a(href="/pets/all") Find Pets
+        a(href="/admin/users") Users
+        a(href="/pets/add/lost") Report Lost Pet
+        a(href="/pets/add/found") Report Found Pet
 
   script(src="https://cdn.auth0.com/js/lock-7.min.js")
   script(type="text/javascript").
     var lock = new Auth0Lock('odLWNoZNGYeONIG3KeVCisJcta40sQeQ', 'findingfido.auth0.com');
     function signin() {
+    console.log('layout line 35: test');
       lock.show({
         connections: ['facebook', 'google-oauth2'],
         callbackURL: 'https://findingfido.herokuapp.com/callback',
         responseType: 'code',
         authParams: {
           scope: 'openid email'
-        }
+        } 
       });
     }
 
