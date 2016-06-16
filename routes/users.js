@@ -118,7 +118,6 @@ router.post('/signup', function(req, res, next) {
 })
 
 router.get('/profile', function(req, res, next) {
-  // console.log(res.locals.user);
   res.render('users/profile');
 });
 
