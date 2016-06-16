@@ -44,14 +44,13 @@ header {
 .footer {
   background: linear-gradient(90deg, #6B7599, #998D6B);
   opacity: 0.5;
-  height: 25px;
-  padding: 20px;
-  padding-top: 25px;
+  height: 35px;
   width: 100%;
   position: fixed;
-  bottom: 0px;
-  margin-top: 10px;
-  text-align: center; }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0px; }
 
 #buttons {
   display: flex;

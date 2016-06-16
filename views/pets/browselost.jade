@@ -7,15 +7,15 @@ block content
   div.sidebar  
     a(href="/pets/all") All Pets 
     p.show
-    a(href="/pets/browselost") Lost Pets
+    a(href="/pets/browsefound") Found Pets
     p.show
     p.show Show Me:
       p
-      a(href="/pets/browsefound/dogs") Dogs 
+      a(href="/pets/browselost/dogs") Dogs 
       p.show 
-      a(href="/pets/browsefound/cats") Cats
+      a(href="/pets/browselost/cats") Cats
       p.show  
-      a(href="/pets/browsefound/other") Other 
+      a(href="/pets/browselost/other") Other 
   div.main 
     div.pets 
       each pet in petsAndUsers 

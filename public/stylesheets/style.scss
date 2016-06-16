@@ -57,14 +57,13 @@ header{
 .footer {
   background: linear-gradient(90deg, $backGroundColor, $fontColor2);
   opacity: 0.5;
-  height: 25px;
-  padding: 20px;
-  padding-top: 25px;
+  height: 35px;
   width: 100%;
   position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   bottom: 0px;
-  margin-top: 10px;
-  text-align: center;
 }
 #buttons {
   display: flex;
