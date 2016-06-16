@@ -1,0 +1,30 @@
+extends ../layout
+
+block content
+  h1 All Pets
+  div.main
+    
+    table#pets
+      th ID
+      th Name
+      th Species
+      th Contact
+      th Date Lost/Found
+      th Age
+      th Description
+      th User ID
+      th isFound
+      th
+        for pet in pets
+          tr
+            td= pet.id
+            td= pet.name
+            td= pet.species
+            td= pet.contact
+            td= pet.date
+            td= pet.age
+            td= pet.description
+            td= pet.user_id
+            td= pet.isFound
+            td
+              a(href='/admin/#{pet.id}/profile/delete') Delete Pet

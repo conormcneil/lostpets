@@ -43,6 +43,7 @@ header {
 
 .footer {
   background: linear-gradient(90deg, #6B7599, #998D6B);
+  opacity: 0.5;
   height: 25px;
   padding: 20px;
   padding-top: 25px;
@@ -221,7 +222,8 @@ label {
 .error {
   color: red;
   text-align: center;
-  font-family: 'Raleway', sans-serif; }
+  font-family: 'Raleway', sans-serif;
+  margin-bottom: 5px; }
 
 .formheading {
   margin-bottom: 20px; }
@@ -230,6 +232,8 @@ label {
   text-align: center;
   font-family: 'Raleway', sans-serif;
   margin-bottom: 20px; }
+  #foundlink a {
+    color: #284DCC; }
 
 #successzip {
   text-align: center;
@@ -477,5 +481,8 @@ label {
   padding: 20px; }
   .accountlinks p {
     height: 10px; }
+  .accountlinks a {
+    text-decoration: none;
+    color: #284DCC; }
 
 /*# sourceMappingURL=style.css.map */

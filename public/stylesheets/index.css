@@ -1,28 +1,21 @@
 body {
-  /*background-color: red;*/
 }
 p {
   text-align: center;
 }
-.main {
-  width: 100%;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-around;
-}
 .welcome {
-  width: 50%;
+  width: 60%;
   float: left;
 }
 .info {
-  width: 30%;
+  width: 20%;
   float: right;
   border-style: solid;
   border-color: black;
   border-width: thin;
 }
 .info * {
-  padding: 10px;
+  padding: 3px;
 }
 li {
   list-style-type: disc;

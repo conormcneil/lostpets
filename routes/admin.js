@@ -31,6 +31,24 @@ router.get('/users', function(req, res, next) {
     }
   });
 });
+// Display list of pets from DB at /admin/pets
+router.get('/pets', function(req, res, next) {
+  knex('pets')
+  .orderBy('id','asc')
+  .then(function(pets) {
+    res.render('pets/petlist', {
+      pets: pets
+    });
+  });
+});
+router.get('/:id/profile/delete', function(req, res, next){
+  knex('pets')
+  .where({id: req.params.id})
+  .del()
+  .then(function(data) {
+    res.redirect('/admin/pets');
+  });
+})
 
 router.get('/users/:id/:isAdmin', function(req, res, next){
   knex('users')

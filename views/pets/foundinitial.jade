@@ -11,6 +11,16 @@ block content
   br
   form(action='/pets/add/found/initial' method="post" class="form" id="shelterForm")
     input(type="text" name="zip" id="zip") 
+  div#foundlink 
+    a(href="/pets/add/found") If you're ready to post a found pet, just click here!
+  h4 Need to locate a humane society to drop off this pet? Just enter your zip code below to find the nearest animal shelters.
+  br
+  form(action='/pets/add/found/initial' method="post" class="form" id="shelterForm")
+    input(type="text" name="zip" id="zip" placeholder="12345" autofocus)
+    br
+    input(type="submit" value="Submit Zip Code" class="submit" id="submitzip") 
+  div#successzip
+    p= success 
     
   div#sheltershow
     input(type="button" value="Show Nearest Humane Societies" id="humaneSoc" class="submit")
