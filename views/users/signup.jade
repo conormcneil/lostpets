@@ -2,7 +2,7 @@ extends ../layout
 
 block content
   h2.formheading= title
-  h4= error
+  h4.error= error
   div.sign
     button(onclick="window.signin();" class="submit") Sign Up (Facebook or Google)
     form(id="signup" method="post" action="/users/signup" class="form")
