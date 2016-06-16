@@ -20,7 +20,8 @@ block content
       each pet in petsAndUsers  
         div.eachpet 
           ul
-            img(src='#{pet.image}' style="height: 300px; width: 300px;")
+            a(href="/pets/#{pet.id}/profile")
+              img(src='#{pet.image}' style="height: 300px; width: 300px;")
             div.content 
               li 
                 strong FOUND 
