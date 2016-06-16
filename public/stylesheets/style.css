@@ -231,6 +231,8 @@ label {
   text-align: center;
   font-family: 'Raleway', sans-serif;
   margin-bottom: 20px; }
+  #foundlink a {
+    color: #284DCC; }
 
 #successzip {
   text-align: center;

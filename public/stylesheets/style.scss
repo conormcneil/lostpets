@@ -281,6 +281,9 @@ label{
     family: 'Raleway', sans-serif;
   }
   margin-bottom: 20px;
+  a {
+    color: $fontColor;
+  }
 }
 #successzip {
   text-align: center;
