@@ -31,12 +31,38 @@ $(document).ready(function(){
           $('#address1').append(result2[0].name.$t + "<br>" + result2[0].address1.$t + "<br>" + result2[0].city.$t + "<br>" + result2[0].state.$t + "<br>" + result2[0].zip.$t + "<br>" + result2[0].phone.$t + "<br>" + result2[0].email.$t + "<br>");
           $('#address2').append(result2[1].name.$t + "<br>" + result2[1].address1.$t + "<br>" + result2[1].city.$t + "<br>" + result2[1].state.$t + "<br>" + result2[1].zip.$t + "<br>" + result2[1].phone.$t + "<br>" + result2[1].email.$t + "<br>");
           $('#address3').append(result2[2].name.$t + "<br>" + result2[2].address1.$t + "<br>" + result2[2].city.$t + "<br>" + result2[2].state.$t + "<br>" + result2[2].zip.$t + "<br>" + result2[2].phone.$t + "<br>" + result2[2].email.$t + "<br>");
+          window.localStorage.setItem('locationArray',[
+          [(localStorage.latitude1),
+          (localStorage.longitude1)],
+          [(localStorage.latitude2),
+          (localStorage.longitude2)],
+          [(localStorage.latitude3),
+          (localStorage.longitude3)]
+          ])
       }
-    }).then(new google.maps.Marker({
-      position: {lat: parseFloat(localStorage.latitude1), lng: parseFloat(localStorage.longitude1)},
-      map: map,
-      title: '1st Humane Society Location'
-  }))
-  ;
+    })
+    // .then(
+    //     new google.maps.Marker({
+    //     position: {lat: parseFloat(localStorage.latitude1),
+    //     lng: parseFloat(localStorage.longitude1)},
+    //     map: map,
+    //     title: '1st Humane Society Location'
+    //   })
+    // );
+    var markerArray = window.localStorage.locationArray.split(",");
+    console.log(markerArray);
+    for (var i = 0; i < markerArray.length; i++) {
+        if(markerArray[i] > 0 && markerArray[i+1] <0)
+        marker = new google.maps.Marker({
+        position: new google.maps.LatLng(markerArray[i], markerArray[i+1]),
+        map: map
+      });
+    }
+
+    // for (i = 0; i < locations.length; i++) {
+    //   marker = new google.maps.Marker({
+    //     position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+    //     map: map
+    //   });
   })
 })
