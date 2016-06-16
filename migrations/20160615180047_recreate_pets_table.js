@@ -1,6 +1,6 @@
 
 exports.up = function(knex, Promise) {
-  return knex.schema.createTable('pets', function(table) {
+  return knex.schema.alterTable('pets', function(table) {
     table.increments('id').primary();
     table.string('name');
     table.string('species');
