@@ -19,7 +19,6 @@ router.get('/:id', function(req, res, next){
   })
   .first()
   .then(function(pet){
-    console.log(pet.user_id);
     knex('users')
     .where({
       id: pet.user_id
@@ -36,9 +35,7 @@ router.get('/:id', function(req, res, next){
        from: "+15203554290",
        body: "Someone found " + pet.name + "! \nYou can contact someone, somewhere.",
       }, function(err, message) {
-       console.log(message.sid);
       });
-      console.log("+" + user.phone_number);
       res.redirect('/pets/confirmfound');
     })
   })
