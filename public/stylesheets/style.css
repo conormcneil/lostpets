@@ -176,8 +176,9 @@ label {
 
 #map {
   display: flex;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin-top: 10px;
+  margin-bottom: 35px;
+  padding-bottom: 20px;
   margin-left: auto;
   margin-right: auto;
   height: 300px;
@@ -243,10 +244,7 @@ label {
 #sheltershow {
   text-align: center;
   align-items: center;
-  margin-bottom: 20px;
-  padding-bottom: 20px; }
-  #sheltershow #humaneSoc {
-    text-align: center; }
+  margin-top: 20px; }
 
 #lostform {
   margin-bottom: 50px;
@@ -450,7 +448,7 @@ label {
 #shelterForm {
   padding-bottom: 5px; }
   #shelterForm #zip {
-    padding: 9px;
+    border-bottom: 20px;
     border: solid 1px #E5E5E5;
     outline: 0;
     width: 80px;

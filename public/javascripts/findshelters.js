@@ -36,13 +36,14 @@ $(document).ready(function(){
              (localStorage.longitude3)]
           ]);
       }
-    })
+    }).then(
     var markerArray = window.localStorage.locationArray.split(",");
     for (var i = 0; i < markerArray.length; i++) {
         if(markerArray[i] > 0 && markerArray[i+1] <0)
         marker = new google.maps.Marker({
         position: new google.maps.LatLng(markerArray[i], markerArray[i+1]),
         map: map
+      )
       });
     }
   });
