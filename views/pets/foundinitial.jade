@@ -1,0 +1,49 @@
+extends ../layout 
+
+block content 
+  script(src='../../../../javascripts/findshelters.js')
+  script(type='text/javascript', src='../../../../javascripts/reportfound.js')
+  h3 Thank you for reporting a found pet!  
+  br
+  h4 If you're ready to report the pet, just click the link below!
+  br
+  div#foundlink 
+    a(href="/pets/add/found") I'm ready to report my found pet!
+  h4 Need to locate a humane society to drop off this pet? Just enter your zip code below and we'll locate nearby shelters for you.
+  br
+  form(action='/pets/add/found/initial' method="post" class="form" id="shelterForm")
+    input(type="text" name="zip" id="zip")
+    br
+    input(type="submit" value="Submit Zip Code" class="submit" id="submitzip") 
+  div#successzip
+    p= success 
+    
+  div#sheltershow
+    input(type="button" value="Show Nearest Humane Societies" id="humaneSoc" class="submit")
+    p
+    div(id="addresses")
+      div(id="address1" class="address")
+      div(id="address2" class="address")
+      div(id="address3" class="address")
+    
+      div(id="map")
+
+    style.
+      html {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      }
+      #map
+    script.
+      var map;
+      function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 40.015, lng: -105.2705},
+      zoom: 8
+      });
+      }
+    script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDKlEoatQMCNbV8_y7_i-8oR_Ven7dFMTM&callback=initMap', async='', defer='')
+    p
+    
+    

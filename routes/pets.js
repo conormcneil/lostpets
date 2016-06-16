@@ -252,6 +252,15 @@ router.get('/success-lost', function(req, res, next) {
   res.render('pets/success-lost');
 });
 
+router.get('/add/found/initial', function(req, res, next) {
+  res.render('pets/foundinitial');
+});
+
+router.post('/add/found/initial', function(req, res, next) {
+  console.log(req.body.zip);
+  res.render('pets/foundinitial', {success: 'Zip successfully entered'})
+})
+
 router.get('/add/found', function(req, res, next) {
   // console.log("FOUND: ", req.session.id);
   if(req.session.id) {
