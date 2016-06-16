@@ -578,3 +578,15 @@ label{
     -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px;
   }
 }
+
+.accountlinks {
+  text-align: center;
+  align-items: center;
+  padding: 20px;
+  .profilelink {
+    margin: 20px;
+  }
+  p {
+    height: 20px;
+  }
+}

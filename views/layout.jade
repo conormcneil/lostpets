@@ -19,6 +19,8 @@ html
           a(href="/users/signup") Sign Up
         else
           p Welcome, #{user.first_name}
+          a(href="/users/profile") My profile 
+          br
           a(href="/users/signout") Sign Out
     div#buttons 
       div#nav-bar    
