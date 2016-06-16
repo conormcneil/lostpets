@@ -20,12 +20,20 @@ header {
   justify-content: center;
   font-style: Helvetica, sans-serif;
   background: linear-gradient(90deg, #6B7599, #998D6B);
-  padding-bottom: 20px; }
+  padding-bottom: 20px;
+  position: relative; }
 
 #title {
-  font-size: 5em;
+  font-size: 3em;
   font-family: 'Gloria Hallelujah', cursive;
   width: 100%; }
+
+#signLinks {
+  text-align: right;
+  margin-right: 20px;
+  position: absolute;
+  top: 0px;
+  right: 0px; }
 
 .main {
   margin-bottom: 25px;
@@ -41,7 +49,8 @@ header {
   width: 100%;
   position: fixed;
   bottom: 0px;
-  margin-top: 10px; }
+  margin-top: 10px;
+  text-align: center; }
 
 #buttons {
   width: 100%;

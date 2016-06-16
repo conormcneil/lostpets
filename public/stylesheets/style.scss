@@ -35,13 +35,22 @@ header{
   font-style: $headerFont;
   background: linear-gradient(90deg, $backGroundColor, $fontColor2);
   padding-bottom: 20px;
+  position: relative;
 }
 #title {
   font: {
-    size: 5em;
+    size: 3em;
     family: 'Gloria Hallelujah', cursive;
   }
   width: 100%;
+}
+
+#signLinks {
+  text-align: right;
+  margin-right: 20px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
 }
 
 .main {
@@ -61,6 +70,7 @@ header{
   position: fixed;
   bottom: 0px;
   margin-top: 10px;
+  text-align: center;
 }
 
 #buttons {
