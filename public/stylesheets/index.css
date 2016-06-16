@@ -11,9 +11,11 @@ p {
   justify-content: space-around;
 }
 .welcome {
+  width: 50%;
   float: left;
 }
 .info {
+  width: 30%;
   float: right;
   border-style: solid;
   border-color: black;
