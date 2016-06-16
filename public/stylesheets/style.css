@@ -464,8 +464,8 @@ label {
     margin: 5px;
     font-size: 1em;
     font-family: 'Raleway', sans-serif; }
-  #shelterForm #location:hover,
-  #shelterForm #location:focus {
+  #shelterForm #zip:hover,
+  #shelterForm #zip:focus {
     border-color: #C9C9C9;
     -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px; }
 
