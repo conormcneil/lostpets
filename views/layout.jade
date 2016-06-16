@@ -19,8 +19,7 @@ html
           a(href="/users/signup") Sign Up
         else
           p Welcome, #{user.first_name}
-          a(href="/users/signout")
-            button Sign Out
+          a(href="/users/signout") Sign Out
     div#buttons 
       div#nav-bar    
         a(href="/") Home
@@ -35,7 +34,7 @@ html
     function signin() {
       lock.show({
         connections: ['facebook', 'google-oauth2'],
-        callbackURL: 'https://findingfido.herokuapp.com/callback',
+        callbackURL: 'http://localhost:3000/callback',
         responseType: 'code',
         authParams: {
           scope: 'openid email'

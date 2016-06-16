@@ -41,6 +41,9 @@ header{
   width: 100%;
 }
 #signLinks {
+  p {
+    color: #fff;
+  }
   a {
     text-decoration: none;
     color: $fontColor;

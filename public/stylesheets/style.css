@@ -35,6 +35,8 @@ header {
   position: absolute;
   top: 15px;
   right: 2px; }
+  #signLinks p {
+    color: #fff; }
   #signLinks a {
     text-decoration: none;
     color: #284DCC; }
