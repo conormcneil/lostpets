@@ -4,7 +4,7 @@ head
 block content
   script(type='text/javascript', src='../../../../javascripts/reportfound.js')
   h1.formheading Report a Found Pet 
-  p= error
+  p.error= error
   form(action='/pets/add/found' method="post" class="form" id="foundform")
     label(for="name") Enter the name of the pet. If not known, enter N/A. 
       input(type="text" name="name")
