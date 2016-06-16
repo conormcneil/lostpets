@@ -221,7 +221,8 @@ label {
 .error {
   color: red;
   text-align: center;
-  font-family: 'Raleway', sans-serif; }
+  font-family: 'Raleway', sans-serif;
+  margin-bottom: 5px; }
 
 .formheading {
   margin-bottom: 20px; }
