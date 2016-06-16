@@ -3,18 +3,15 @@ $fontColor2: #998D6B;
 $backGroundColor: #6B7599;
 $backGroundColor2: #FFB68C;
 $headerColor: #CC4C28;
-
 * {
   margin: 0;
   padding: 0;
 }
-
 header a button {
   color: $fontColor;
 }
 $headerFont: Helvetica, sans-serif;
 $headerFontSize: (10/7) * 1em;
-
 body{
   background: white;
   font: {
@@ -26,7 +23,6 @@ body{
   margin-bottom: -50px;
   padding-bottom: 50px;
 }
-
 header{
   // display: flex;
   width: 100%;
@@ -35,10 +31,11 @@ header{
   font-style: $headerFont;
   background: linear-gradient(90deg, $backGroundColor, $fontColor2);
   padding-bottom: 20px;
+  position: relative;
 }
 #title {
   font: {
-    size: 5em;
+    size: 3em;
     family: 'Gloria Hallelujah', cursive;
   }
   width: 100%;
@@ -67,8 +64,12 @@ header{
   position: fixed;
   bottom: 0px;
   margin-top: 10px;
+  text-align: center;
 }
 #buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   float: left;
   height: 50px;
@@ -79,6 +80,15 @@ header{
   margin-left: 0;
   button{
     color: $fontColor;
+  #nav-bar {
+    a {
+      color: #fff;
+      text-decoration: none;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+  button{
     background: black;
     border-radius: 5px;
     padding-left: 10px;
@@ -86,6 +96,7 @@ header{
     margin-right: 5px;
     margin-left: 5px;
     margin-top: 7px;
+    width: 10%;
     float: left;
     font: {
       size: 1em;
@@ -113,6 +124,13 @@ h1 {
   }
 }
 h2 {
+  text-align: center;
+  color: $fontColor;
+  font: {
+    family: 'Raleway', sans-serif;
+  }
+}
+h3 {
   text-align: center;
   color: $fontColor;
   font: {
@@ -202,13 +220,19 @@ label{
   margin-right: auto;
   margin-bottom: 50px;
   margin-top: 50px;
-  height: 300px;
+  height: 400px;
   width: 70%;
 }
 .form {
   padding-bottom: 50px;
 }
+.top {
+  margin-bottom: 15px;
+}
 .pets {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
   width: 100%;
   padding-bottom: 50px;
   font: {
@@ -250,6 +274,32 @@ label{
 }
 .formheading {
   margin-bottom: 20px;
+}
+#foundlink {
+  text-align: center;
+  font: {
+    family: 'Raleway', sans-serif;
+  }
+  margin-bottom: 20px;
+}
+#successzip {
+  text-align: center;
+  font: {
+    family: 'Raleway', sans-serif;
+  }
+  margin-bottom: 20px;
+}
+#sheltershow {
+  text-align: center;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  #humaneSoc {
+    text-align: center;
+  }
+}
+#humaneSoc {
+  text-align: center;
 }
 #lostform {
   margin-bottom: 50px;
@@ -471,15 +521,58 @@ label{
     }
   }
 }
-#addresses {
-  margin-left:25px;
-  margin-right:25px;
-  font-size: .7em;
-  display: flex;
-  justify-content: space-between;
-  width:700px;
+.submit {
+  text-align: center;
+  margin-bottom: 20px;
+  width: auto;
+  padding: 9px 15px;
+  background: #617798;
+  border: 0;
+  font-size: 14px;
+  color: #FFFFFF;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  font: {
+    size: 1em;
+    family: 'Raleway', sans-serif;
+  }
 }
-
+.sign {
+  text-align: center;
+}
 .address {
   padding: 20px;
+}
+#shelterForm {
+  padding-bottom: 5px;
+  #zip{
+    padding: 9px;
+    border: solid 1px #E5E5E5;
+    outline: 0;
+    width: 80px;
+    background: #FFFFFF;
+    box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+    -moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+    -webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+    background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));
+    background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #FFFFFF 25px);
+    margin: 5px;
+    font: {
+      size: 1em;
+      family: 'Raleway', sans-serif;
+      }
+    }
+  #zip:hover,
+  #zip:focus {
+    border-color: #C9C9C9;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px;
+  }
+}
+.accountlinks {
+  text-align: center;
+  align-items: center;
+  padding: 20px;
+  p {
+    height: 10px;
+  }
 }
