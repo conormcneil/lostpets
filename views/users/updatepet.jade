@@ -1,0 +1,26 @@
+extends ../layout
+
+block content 
+  h1.formheading Update This Pet 
+  p.error= error
+  each pet in pets 
+    form(action='/users/#{pet.id}/profile/update' method="post" id="lostform")
+      label(for="name") Enter the name of your pet 
+        input(type="text" name="name" value="#{pet.name}")
+      p
+      label(for="location") Enter the approximate last known location of your pet 
+        input(type="location" name="location" value="#{pet.location}")
+      p
+      label(for="date") Please add the date the pet was lost 
+        input(type="date" name="date" id="date" value="#{pet.date}")
+      p
+      label(for="age") Please enter the age of your pet 
+        input(type="text" name="age" value="#{pet.age}")
+      p
+      label(for="description") Please enter any additional information, such as breed, distinguishing features, characteristics, etc. 
+      textarea(type="textarea" name="description" class="textarea") #{pet.description}
+      p
+      label(for="contact") Please enter your phone number  
+        input(type="text" name="contact" value="#{pet.contact}")
+      p
+      input(type="submit" value="Update Your Pet" class="submit")
