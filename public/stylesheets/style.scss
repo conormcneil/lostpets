@@ -78,8 +78,6 @@ header{
   background: black;
   margin-top: 0;
   margin-left: 0;
-  button{
-    color: $fontColor;
   #nav-bar {
     a {
       color: #fff;
@@ -181,7 +179,7 @@ ul {
   justify-content: space-around;
   margin-bottom: 25px;
   padding-bottom: 30px;
-  width: 100%;
+  width: 85%;
 }
 //USERLIST.JADE
 table, form{
@@ -239,6 +237,7 @@ label{
     family: 'Raleway', sans-serif;
   }
   .eachpet {
+    // display: inline-block;
     text-align: center;
     width: 350px;
     border: solid 1px black;
@@ -316,6 +315,7 @@ label{
     padding: 9px;
     border: solid 1px #E5E5E5;
     outline: 0;
+    // width: 400px;
     background: #FFFFFF;
     box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
     -moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
@@ -326,33 +326,33 @@ label{
     font: {
       size: 1em;
       family: 'Raleway', sans-serif;
+      }
     }
-  }
   .textarea {
-    width: 600px;
-    max-width: 600px;
-    height: 150px;
-    line-height: 150%;
-  }
+      width: 600px;
+      max-width: 600px;
+      height: 150px;
+      line-height: 150%;
+    }
   input:hover, textarea:hover,
   input:focus, textarea:focus {
     border-color: #C9C9C9;
     -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px;
-  }
-  .submit {
-    width: auto;
-    padding: 9px 15px;
-    background: #617798;
-    border: 0;
-    font-size: 14px;
-    color: #FFFFFF;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    font: {
-      size: 1em;
-      family: 'Raleway', sans-serif;
     }
-  }
+    .submit {
+      width: auto;
+      padding: 9px 15px;
+      background: #617798;
+      border: 0;
+      font-size: 14px;
+      color: #FFFFFF;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      font: {
+        size: 1em;
+        family: 'Raleway', sans-serif;
+      }
+    }
 }
 .success {
   margin: 0 auto;
@@ -387,33 +387,33 @@ label{
     font: {
       size: 1em;
       family: 'Raleway', sans-serif;
+      }
     }
-  }
   .textarea {
-    width: 600px;
-    max-width: 600px;
-    height: 150px;
-    line-height: 150%;
-  }
+      width: 600px;
+      max-width: 600px;
+      height: 150px;
+      line-height: 150%;
+    }
   input:hover, textarea:hover,
   input:focus, textarea:focus {
     border-color: #C9C9C9;
     -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px;
-  }
-  .submit {
-    width: auto;
-    padding: 9px 15px;
-    background: #617798;
-    border: 0;
-    font-size: 14px;
-    color: #FFFFFF;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    font: {
-      size: 1em;
-      family: 'Raleway', sans-serif;
     }
-  }
+    .submit {
+      width: auto;
+      padding: 9px 15px;
+      background: #617798;
+      border: 0;
+      font-size: 14px;
+      color: #FFFFFF;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      font: {
+        size: 1em;
+        family: 'Raleway', sans-serif;
+      }
+    }
 }
 #signup {
   margin-bottom: 50px;
@@ -440,33 +440,33 @@ label{
     font: {
       size: 1em;
       family: 'Raleway', sans-serif;
+      }
     }
-  }
   .textarea {
-    width: 600px;
-    max-width: 600px;
-    height: 150px;
-    line-height: 150%;
-  }
+      width: 600px;
+      max-width: 600px;
+      height: 150px;
+      line-height: 150%;
+    }
   input:hover, textarea:hover,
   input:focus, textarea:focus {
     border-color: #C9C9C9;
     -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px;
-  }
-  .submit {
-    width: auto;
-    padding: 9px 15px;
-    background: #617798;
-    border: 0;
-    font-size: 14px;
-    color: #FFFFFF;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    font: {
-      size: 1em;
-      family: 'Raleway', sans-serif;
     }
-  }
+    .submit {
+      width: auto;
+      padding: 9px 15px;
+      background: #617798;
+      border: 0;
+      font-size: 14px;
+      color: #FFFFFF;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      font: {
+        size: 1em;
+        family: 'Raleway', sans-serif;
+      }
+    }
 }
 #foundform {
   margin-bottom: 50px;
@@ -483,6 +483,7 @@ label{
     padding: 9px;
     border: solid 1px #E5E5E5;
     outline: 0;
+    // width: 400px;
     background: #FFFFFF;
     box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
     -moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
@@ -493,33 +494,33 @@ label{
     font: {
       size: 1em;
       family: 'Raleway', sans-serif;
+      }
     }
-  }
   .textarea {
-    width: 600px;
-    max-width: 600px;
-    height: 150px;
-    line-height: 150%;
-  }
+      width: 600px;
+      max-width: 600px;
+      height: 150px;
+      line-height: 150%;
+    }
   input:hover, textarea:hover,
   input:focus, textarea:focus {
     border-color: #C9C9C9;
     -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px;
-  }
-  .submit {
-    width: auto;
-    padding: 9px 15px;
-    background: #617798;
-    border: 0;
-    font-size: 14px;
-    color: #FFFFFF;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    font: {
-      size: 1em;
-      family: 'Raleway', sans-serif;
     }
-  }
+    .submit {
+      width: auto;
+      padding: 9px 15px;
+      background: #617798;
+      border: 0;
+      font-size: 14px;
+      color: #FFFFFF;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      font: {
+        size: 1em;
+        family: 'Raleway', sans-serif;
+      }
+    }
 }
 .submit {
   text-align: center;
