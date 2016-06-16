@@ -265,7 +265,12 @@ router.get('/success-lost', function(req, res, next) {
 });
 
 router.get('/add/found/initial', function(req, res, next) {
-  res.render('pets/foundinitial');
+  if(req.session.id) {
+    res.render('pets/foundinitial');
+  }
+  else {
+    res.render('pets/error');
+  }
 });
 
 router.post('/add/found/initial', function(req, res, next) {
