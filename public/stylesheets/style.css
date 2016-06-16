@@ -135,6 +135,8 @@ ul {
   text-align: left;
   padding-left: 10px; }
   .sidebar a {
+    color: #284DCC;
+    text-decoration: none;
     padding-bottom: 20px; }
   .sidebar .show {
     padding-bottom: 20px;
