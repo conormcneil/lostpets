@@ -20,18 +20,26 @@ header {
   justify-content: center;
   font-style: Helvetica, sans-serif;
   background: linear-gradient(90deg, #6B7599, #998D6B);
-  padding-bottom: 20px; }
+  padding-bottom: 20px;
+  position: relative; }
 
 #title {
-  font-size: 5em;
+  font-size: 3em;
   font-family: 'Gloria Hallelujah', cursive;
   width: 100%; }
 
-.main {
-  margin-bottom: 25px;
-  padding-bottom: 30px;
-  min-height: 100vh;
-  width: 100%; }
+#signLinks {
+  color: #284DCC;
+  text-align: center;
+  margin-right: 20px;
+  position: absolute;
+  top: 15px;
+  right: 2px; }
+  #signLinks p {
+    color: #fff; }
+  #signLinks a {
+    text-decoration: none;
+    color: #284DCC; }
 
 .footer {
   background: linear-gradient(90deg, #6B7599, #998D6B);
@@ -41,9 +49,13 @@ header {
   width: 100%;
   position: fixed;
   bottom: 0px;
-  margin-top: 10px; }
+  margin-top: 10px;
+  text-align: center; }
 
 #buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   float: left;
   height: 50px;
@@ -52,8 +64,12 @@ header {
   background: black;
   margin-top: 0;
   margin-left: 0; }
+  #buttons #nav-bar a {
+    color: #fff;
+    text-decoration: none;
+    padding-left: 10px;
+    padding-right: 10px; }
   #buttons button {
-    color: #284DCC;
     background: black;
     border-radius: 5px;
     padding-left: 10px;
@@ -61,6 +77,7 @@ header {
     margin-right: 5px;
     margin-left: 5px;
     margin-top: 7px;
+    width: 10%;
     float: left;
     font-size: 1em;
     font-family: 'Raleway', sans-serif; }
@@ -82,6 +99,11 @@ h1 {
   font-family: 'Raleway', sans-serif; }
 
 h2 {
+  text-align: center;
+  color: #284DCC;
+  font-family: 'Raleway', sans-serif; }
+
+h3 {
   text-align: center;
   color: #284DCC;
   font-family: 'Raleway', sans-serif; }
@@ -116,8 +138,11 @@ ul {
     padding-bottom: 20px; }
 
 .main {
-  width: 85%;
-  float: left; }
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 25px;
+  padding-bottom: 30px;
+  width: 85%; }
 
 table, form {
   display: flex;
@@ -153,13 +178,19 @@ label {
   margin-right: auto;
   margin-bottom: 50px;
   margin-top: 50px;
-  height: 300px;
+  height: 400px;
   width: 70%; }
 
 .form {
   padding-bottom: 50px; }
 
+.top {
+  margin-bottom: 15px; }
+
 .pets {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
   width: 100%;
   padding-bottom: 50px;
   font-family: 'Raleway', sans-serif; }
@@ -193,6 +224,27 @@ label {
 
 .formheading {
   margin-bottom: 20px; }
+
+#foundlink {
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  margin-bottom: 20px; }
+
+#successzip {
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  margin-bottom: 20px; }
+
+#sheltershow {
+  text-align: center;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 20px; }
+  #sheltershow #humaneSoc {
+    text-align: center; }
+
+#humaneSoc {
+  text-align: center; }
 
 #lostform {
   margin-bottom: 50px;
@@ -373,15 +425,52 @@ label {
     font-size: 1em;
     font-family: 'Raleway', sans-serif; }
 
-#addresses {
-  margin-left: 25px;
-  margin-right: 25px;
-  font-size: .7em;
-  display: flex;
-  justify-content: space-between;
-  width: 700px; }
+.submit {
+  text-align: center;
+  margin-bottom: 20px;
+  width: auto;
+  padding: 9px 15px;
+  background: #617798;
+  border: 0;
+  font-size: 14px;
+  color: #FFFFFF;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  font-size: 1em;
+  font-family: 'Raleway', sans-serif; }
+
+.sign {
+  text-align: center; }
 
 .address {
   padding: 20px; }
+
+#shelterForm {
+  padding-bottom: 5px; }
+  #shelterForm #zip {
+    padding: 9px;
+    border: solid 1px #E5E5E5;
+    outline: 0;
+    width: 80px;
+    background: #FFFFFF;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 8px;
+    background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));
+    background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #FFFFFF 25px);
+    margin: 5px;
+    font-size: 1em;
+    font-family: 'Raleway', sans-serif; }
+  #shelterForm #zip:hover,
+  #shelterForm #zip:focus {
+    border-color: #C9C9C9;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px; }
+
+.accountlinks {
+  text-align: center;
+  align-items: center;
+  padding: 20px; }
+  .accountlinks p {
+    height: 10px; }
 
 /*# sourceMappingURL=style.css.map */
