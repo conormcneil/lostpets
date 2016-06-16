@@ -1,7 +1,7 @@
 
 exports.up = function(knex, Promise) {
   return knex.schema.alterTable('pets', function(table) {
-    table.dropColumns('id','name','species','location','description','user_id','isFound','image','contact','date','isRecovered','age');
+    table.dropColumns('id','name','species','location','age','description','user_id','isFound','image','contact','date','isRecovered');
   });
 };
 
