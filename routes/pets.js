@@ -218,7 +218,6 @@ router.post('/add/lost', function(req, res, next) {
   }
 });
 router.post('/add/lost/addimage', function(req, res, next){
-  console.log("test: ", req.body);
   knex('pets')
   .where({
     id: req.body.idInput
@@ -231,22 +230,17 @@ router.post('/add/lost/addimage', function(req, res, next){
   })
 })
 router.get('/add/lost/:id/addimage', function(req, res, next){
-  console.log("GET: ", req.params.id);
   knex('pets')
   .where({
     id: req.params.id
   })
   .first()
   .then(function(data){
-    // window.localStorage.setItem('petId', id);
     res.locals.pet = data;
-    console.log("line243: ", res.locals.pet);
     res.render('pets/imageupload');
   });
 });
 router.post('/add/lost/:id/addimage', function(req, res, next){
-  // console.log("POST: ", req.body.id);
-  // console.log("POST: " + req.body);
   knex('pets')
   .where({
     id: req.params.id
