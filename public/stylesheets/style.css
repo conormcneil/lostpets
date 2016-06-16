@@ -41,12 +41,6 @@ header {
     text-decoration: none;
     color: #284DCC; }
 
-.main {
-  margin-bottom: 25px;
-  padding-bottom: 30px;
-  min-height: 100vh;
-  width: 100%; }
-
 .footer {
   background: linear-gradient(90deg, #6B7599, #998D6B);
   height: 25px;
@@ -144,8 +138,11 @@ ul {
     padding-bottom: 20px; }
 
 .main {
-  width: 85%;
-  float: left; }
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 25px;
+  padding-bottom: 30px;
+  width: 100%; }
 
 table, form {
   display: flex;

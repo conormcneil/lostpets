@@ -55,12 +55,7 @@ header{
   top: 15px;
   right: 2px;
 }
-.main {
-  margin-bottom: 25px;
-  padding-bottom: 30px;
-  min-height: 100vh;
-  width: 100%;
-}
+
 .footer {
   background: linear-gradient(90deg, $backGroundColor, $fontColor2);
   height: 25px;
@@ -181,8 +176,11 @@ ul {
   }
 }
 .main {
-  width: 85%;
-  float: left;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 25px;
+  padding-bottom: 30px;
+  width: 100%;
 }
 //USERLIST.JADE
 table, form{
