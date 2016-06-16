@@ -399,4 +399,17 @@ router.get('/:id/profile', function(req, res, next){
   })
 })
 
+router.get('/profile/mypets', function(req, res, next) {
+  knex('users').then(function(user) {
+    knex('pets').fullOuterJoin('users', 'users.id', 'pets.user_id').where('users.id', res.locals.user.id).whereNot('pets.name', 'null').then(function(data) {
+      var petsAndUser = data;
+      console.log(petsAndUser);
+      res.render('users/profilepets', { petsAndUser: petsAndUser, fs: { echo: capitalizeFirst }});
+    });
+  })
+  .catch(function(err) {
+    res.send(err);
+  });
+});
+
 module.exports = router;

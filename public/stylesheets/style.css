@@ -469,4 +469,13 @@ label {
     border-color: #C9C9C9;
     -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px; }
 
+.accountlinks {
+  text-align: center;
+  align-items: center;
+  padding: 20px; }
+  .accountlinks .profilelink {
+    margin: 20px; }
+  .accountlinks p {
+    height: 20px; }
+
 /*# sourceMappingURL=style.css.map */
