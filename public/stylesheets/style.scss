@@ -3,18 +3,15 @@ $fontColor2: #998D6B;
 $backGroundColor: #6B7599;
 $backGroundColor2: #FFB68C;
 $headerColor: #CC4C28;
-
 * {
   margin: 0;
   padding: 0;
 }
-
 header a button {
   color: $fontColor;
 }
 $headerFont: Helvetica, sans-serif;
 $headerFontSize: (10/7) * 1em;
-
 body{
   background: white;
   font: {
@@ -26,7 +23,6 @@ body{
   margin-bottom: -50px;
   padding-bottom: 50px;
 }
-
 header{
   // display: flex;
   width: 100%;
@@ -44,23 +40,24 @@ header{
   }
   width: 100%;
 }
-
 #signLinks {
-  text-align: right;
+  a {
+    text-decoration: none;
+    color: $fontColor;
+  }
+  color: $fontColor;
+  text-align: center;
   margin-right: 20px;
   position: absolute;
-  top: 0px;
-  right: 0px;
+  top: 15px;
+  right: 2px;
 }
-
 .main {
   margin-bottom: 25px;
   padding-bottom: 30px;
   min-height: 100vh;
   width: 100%;
-  // position: fixed;
 }
-//
 .footer {
   background: linear-gradient(90deg, $backGroundColor, $fontColor2);
   height: 25px;
@@ -72,9 +69,10 @@ header{
   margin-top: 10px;
   text-align: center;
 }
-
 #buttons {
-  // display: flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   float: left;
   height: 50px;
@@ -83,43 +81,39 @@ header{
   background: black;
   margin-top: 0;
   margin-left: 0;
-  // padding-left: 100px;
-  #buttonsInButtons {
-    // margin: 0 auto;
-    // text-align: center;
-    // padding-left: 50px;
+  #nav-bar {
+    a {
+      color: #fff;
+      text-decoration: none;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
   }
-    button{
-      color: $fontColor;
-      background: black;
-      border-radius: 5px;
-      padding-left: 10px;
-      padding-right: 10px;
-      margin-right: 5px;
-      margin-left: 5px;
-      margin-top: 7px;
-      // width: 10%;
-      float: left;
-      font: {
-        size: 1em;
-        family: 'Raleway', sans-serif;
-      }
+  button{
+    background: black;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-top: 7px;
+    width: 10%;
+    float: left;
+    font: {
+      size: 1em;
+      family: 'Raleway', sans-serif;
     }
-    p {
-      float: left;
-      color: $fontColor;
-      padding-left: 10px;
-      padding-right: 10px;
-      margin-right: 10px;
-      margin-left: 10px;
-      margin-top: 12px;
-    }
+  }
+  p {
+    float: left;
+    color: $fontColor;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 12px;
+  }
 }
-
-// #users {
-//   width: 100%;
-// }
-
 strong {
   color: black;
 }
@@ -196,18 +190,6 @@ table, form{
     padding-right: 30px;
     padding-left: 30px; }
 }
-// input{
-//   width: 100%;
-//   font-size: .65em;
-//   height: 30px;
-//   margin-bottom: -5px;
-//   border-radius: 4px;
-//   background: $fontColor2;
-//   color: $fontColor;
-//   border-bottom: 5px;
-//   border-right:5px;
-//   margin-top: 15px;
-// }
 .signinInput {
   margin-top: 15px;
 }
@@ -232,12 +214,16 @@ label{
   height: 400px;
   width: 70%;
 }
-
 .form {
   padding-bottom: 50px;
 }
-
+.top {
+  margin-bottom: 15px;
+}
 .pets {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
   width: 100%;
   padding-bottom: 50px;
   font: {
@@ -271,7 +257,6 @@ label{
     margin-left: 50px;
   }
 }
-
 .error {
   color: red;
   text-align: center;
@@ -279,11 +264,9 @@ label{
     family: 'Raleway', sans-serif;
   }
 }
-
 .formheading {
   margin-bottom: 20px;
 }
-
 #lostform {
   margin-bottom: 50px;
   text-align: left;
@@ -338,7 +321,6 @@ label{
       }
     }
 }
-
 .success {
   margin: 0 auto;
   width: 90%;
@@ -348,7 +330,6 @@ label{
     margin-bottom: 20px;
   }
 }
-
 #signin {
   margin-bottom: 50px;
   text-align: left;
@@ -403,7 +384,6 @@ label{
       }
     }
 }
-
 #signup {
   margin-bottom: 50px;
   text-align: left;
@@ -458,7 +438,6 @@ label{
       }
     }
 }
-
 #foundform {
   margin-bottom: 50px;
   text-align: left;
