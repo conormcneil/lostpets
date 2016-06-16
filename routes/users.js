@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var knex = require('../db/knex');
 var bcrypt = require('bcrypt');
+var cloudinary = require('cloudinary');
 
 // Function List
 function capitalizeFirst(string) {
@@ -115,5 +116,31 @@ router.post('/signup', function(req, res, next) {
     }
   })
 })
+
+router.get('/profile', function(req, res, next) {
+  // console.log(res.locals.user);
+  res.render('users/profile');
+});
+
+router.get('/profile/mypets', function(req, res, next) {
+  knex('users').then(function(user) {
+    knex('pets').fullOuterJoin('users', 'users.id', 'pets.user_id').where('users.id', res.locals.user.id).whereNot('pets.name', 'null').then(function(data) {
+      var petsAndUser = data;
+      console.log(petsAndUser);
+      res.render('users/profilepets', { petsAndUser: petsAndUser, fs: { echo: capitalizeFirst }});
+    });
+  })
+  .catch(function(err) {
+    res.send(err);
+  });
+  // knex('pets').where('user_id', res.locals.user.id).then(function(pets) {
+  //   var petsForUser = pets;
+  //   console.log(pets);
+  //   res.render('users/profilepets', { petsForUser: pets, fs: { echo: capitalizeFirst }});
+  // })
+  // .catch(function(err) {
+  //   res.send(err);
+  // });
+});
 
 module.exports = router;

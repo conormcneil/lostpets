@@ -19,6 +19,8 @@ html
           a(href="/users/signup") Sign Up
         else
           p Welcome, #{user.first_name}
+          a(href="/users/profile") My profile 
+          br
           a(href="/users/signout") Sign Out
     div#buttons 
       div#nav-bar    
@@ -26,7 +28,7 @@ html
         a(href="/pets/all") Find Pets
         a(href="/admin/users") Users
         a(href="/pets/add/lost") Report Lost Pet
-        a(href="/pets/add/found") Report Found Pet
+        a(href="/pets/add/found/initial") Report Found Pet
 
   script(src="https://cdn.auth0.com/js/lock-7.min.js")
   script(type="text/javascript").
