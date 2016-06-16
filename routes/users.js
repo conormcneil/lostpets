@@ -133,6 +133,14 @@ router.get('/profile/mypets', function(req, res, next) {
   .catch(function(err) {
     res.send(err);
   });
+  // knex('pets').where('user_id', res.locals.user.id).then(function(pets) {
+  //   var petsForUser = pets;
+  //   console.log(pets);
+  //   res.render('users/profilepets', { petsForUser: pets, fs: { echo: capitalizeFirst }});
+  // })
+  // .catch(function(err) {
+  //   res.send(err);
+  // });
 });
 
 module.exports = router;
