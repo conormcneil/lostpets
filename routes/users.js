@@ -123,8 +123,8 @@ router.get('/profile', function(req, res, next) {
 });
 
 router.get('/profile/mypets', function(req, res, next) {
-  knex('users').then(function(user) {
-    knex('pets').fullOuterJoin('users', 'users.id', 'pets.user_id').where('users.id', res.locals.user.id).whereNot('pets.name', 'null').then(function(data) {
+  knex('pets').then(function(user) {
+    knex('users').fullOuterJoin('pets', 'pets.user_id', 'users.id').where('pets.user_id', res.locals.user.id).whereNot('pets.name', 'null').then(function(data) {
       var petsAndUser = data;
       console.log(petsAndUser);
       res.render('users/profilepets', { petsAndUser: petsAndUser, fs: { echo: capitalizeFirst }});
@@ -133,14 +133,66 @@ router.get('/profile/mypets', function(req, res, next) {
   .catch(function(err) {
     res.send(err);
   });
-  // knex('pets').where('user_id', res.locals.user.id).then(function(pets) {
-  //   var petsForUser = pets;
-  //   console.log(pets);
-  //   res.render('users/profilepets', { petsForUser: pets, fs: { echo: capitalizeFirst }});
-  // })
-  // .catch(function(err) {
-  //   res.send(err);
-  // });
+});
+
+router.get('/:id/profile', function(req, res, next){
+  knex('pets')
+  .where({
+    id: req.params.id
+  })
+  .first()
+  .then(function(pet){
+    console.log(pet);
+    res.render('users/singlepet', {
+      pet: pet,
+    })
+  })
+})
+
+router.get('/:id/profile/delete', function(req, res, next) {
+  knex('pets')
+  .where({id: req.params.id})
+  .del()
+  .then(function(data) {
+    res.redirect('/users/profile/mypets');
+  });
+});
+
+router.get('/:id/profile/update', function(req, res, next) {
+  knex('pets').where({id: req.params.id}).then(function(data) {
+    var pets = data;
+    res.render('users/updatepet', {pets: pets});
+  });
+});
+
+router.post('/:id/profile/update', function(req, res, next) {
+  knex('pets').where({id: req.params.id}).update(req.body).then(function(){
+    res.redirect('/users/profile/mypets')
+  })
+  .catch(function(err) {
+    console.log(err);
+    res.render('users/updatepet', {error: "Something went wrong, please try again."})
+  });
+});
+
+router.get('/:id/profile/update/image', function(req, res, next) {
+  knex('pets').where({id: req.params.id}).then(function(data) {
+    var pets = data;
+    res.render('users/imageupdate', {pets: pets});
+  });
+});
+
+router.post('/:id/profile/update/image', function(req, res, next) {
+  knex('pets')
+  .where({
+    id: req.params.id
+  })
+  .update({
+    image: req.body.image
+  })
+  .then(function(){
+    res.redirect('/users/profile/mypets')
+  })
 });
 
 module.exports = router;
