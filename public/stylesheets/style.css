@@ -43,6 +43,7 @@ header {
 
 .footer {
   background: linear-gradient(90deg, #6B7599, #998D6B);
+  opacity: 0.5;
   height: 25px;
   padding: 20px;
   padding-top: 25px;
