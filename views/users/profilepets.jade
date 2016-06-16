@@ -2,12 +2,15 @@ extends ../layout
 
 block content 
   h1 Hello, #{user.first_name}
+  div.sidebar 
+    p.show
+    a(href="/users/profile") My Profile 
   div.main
     div.pets 
-      each pet in petsAndUser
+      each pet in petsAndUser 
         div.eachpet     
           ul
-            a(href="/pets/#{pet.id}/profile")
+            a(href="/users/#{pet.id}/profile/")
               img(src='#{pet.image}' style="height: 300px; width: 300px;")
             div.content
               if pet.isFound 
