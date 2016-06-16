@@ -10,4 +10,10 @@ block content
     br
     p
     a(href="/users/account/password" class="profilelink") Change Your Password 
-  
+    br
+    p
+    if user.isAdmin
+      a(href="/admin/users" class="profilelink") Edit Users
+      br
+      p
+      a(href="/admin/pets" class="profilelink") Edit Pets

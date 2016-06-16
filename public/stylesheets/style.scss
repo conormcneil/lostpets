@@ -24,7 +24,6 @@ body{
   padding-bottom: 50px;
 }
 header{
-  // display: flex;
   width: 100%;
   margin: 0;
   justify-content: center;
@@ -280,6 +279,9 @@ label{
     family: 'Raleway', sans-serif;
   }
   margin-bottom: 20px;
+  a {
+    color: $fontColor;
+  }
 }
 #successzip {
   text-align: center;
@@ -576,5 +578,9 @@ label{
   padding: 20px;
   p {
     height: 10px;
+  }
+  a {
+    text-decoration: none;
+    color: $fontColor;
   }
 }

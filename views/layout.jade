@@ -26,7 +26,6 @@ html
       div#nav-bar    
         a(href="/") Home
         a(href="/pets/all") Find Pets
-        a(href="/admin/users") Users
         a(href="/pets/add/lost") Report Lost Pet
         a(href="/pets/add/found/initial") Report Found Pet
 
@@ -39,7 +38,7 @@ html
         connections: ['facebook', 'google-oauth2'],
         // Change this line to environment-specific callback
         // Either {http://localhost:3000/callback} or {https://findingfido.herokuapp.com/callback}
-        callbackURL: 'http://localhost:3000',
+        callbackURL: 'http://localhost:3000/callback',
         responseType: 'code',
         authParams: {
           scope: 'openid email'

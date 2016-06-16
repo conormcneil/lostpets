@@ -228,6 +228,8 @@ label {
   text-align: center;
   font-family: 'Raleway', sans-serif;
   margin-bottom: 20px; }
+  #foundlink a {
+    color: #284DCC; }
 
 #successzip {
   text-align: center;
@@ -473,5 +475,8 @@ label {
   padding: 20px; }
   .accountlinks p {
     height: 10px; }
+  .accountlinks a {
+    text-decoration: none;
+    color: #284DCC; }
 
 /*# sourceMappingURL=style.css.map */
