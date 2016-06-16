@@ -237,7 +237,7 @@ router.get('/add/lost/:id/addimage', function(req, res, next){
   .first()
   .then(function(data){
     res.locals.pet = data;
-    res.render('pets/imageupload');
+    res.render('pets/imageupload-lost');
   });
 });
 router.post('/add/lost/:id/addimage', function(req, res, next){
@@ -267,12 +267,10 @@ router.get('/add/found/initial', function(req, res, next) {
 });
 
 router.post('/add/found/initial', function(req, res, next) {
-  console.log(req.body.zip);
   res.render('pets/foundinitial', {success: 'Zip successfully entered'})
 })
 
 router.get('/add/found', function(req, res, next) {
-  // console.log("FOUND: ", req.session.id);
   if(req.session.id) {
     res.render('pets/reportfound');
   }
@@ -353,11 +351,11 @@ router.get('/add/found/:id/addimage', function(req, res, next) {
   .where({
     id: req.params.id
   })
-  .returning('id')
-  .then(function(id){
-    res.locals.petId = id;
-    console.log(res.locals.petId);
-    res.render('pets/imageupload');
+  .first()
+  .then(function(data){
+    res.locals.pet = data;
+    console.log(res.locals.pet);
+    res.render('pets/imageupload-found');
   });
 });
 

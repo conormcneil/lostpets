@@ -34,7 +34,7 @@ router.get('/:id', function(req, res, next){
       client.messages.create({
        to: "+" + user.phone_number,
        from: "+15203554290",
-       body: "Someone found " + pet.name,
+       body: "Someone found " + pet.name + "! \nYou can contact someone, somewhere.",
       }, function(err, message) {
        console.log(message.sid);
       });

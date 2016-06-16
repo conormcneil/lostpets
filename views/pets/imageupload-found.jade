@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+  script(src='../../../../javascripts/imageupload.js')
+  
+  h1.formheading Upload Images
+  
+  p
+  form(action='/pets/add/found/addimage' method="post" id="lostform")
+    a(id='upload_widget_opener' href='#') Update the image of your pet 
+    script(src='//widget.cloudinary.com/global/all.js', type='text/javascript')
+    script(type='text/javascript').
+      document.getElementById("upload_widget_opener").addEventListener("click", function() {
+      cloudinary.openUploadWidget({ cloud_name: 'dmuipy77o', upload_preset: 'qpt4sw9g'},
+      function(error, result) { console.log(error); window.localStorage.setItem('image_url', result[0].secure_url) });
+      }, false);
+    br
+    label(for="image")
+    input(type="text" id="imageInput" name="image" style="display: none;")
+    //- label(for="id")
+    input(type="number" id="idInput" name="idInput" value='#{pet.id}' style="display: none;")
+    input(id="button" type="submit" value="Add Picture" class="submit")
+    br
