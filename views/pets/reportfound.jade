@@ -2,7 +2,7 @@ extends ../layout
 
 head
 block content
-  script(type='text/javascript', src='../../../../javascripts/reportfound.js')
+  
   h1.formheading Report a Found Pet 
   p.error= error
   form(action='/pets/add/found' method="post" class="form" id="foundform")
@@ -19,7 +19,7 @@ block content
       label(for="othertext")  If other, please enter the species: 
       input(type="text" name="other" id="othertext")
     p
-    label(for="location") Enter the approximate location of the pet (including zip code) 
+    label(for="location") Enter the approximate location of the pet  
       input(type="location" name="location" id="location")
     p
     label(for="date") Please add the date the pet was found. 
@@ -31,7 +31,7 @@ block content
     label(for="description") Please enter any additional information, such as breed, distinguishing features, characteristics, etc. 
     textarea(type="textarea" name="description" class="textarea")
     p
-    label(for="contact") Please enter your preferred contact information. 
+    label(for="contact") Please enter your phone number. 
       input(type="text" name="contact")
     p
     input(type="submit" value="Report Your Found Pet" id="submit" class="submit")
