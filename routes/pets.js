@@ -4,7 +4,6 @@ var knex = require('../db/knex');
 var cloudinary = require('cloudinary');
 
 function capitalizeFirst(string) {
-    console.log(string);
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
@@ -96,7 +95,6 @@ router.get('/browselost/dogs', function(req, res, next) {
   knex('pets').then(function(pets) {
     knex('users').fullOuterJoin('pets', 'pets.user_id', 'users.id').where('isFound', 'false').where('pets.species', 'dog').then(function(data) {
       var petsAndUsers = data;
-      console.log(petsAndUsers);
       res.render('pets/browselost', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }, func: { call: shortenDate }});
     });
   });
@@ -106,7 +104,6 @@ router.get('/browselost/cats', function(req, res, next) {
   knex('pets').then(function(pets) {
     knex('users').fullOuterJoin('pets', 'pets.user_id', 'users.id').where('isFound', 'false').where('pets.species', 'cat').then(function(data) {
       var petsAndUsers = data;
-      console.log(petsAndUsers);
       res.render('pets/browselost', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }, func: { call: shortenDate }});
     });
   });
@@ -134,7 +131,6 @@ router.get('/browsefound/dogs', function(req, res, next) {
   knex('pets').then(function(pets) {
     knex('users').fullOuterJoin('pets', 'pets.user_id', 'users.id').where('isFound', 'true').where('pets.species', 'dog').then(function(data) {
       var petsAndUsers = data;
-      console.log(petsAndUsers);
       res.render('pets/browsefound', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }, func: { call: shortenDate }});
     });
   });
@@ -144,7 +140,6 @@ router.get('/browsefound/cats', function(req, res, next) {
   knex('pets').then(function(pets) {
     knex('users').fullOuterJoin('pets', 'pets.user_id', 'users.id').where('isFound', 'true').where('pets.species', 'cat').then(function(data) {
       var petsAndUsers = data;
-      console.log(petsAndUsers);
       res.render('pets/browsefound', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }, func: { call: shortenDate }});
     });
   });
@@ -154,7 +149,6 @@ router.get('/browsefound/other', function(req, res, next) {
   knex('pets').then(function(pets) {
     knex('users').fullOuterJoin('pets', 'pets.user_id', 'users.id').where('isFound', 'true').whereNot('pets.species', 'cat').whereNot('pets.species', 'dog').then(function(data) {
       var petsAndUsers = data;
-      console.log(petsAndUsers);
       res.render('pets/browsefound', { petsAndUsers: petsAndUsers, fs: { echo: capitalizeFirst }, func: { call: shortenDate }});
     });
   });
@@ -171,7 +165,6 @@ router.get('/add/lost', function(req, res, next) {
 
 router.post('/add/lost', function(req, res, next) {
   var date = JSON.stringify(req.body.date);
-  console.log(date);
   var $phone_number = phoneNumber(req.body.contact);
   if(req.body.species === 'other') {
     knex('pets').insert({
@@ -187,11 +180,9 @@ router.post('/add/lost', function(req, res, next) {
     })
     .returning('id')
     .then(function(id) {
-      console.log("ID: ", id);
       res.redirect('/pets/add/lost/' + id + '/addimage');
     })
     .catch(function(err) {
-      console.log(err);
       res.render('pets/reportlost', { error: "Something went wrong in submitting your form. Please try again." })
     });
   } else {
@@ -208,11 +199,9 @@ router.post('/add/lost', function(req, res, next) {
     })
     .returning('id')
     .then(function(id) {
-      console.log("ID: ", id);
       res.redirect('/pets/add/lost/' + id + '/addimage');
     })
     .catch(function(err) {
-      console.log(err);
       res.render('pets/reportlost', { error: "Something went wrong in submitting your form. Please try again." })
     });
   }
@@ -297,11 +286,9 @@ router.post('/add/found', function(req, res, next) {
         })
         .returning('id')
         .then(function(id) {
-          console.log("ID: ", id);
           res.redirect('/pets/add/found/' + id + '/addimage');
         })
         .catch(function(err) {
-          console.log(err);
           res.render('pets/reportfound', { error: "Something went wrong in submitting your form. Please try again." })
         });
   }
@@ -321,18 +308,15 @@ router.post('/add/found', function(req, res, next) {
           })
           .returning('id')
           .then(function(id) {
-            console.log("ID: ", id);
             res.redirect('/pets/add/found/' + id +'/addimage');
           })
           .catch(function(err) {
-            console.log(err);;
             res.render('pets/reportfound', { error: "Something went wrong in submitting your form. Please try again." })
           });
     }
 });
 
 router.post('/add/found/addimage', function(req, res, next) {
-  console.log(req.body);
   knex('pets')
   .where({
     id: req.body.idInput
@@ -346,7 +330,6 @@ router.post('/add/found/addimage', function(req, res, next) {
 });
 
 router.get('/add/found/:id/addimage', function(req, res, next) {
-  console.log("GET: ", req.params.id);
   knex('pets')
   .where({
     id: req.params.id
@@ -354,7 +337,6 @@ router.get('/add/found/:id/addimage', function(req, res, next) {
   .first()
   .then(function(data){
     res.locals.pet = data;
-    console.log(res.locals.pet);
     res.render('pets/imageupload-found');
   });
 });
@@ -387,7 +369,6 @@ router.get('/:id/profile', function(req, res, next){
   })
   .first()
   .then(function(pet){
-    console.log(pet);
     res.render('pets/profile', {
       pet: pet,
       func: { call: shortenDate }
