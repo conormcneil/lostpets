@@ -174,12 +174,13 @@ label {
   padding-right: 14px; }
 
 #map {
+  display: flex;
+  margin-top: 50px;
+  margin-bottom: 50px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 50px;
-  margin-top: 50px;
-  height: 400px;
-  width: 70%; }
+  height: 300px;
+  width: 700px; }
 
 .form {
   padding-bottom: 50px; }
@@ -242,9 +243,6 @@ label {
   padding-bottom: 20px; }
   #sheltershow #humaneSoc {
     text-align: center; }
-
-#humaneSoc {
-  text-align: center; }
 
 #lostform {
   margin-bottom: 50px;
@@ -465,6 +463,13 @@ label {
   #shelterForm #zip:focus {
     border-color: #C9C9C9;
     -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px; }
+
+#addresses {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  font-size: .6em;
+  justify-content: center; }
 
 .accountlinks {
   text-align: center;
