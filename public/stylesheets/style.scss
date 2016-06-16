@@ -222,9 +222,7 @@ label{
   height: 400px;
   width: 70%;
 }
-.form {
-  padding-bottom: 50px;
-}
+
 .top {
   margin-bottom: 15px;
 }
@@ -302,8 +300,9 @@ label{
 #humaneSoc {
   text-align: center;
 }
-#lostform {
+#lostform, .form {
   margin-bottom: 50px;
+  padding-bottom: 50px;
   text-align: left;
   align-items: center;
   width: 85%;
