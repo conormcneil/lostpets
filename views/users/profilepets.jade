@@ -1,0 +1,54 @@
+extends ../layout 
+
+block content 
+  h1 Hello, #{user.first_name}
+  div.main
+    div.pets 
+      each pet in petsAndUser
+        div.eachpet     
+          ul
+            a(href="/pets/#{pet.id}/profile")
+              img(src='#{pet.image}' style="height: 300px; width: 300px;")
+            div.content
+              if pet.isFound 
+                li 
+                  strong FOUND 
+              else 
+                li 
+                  strong LOST
+              li 
+                strong Name: 
+                | #{fs.echo(pet.name)}
+              if pet.age 
+                li 
+                  strong Age: 
+                  | #{pet.age}
+              if pet.isFound
+                li 
+                  strong Location: 
+                  | #{fs.echo(pet.location)}
+              else 
+                li 
+                  strong Last Known Location: 
+                  | #{fs.echo(pet.location)}
+              li 
+                strong Description: 
+                | #{fs.echo(pet.description)}
+              if pet.date 
+                if pet.isFound
+                  li 
+                    strong Date Found: 
+                    | #{pet.date}
+                else 
+                  li 
+                    strong Date Lost: 
+                    | #{pet.date}
+              else 
+                li 
+                  strong No date available 
+              li 
+                strong User: 
+                | #{pet.username}
+              li 
+                strong Contact Info: 
+                | #{fs.echo(pet.contact)}

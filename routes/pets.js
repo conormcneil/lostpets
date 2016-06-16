@@ -8,12 +8,21 @@ function capitalizeFirst(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
+function phoneNumber(str){
+  return str.split('-').join('').split(' ').join('').split('(').join('').split(')').join('');
+}
+
 function shortenDate(date) {
-  var dateString = JSON.stringify(date);
-  var monthDay = dateString.substr(6, 5);
-  var year = dateString.substr(1, 4);
-  var newDateString = monthDay + '-' + year;
-  return newDateString;
+  if(typeof date === 'string') {
+    return date;
+  }
+  // else {
+  //   var dateString = JSON.stringify(date);
+  //   var monthDay = dateString.substr(6, 5);
+  //   var year = dateString.substr(1, 4);
+  //   var newDateString = year + '-' + monthDay;
+  //   return newDateString;
+  // }
 }
 
 /* GET home page. */
@@ -161,6 +170,9 @@ router.get('/add/lost', function(req, res, next) {
 });
 
 router.post('/add/lost', function(req, res, next) {
+  var date = JSON.stringify(req.body.date);
+  console.log(date);
+  var $phone_number = phoneNumber(req.body.contact);
   if(req.body.species === 'other') {
     knex('pets').insert({
       name: req.body.name,
@@ -170,7 +182,7 @@ router.post('/add/lost', function(req, res, next) {
       description: req.body.description,
       user_id: req.session.id,
       image: req.body.image,
-      contact: req.body.contact,
+      contact: $phone_number,
       date: req.body.date,
       isFound: 'false'
     })
@@ -191,7 +203,7 @@ router.post('/add/lost', function(req, res, next) {
       age: req.body.age,
       description: req.body.description,
       user_id: req.session.id,
-      contact: req.body.contact,
+      contact: $phone_number,
       date: req.body.date,
       isFound: 'false'
     })
@@ -252,6 +264,15 @@ router.get('/success-lost', function(req, res, next) {
   res.render('pets/success-lost');
 });
 
+router.get('/add/found/initial', function(req, res, next) {
+  res.render('pets/foundinitial');
+});
+
+router.post('/add/found/initial', function(req, res, next) {
+  console.log(req.body.zip);
+  res.render('pets/foundinitial', {success: 'Zip successfully entered'})
+})
+
 router.get('/add/found', function(req, res, next) {
   // console.log("FOUND: ", req.session.id);
   if(req.session.id) {
@@ -263,6 +284,7 @@ router.get('/add/found', function(req, res, next) {
 });
 
 router.post('/add/found', function(req, res, next) {
+  var $phone_number = phoneNumber(req.body.contact);
   if(req.body.species === 'other') {
     knex('pets').insert(
         {
@@ -273,7 +295,7 @@ router.post('/add/found', function(req, res, next) {
           description: req.body.description,
           user_id: req.session.id,
           image: req.body.image,
-          contact: req.body.contact,
+          contact: $phone_number,
           date: req.body.date,
           isFound: 'true'
         })
@@ -297,7 +319,7 @@ router.post('/add/found', function(req, res, next) {
             description: req.body.description,
             user_id: req.session.id,
             image: req.body.image,
-            contact: req.body.contact,
+            contact: $phone_number,
             date: req.body.date,
             isFound: 'true'
           })
@@ -376,5 +398,18 @@ router.get('/:id/profile', function(req, res, next){
     })
   })
 })
+
+router.get('/profile/mypets', function(req, res, next) {
+  knex('users').then(function(user) {
+    knex('pets').fullOuterJoin('users', 'users.id', 'pets.user_id').where('users.id', res.locals.user.id).whereNot('pets.name', 'null').then(function(data) {
+      var petsAndUser = data;
+      console.log(petsAndUser);
+      res.render('users/profilepets', { petsAndUser: petsAndUser, fs: { echo: capitalizeFirst }});
+    });
+  })
+  .catch(function(err) {
+    res.send(err);
+  });
+});
 
 module.exports = router;
