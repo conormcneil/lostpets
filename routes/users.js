@@ -42,7 +42,6 @@ router.post('/signin', function(req, res, next) {
       if (bcrypt.compareSync(req.body.password,user.password)) {
         req.session.id = (Array.isArray(user.id)) ? user.id[0] : user.id
         res.locals.user = user;
-        console.log("signin route: ", res.locals.user);
         res.redirect('/');
       }
       res.render('users/signin', {error: 'Username or password is incorrect.'});
@@ -50,9 +49,7 @@ router.post('/signin', function(req, res, next) {
     // Check password
     if (req.body.password === user.password) {
       req.session.id = (Array.isArray(user.id)) ? user.id[0] : user.id
-      console.log("USER: ", user);
       res.locals.user = user;
-      console.log("RES.LOCALS", res.locals);
       res.redirect('/');
     }
     else {
@@ -73,9 +70,7 @@ router.get('/signup', function(req, res, next) {
 });
 
 router.post('/signup', function(req, res, next) {
-  console.log(req.body);
   var $phone_number = phoneNumber(req.body.phone_number);
-  console.log($phone_number);
   var password = bcrypt.hashSync(req.body.password,8);
   // Check if username exists in database
   knex('users')
@@ -95,15 +90,11 @@ router.post('/signup', function(req, res, next) {
         phone_number: $phone_number
       })
       .then(function(data){
-        console.log(data);
         res.locals.id = data.id;
         res.locals.user = data;
-        console.log(res.locals.id);
         res.redirect('/');
       })
       .catch(function(err) {
-        console.log(req.body);
-        console.log(err);
         res.render('users/signup', {
           title: 'Sign up for a new account',
           error: 'Something went wrong: please try again.'
@@ -126,7 +117,6 @@ router.get('/profile/mypets', function(req, res, next) {
   knex('pets').then(function(user) {
     knex('users').fullOuterJoin('pets', 'pets.user_id', 'users.id').where('pets.user_id', res.locals.user.id).whereNot('pets.name', 'null').then(function(data) {
       var petsAndUser = data;
-      console.log(petsAndUser);
       res.render('users/profilepets', { petsAndUser: petsAndUser, fs: { echo: capitalizeFirst }});
     });
   })
@@ -142,7 +132,6 @@ router.get('/:id/profile', function(req, res, next){
   })
   .first()
   .then(function(pet){
-    console.log(pet);
     res.render('users/singlepet', {
       pet: pet,
     })
@@ -170,7 +159,6 @@ router.post('/:id/profile/update', function(req, res, next) {
     res.redirect('/users/profile/mypets')
   })
   .catch(function(err) {
-    console.log(err);
     res.render('users/updatepet', {error: "Something went wrong, please try again."})
   });
 });
@@ -197,7 +185,6 @@ router.post('/:id/profile/update/image', function(req, res, next) {
 
 router.get('/account', function(req, res, next) {
   knex('users').where({id: res.locals.user.id}).first().then(function(data) {
-    console.log(data);
     users = data
     res.render('users/account', {users: users});
   });
