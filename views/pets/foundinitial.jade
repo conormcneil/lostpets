@@ -12,7 +12,8 @@ block content
   form(action='/pets/add/found/initial' method="post" class="form" id="shelterForm")
     input(type="text" name="zip" id="zip") 
   div#sheltershow
-    input(type="button" value="Show Nearest Humane Societies" id="humaneSoc" class="submit")
+    input(type="button" data-lat='#{lat}',
+    data-lng='#{lng}' value="Show Nearest Humane Societies" id="humaneSoc" class="submit")
   div(id="addresses")
       div(id="address1" class="address")
       div(id="address2" class="address")
@@ -28,7 +29,7 @@ block content
       #map
     script.
       var map;
-      function initMap() {
+      function initMap(latitude, longitude) {
       map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 40.015, lng: -105.2705},
       zoom: 8
