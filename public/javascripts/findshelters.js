@@ -3,6 +3,9 @@ $(document).ready(function(){
   var y = document.getElementById('humaneSoc');
   var x = document.getElementById('zip');
   y.addEventListener('click', function(){
+    $('#address1').html('');
+    $('#address2').html('');
+    $('#address3').html('');
     window.localStorage.setItem('zipcode', x.value);
     $.ajax({
       dataType: 'jsonp',
