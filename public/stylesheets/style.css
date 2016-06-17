@@ -5,6 +5,13 @@
 header a button {
   color: #284DCC; }
 
+a {
+  text-decoration: none;
+  color: #284DCC; }
+
+a:hover {
+  color: purple; }
+
 body {
   background: white;
   font-family: 'Raleway', sans-serif;
@@ -527,6 +534,8 @@ label {
 
 .profile-right {
   padding-left: 15px; }
+  .profile-right a:hover {
+    color: purple; }
 
 #users tr td {
   padding: 20px;
@@ -545,5 +554,18 @@ label {
 
 .logo {
   height: 125px; }
+
+.confirm {
+  align-items: center;
+  text-align: center;
+  padding: 10px; }
+  .confirm img {
+    padding: 10px;
+    border-radius: 20%; }
+  .confirm a {
+    text-decoration: none;
+    color: #284DCC; }
+  .confirm a:hover {
+    color: purple; }
 
 /*# sourceMappingURL=style.css.map */
