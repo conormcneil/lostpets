@@ -6,7 +6,6 @@ var cloudinary = require('cloudinary');
 
 // Function List
 function capitalizeFirst(string) {
-  console.log(string);
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 function phoneNumber(str){

@@ -6,7 +6,6 @@ var admin = require('./lib/admin.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  console.log("amdin.js route line13: ", res.locals.user.isAdmin);
   res.render('index', {
     title: 'Admin Route'
   });
@@ -17,7 +16,6 @@ router.get('/users', function(req, res, next) {
   knex('users')
   .orderBy('id','asc')
   .then(function(users) {
-    console.log("REQ.SESSION IS: ", res.locals.user);
     if(res.locals.user == undefined) {
       res.render('users/error');
     }
