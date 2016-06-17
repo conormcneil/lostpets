@@ -47,6 +47,12 @@ app.use(passport.session());
 app.use(cookieParser());
 // See express session docs for information on the options: https://github.com/expressjs/session
 app.use(session({ secret: process.env.AUTH0_CLIENT_SECRET, resave: false,  saveUninitialized: false }));
+
+// app.use(function(req,res) {
+//   res.locals.process = {
+//     env: process.env
+//   }
+// })
 // Auth0 callback handler
 app.get('/callback',
   passport.authenticate('auth0', { failureRedirect: '/error' }),
