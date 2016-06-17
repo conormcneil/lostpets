@@ -5,7 +5,7 @@ $(document).ready(function(){
     window.localStorage.setItem('zipcode', x.value);
     $.ajax({
       dataType: 'jsonp',
-      url: 'http://api.petfinder.com/shelter.find?format=json&key=6bed824d0eff95a80bc97183e9046459&location=' + localStorage.zipcode,
+      url: 'https://api.petfinder.com/shelter.find?format=json&key=6bed824d0eff95a80bc97183e9046459&location=' + localStorage.zipcode,
       method: "GET",
       success: function(result){
         var result2 = result.petfinder.shelters.shelter;
