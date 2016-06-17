@@ -2,23 +2,21 @@ extends ../layout
 
 block content 
   h1 Edit #{user.first_name}'s Account Info
-  br 
   p.error= error 
-  br
-  div.sidebar 
+  div.accountlinks 
     p.show
-    a(href="/users/profile") My Profile 
-  div.main 
-    form(action="/users/account" method="post" class="form")
-      label(for="first_name") First Name:
-      input(name="first_name" type="text" value="#{users.first_name}" autofocus)
-      br
-      label(for="last_name") Last Name:
-      input(name="last_name" type="text" value="#{users.last_name}")
-      br
-      label(for="phone_number") 10-digit Phone Number
-      input(name="phone_number" type="text" value="#{users.phone_number}")        
-      br
-      input(type="submit" value="Save Changes" class="submit")
-      
+    a(href="/users/profile") Back To My Profile 
+  //- div.main 
+  form(action="/users/account" method="post" class="form")
+    label(for="first_name") First Name:
+    input(name="first_name" type="text" value="#{users.first_name}" autofocus)
+    br
+    label(for="last_name") Last Name:
+    input(name="last_name" type="text" value="#{users.last_name}")
+    br
+    label(for="phone_number") 10-digit Phone Number
+    input(name="phone_number" type="text" value="#{users.phone_number}")        
+    br
+    input(type="submit" value="Save Changes" class="submit")
     
+  
