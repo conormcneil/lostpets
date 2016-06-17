@@ -4,3 +4,11 @@
 "names": [],
 "file": "style.css"
 }
+
+name
+address1
+city
+state
+zip
+phone
+email

@@ -10,10 +10,112 @@ $(document).ready(function(){
       method: "GET",
       success: function(result){
         var result2 = result.petfinder.shelters.shelter;
-        if (result2[1].phone.$t === "undefined"){
-          result2[1].phone.$t =
-          "Phone Number not found."
+
+        if (result2[0].name.$t === undefined){
+          result2[0].name.$t =
+          "Not Found"
         };
+
+        if (result2[0].address1.$t === undefined){
+          result2[0].address1.$t =
+          "Address not found."
+        };
+
+        if (result2[0].city.$t === undefined){
+          result2[0].city.$t =
+          "City Unknown"
+        };
+
+        if (result2[0].state.$t === undefined){
+          result2[0].state.$t =
+          "Not available in petfinder directory."
+        };
+
+        if (result2[0].zip.$t === undefined){
+          result2[0].zip.$t =
+          "Zip code not available."
+        };
+
+        if (result2[0].phone.$t === undefined){
+          result2[0].phone.$t =
+          "Phone or website unavailble"
+        };
+
+        if (result2[0].email.$t === undefined){
+          result2[0].email.$t =
+          "Email not known."
+        };
+
+        if (result2[1].name.$t === undefined){
+          result2[1].name.$t =
+          "Not Found"
+        };
+
+        if (result2[1].address1.$t === undefined){
+          result2[1].address1.$t =
+          "Address not found."
+        };
+
+        if (result2[1].city.$t === undefined){
+          result2[1].city.$t =
+          "City Unknown"
+        };
+
+        if (result2[1].state.$t === undefined){
+          result2[1].state.$t =
+          "Not available in petfinder directory."
+        };
+
+        if (result2[1].zip.$t === undefined){
+          result2[1].zip.$t =
+          "Zip code not available."
+        };
+
+        if (result2[1].phone.$t === undefined){
+          result2[1].phone.$t =
+          "Phone or website unavailble"
+        };
+
+        if (result2[1].email.$t === undefined){
+          result2[1].email.$t =
+          "Email not known."
+        };
+
+        if (result2[2].name.$t === undefined){
+        result2[2].name.$t =
+          "Not Found"
+        };
+
+        if (result2[2].address1.$t === undefined){
+          result2[2].address1.$t =
+          "Address not found."
+        };
+
+        if (result2[2].city.$t === undefined){
+          result2[2].city.$t =
+          "City Unknown"
+        };
+
+        if (result2[2].state.$t === undefined){
+          result2[2].state.$t =
+          "Not available in petfinder directory."
+        };
+
+        if (result2[2].zip.$t === undefined){
+          result2[2].zip.$t =
+          "Zip code not available."
+        };
+
+        if (result2[2].phone.$t === undefined){
+          result2[2].phone.$t =
+          "Phone or website unavailble"
+        };
+
+        if (result2[2].email.$t === undefined){
+          result2[2].email.$t =
+          "Email not known."
+        };
+
         var latitude1 = result.petfinder.shelters.shelter['0'].latitude.$t;
         window.localStorage.setItem('latitude1', latitude1);
         var longitude1 =
