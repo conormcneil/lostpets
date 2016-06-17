@@ -367,25 +367,28 @@ router.get('/confirmlost', function(req, res, next) {
 });
 
 router.get('/confirmfound/:id/confirm', function(req, res, next){
-  knex('pets')
-  .where({
-    id: req.params.id
-  })
-  .first()
-  .then(function(pet){
-    knex('users')
+  if (res.locals.user) {
+    knex('pets')
     .where({
-      id: pet.user_id
+      id: req.params.id
     })
     .first()
-    .then(function(user){
-      res.render('pets/confirm-alert', {
-        pet: pet,
-        users: user
-      });
-
+    .then(function(pet){
+      knex('users')
+      .where({
+        id: pet.user_id
+      })
+      .first()
+      .then(function(user){
+        res.render('pets/confirm-alert', {
+          pet: pet,
+          users: user
+        });
+      })
     })
-  })
+  } else {
+    res.render('pets/error')
+  }
 })
 
 router.get('/:id/profile', function(req, res, next){
