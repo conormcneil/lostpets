@@ -8,6 +8,8 @@ header a button {
 a {
   text-decoration: none;
   color: #284DCC; }
+  a p:hover {
+    color: purple; }
 
 a:hover {
   color: purple; }
@@ -49,6 +51,8 @@ header {
   #signLinks a {
     text-decoration: none;
     color: #284DCC; }
+  #signLinks a:hover {
+    color: purple; }
 
 .footer {
   background: linear-gradient(90deg, #6B7599, #998D6B);
@@ -147,6 +151,8 @@ ul {
     color: #284DCC;
     text-decoration: none;
     padding-bottom: 20px; }
+  .sidebar a:hover {
+    color: purple; }
   .sidebar .show {
     padding-bottom: 20px;
     text-align: left; }
@@ -247,7 +253,10 @@ label {
   font-family: 'Raleway', sans-serif;
   margin-bottom: 20px; }
   #foundlink a {
-    color: #284DCC; }
+    color: #284DCC;
+    text-decoration: underline; }
+  #foundlink a:hover {
+    color: purple; }
 
 #successzip {
   text-align: center;
@@ -498,6 +507,8 @@ label {
   .accountlinks a {
     text-decoration: none;
     color: #284DCC; }
+  .accountlinks a:hover {
+    color: purple; }
 
 .back {
   text-decoration: none;
