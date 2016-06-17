@@ -159,6 +159,18 @@ exports.seed = function(knex, Promise) {
             date: '2016-05-10',
             image: 'http://res.cloudinary.com/dmuipy77o/image/upload/v1466182290/batman_eye6de.jpg',
             contact: '5202751232'
+        }),
+        knex('pets').insert({
+            name: 'Butters',
+            species: 'rabbit',
+            location: '84402',
+            age: '7 years',
+            description: 'I found a huge rabbit in my front yard that looks like it belongs to someone. Something about it just seems.... different?',
+            user_id: 2,
+            isFound: true,
+            date: '2016-05-11',
+            image: 'https://res.cloudinary.com/dmuipy77o/image/upload/v1466187879/butters_hdxueu.jpg',
+            contact: '5202751232'
         })
     );
 };
