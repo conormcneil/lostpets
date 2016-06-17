@@ -470,7 +470,7 @@ label{
       }
     }
 }
-#foundform {
+#foundform, .form {
   margin-bottom: 50px;
   text-align: left;
   align-items: center;
@@ -595,4 +595,51 @@ label{
 .back {
   text-decoration: none;
   padding: 15px;
+}
+
+#greetingdog {
+  width: 80%;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.welcome {
+  align-items: center;
+  text-align: center;
+
+  ul {
+    position: relative;
+    padding: 20px;
+
+    li {
+      list-style-type: none;
+      padding: 20px;
+      // display: flex;
+    }
+    img {
+      width: 50%;
+      border-radius: 50%;
+    }
+    .firstp {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.info {
+  padding: 5px;
+}
+
+#home {
+  border: none;
+}
+
+.profile-left {
+  h1 {
+    padding-bottom: 15px;
+  }
+}
+
+.profile-right {
+  padding-left: 15px;
 }
