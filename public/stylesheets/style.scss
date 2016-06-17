@@ -546,9 +546,10 @@ label{
 .address {
   padding: 20px;
 }
-#shelterForm {
+#shelterForm, .form {
   padding-bottom: 5px;
   #zip{
+    padding: 5px;
     border-bottom: 20px;
     border: solid 1px #E5E5E5;
     outline: 0;
