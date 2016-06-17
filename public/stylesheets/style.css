@@ -7,7 +7,7 @@ header a button {
 
 body {
   background: white;
-  font-family: Helvetica, sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 1.42857em;
   margin-bottom: -50px;
   padding-bottom: 50px; }
@@ -447,9 +447,10 @@ label {
 .address {
   padding: 20px; }
 
-#shelterForm {
+#shelterForm, .form {
   padding-bottom: 5px; }
-  #shelterForm #zip {
+  #shelterForm #zip, .form #zip {
+    padding: 5px;
     border-bottom: 20px;
     border: solid 1px #E5E5E5;
     outline: 0;
@@ -464,7 +465,8 @@ label {
     font-size: 1em;
     font-family: 'Raleway', sans-serif; }
   #shelterForm #zip:hover,
-  #shelterForm #zip:focus {
+  #shelterForm #zip:focus, .form #zip:hover,
+  .form #zip:focus {
     border-color: #C9C9C9;
     -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px; }
 
