@@ -32,7 +32,6 @@ html
   script(type="text/javascript").
     var lock = new Auth0Lock('odLWNoZNGYeONIG3KeVCisJcta40sQeQ', 'findingfido.auth0.com');
     function signin() {
-    console.log('layout line 35: test');
       lock.show({
         connections: ['facebook', 'google-oauth2'],
         // Change this line to environment-specific callback
