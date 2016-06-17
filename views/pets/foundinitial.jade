@@ -3,11 +3,9 @@ extends ../layout
 block content 
   script(src='../../../../javascripts/findshelters.js')
   br
-  h4 If you're ready to report the pet, just click the link below.
-  br
   div#foundlink 
-    a(href="/pets/add/found") I found someone's pet and I want to report it!
-  h4 Need to locate a humane society to drop off this pet? Just enter your zip code below and we'll locate nearby shelters for you.
+    a(href="/pets/add/found") If you're ready to report the pet, just click here!
+  h4 Need to locate a humane society to drop off this pet? Enter your zip code below to find the nearest shelters.
   br
   form(action='/pets/add/found/initial' method="post" class="form" id="shelterForm")
     input(type="text" name="zip" id="zip") 
