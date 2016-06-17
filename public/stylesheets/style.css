@@ -44,14 +44,13 @@ header {
 .footer {
   background: linear-gradient(90deg, #6B7599, #998D6B);
   opacity: 0.5;
-  height: 25px;
-  padding: 20px;
-  padding-top: 25px;
+  height: 35px;
   width: 100%;
   position: fixed;
-  bottom: 0px;
-  margin-top: 10px;
-  text-align: center; }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0px; }
 
 #buttons {
   display: flex;
@@ -120,6 +119,7 @@ h4 {
   font-family: 'Raleway', sans-serif; }
 
 p {
+  text-align: center;
   font-family: 'Raleway', sans-serif; }
 
 a {
@@ -132,11 +132,15 @@ ul {
   width: 12%;
   float: left;
   color: black;
+  text-align: left;
   padding-left: 10px; }
   .sidebar a {
+    color: #284DCC;
+    text-decoration: none;
     padding-bottom: 20px; }
   .sidebar .show {
-    padding-bottom: 20px; }
+    padding-bottom: 20px;
+    text-align: left; }
 
 .main {
   display: flex;

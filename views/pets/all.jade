@@ -3,18 +3,18 @@ extends ../layout
 block content
   div.top 
     h1 All Pets (Lost and Found)
-  div.sidebar 
-    p.show
-    a(href="/pets/browselost") Lost Pets 
-    p.show
+    p Click on a pet's image to view more info  
+  div.sidebar  
     a(href="/pets/browsefound") Found Pets 
     p.show
-    p Show Me:
+    a(href="/pets/browselost") Lost Pets
     p.show
-      a(href="/pets/all/dogs") Dogs 
+    p.show Show Me:
       p
-      a(href="/pets/all/cats") Cats
+      a(href="/pets/all/dogs") Dogs 
       p.show 
+      a(href="/pets/all/cats") Cats
+      p.show  
       a(href="/pets/all/other") Other 
   div.main
     
