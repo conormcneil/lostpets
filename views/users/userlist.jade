@@ -21,4 +21,5 @@ block content
             td= user.email
             td
               a(href='/admin/users/#{user.id}/#{!user.isAdmin}')= user.isAdmin
-            td Edit
+            td 
+              a(href='/admin/users/#{user.id}/delete') Delete User 
