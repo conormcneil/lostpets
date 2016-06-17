@@ -170,7 +170,7 @@ ul {
   padding-left: 10px;
   a {
     color: $fontColor;
-    text-decoration: none;  
+    text-decoration: none;
     padding-bottom: 20px;
   }
   .show {
@@ -592,4 +592,8 @@ label{
     text-decoration: none;
     color: $fontColor;
   }
+}
+.back {
+  text-decoration: none;
+  padding: 15px;
 }
