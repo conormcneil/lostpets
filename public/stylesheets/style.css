@@ -13,6 +13,9 @@ body {
   padding-bottom: 50px; }
 
 header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
   margin: 0;
   justify-content: center;
@@ -538,5 +541,8 @@ label {
     #pets tr td {
       padding: 20px;
       border-bottom: 1px solid black; }
+
+.logo {
+  height: 125px; }
 
 /*# sourceMappingURL=style.css.map */
