@@ -14,6 +14,9 @@ header a button {
 a {
   text-decoration: none;
   color: $fontColor;
+  p:hover {
+    color: purple;
+  }
 }
 a:hover {
   color: purple;
@@ -57,6 +60,9 @@ header{
   a {
     text-decoration: none;
     color: $fontColor;
+  }
+  a:hover {
+    color: purple;
   }
   color: $fontColor;
   text-align: center;
@@ -184,6 +190,9 @@ ul {
     text-decoration: none;
     padding-bottom: 20px;
   }
+  a:hover {
+    color: purple;
+  }
   .show {
     padding-bottom: 20px;
     text-align: left;
@@ -300,6 +309,10 @@ label{
   margin-bottom: 20px;
   a {
     color: $fontColor;
+    text-decoration: underline;
+  }
+  a:hover {
+    color: purple;
   }
 }
 #successzip {
@@ -603,6 +616,9 @@ label{
   a {
     text-decoration: none;
     color: $fontColor;
+  }
+  a:hover {
+    color: purple;
   }
 }
 .back {
