@@ -75,6 +75,90 @@ exports.seed = function(knex, Promise) {
             date: '2016-06-01',
             image: 'https://res.cloudinary.com/dmuipy77o/image/upload/v1466016668/dhqmu1dy1nagcsosozja.jpg',
             contact: '5202751232'
+        }),
+        knex('pets').insert({
+            name: 'Walker',
+            species: 'dog',
+            location: '84930',
+            age: '24 weeks',
+            description: 'Brown and black spots and white coat, Walker has been a wonderful addition to our family and we are missing him dearly. Please help us find him!',
+            user_id: 1,
+            isFound: false,
+            date: '2016-04-11',
+            image: 'https://res.cloudinary.com/dmuipy77o/image/upload/v1466182290/walker_yvhebx.jpg',
+            contact: '5202751232'
+        }),
+        knex('pets').insert({
+            name: 'Venus',
+            species: 'cat',
+            location: '85641',
+            age: '3-5 years',
+            description: 'I found Venus near the grocery store last night. He has a black and brown face and is very friendly.',
+            user_id: 2,
+            isFound: true,
+            date: '2016-02-24',
+            image: 'https://res.cloudinary.com/dmuipy77o/image/upload/v1466182290/venus_skeech.jpg',
+            contact: '5202751232'
+        }),
+        knex('pets').insert({
+            name: 'Tabby',
+            species: 'cat',
+            location: '80457',
+            age: '8 years',
+            description: 'Tabby has been my best friend for years, she loves playing with toys but is very independent. Please notify me if you see her!',
+            user_id: 3,
+            isFound: false,
+            date: '2016-03-15',
+            image: 'https://res.cloudinary.com/dmuipy77o/image/upload/v1466182290/tabby_agyzvk.jpg',
+            contact: '5202751232'
+        }),
+        knex('pets').insert({
+            name: 'Mustache',
+            species: 'cat',
+            location: '80432',
+            age: 'about 2 years',
+            description: 'I found this handsome cat sitting casually outside the local speakeasy. He\'s very laid back and seems to enjoy a good scotch each night before bed. I\'m sure someone is missing him!',
+            user_id: 2,
+            isFound: true,
+            date: '2016-06-15',
+            image: 'https://res.cloudinary.com/dmuipy77o/image/upload/v1466182290/mustache_chk7xp.jpg',
+            contact: '5202751232'
+        }),
+        knex('pets').insert({
+            name: 'Frank',
+            species: 'cat',
+            location: '80241',
+            age: '6',
+            description: 'I lost Frank on Valentine\'s Day and it broke my heart; he usually comes home after a few days but I haven\'t seen him at all. I suspect he is in the neighborhood somewhere and I would really appreciate anyone\'s help in finding him.',
+            user_id: 1,
+            isFound: false,
+            date: '2016-02-14',
+            image: 'http://res.cloudinary.com/dmuipy77o/image/upload/v1466182290/frank_vedqja.jpg',
+            contact: '5202751232'
+        }),
+        knex('pets').insert({
+            name: 'Bear',
+            species: 'dog',
+            location: '84301',
+            age: '3',
+            description: 'Found Bear wearing his tags but no phone number; I can keep him for a few weeks before I have to take him to a shelter.',
+            user_id: 1,
+            isFound: true,
+            date: '2016-05-14',
+            image: 'http://res.cloudinary.com/dmuipy77o/image/upload/v1466182290/bear_e10yiv.jpg',
+            contact: '5202751232'
+        }),
+        knex('pets').insert({
+            name: 'Batman',
+            species: 'dog',
+            location: '84301',
+            age: '1 year',
+            description: 'Batman often leaves in the night, I\'m not really sure where he goes or what he does but he\'s always come home... He will also respond to Fritz and sausages.',
+            user_id: 2,
+            isFound: false,
+            date: '2016-05-10',
+            image: 'http://res.cloudinary.com/dmuipy77o/image/upload/v1466182290/batman_eye6de.jpg',
+            contact: '5202751232'
         })
     );
 };
