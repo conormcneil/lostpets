@@ -21,7 +21,7 @@ router.get('/users', function(req, res, next) {
     }
     else if(res.locals.user.isAdmin) {
       res.render('users/userlist', {
-        users: users
+        rows: users
       });
     }
     else {
@@ -48,6 +48,15 @@ router.get('/:id/profile/delete', function(req, res, next){
   });
 })
 
+router.get('/users/:id/delete', function(req, res, next) {
+  knex('users')
+  .where({id: req.params.id})
+  .del()
+  .then(function(data) {
+    res.redirect('/admin/users');
+  });
+});
+
 router.get('/users/:id/:isAdmin', function(req, res, next){
   knex('users')
   .where({
@@ -60,5 +69,7 @@ router.get('/users/:id/:isAdmin', function(req, res, next){
     res.redirect('/admin/users');
   })
 })
+
+
 
 module.exports = router;
