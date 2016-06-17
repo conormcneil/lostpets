@@ -27,7 +27,8 @@ header {
 #title {
   font-size: 3em;
   font-family: 'Gloria Hallelujah', cursive;
-  width: 100%; }
+  width: 100%;
+  padding-right: 150px; }
 
 #signLinks {
   color: #284DCC;
