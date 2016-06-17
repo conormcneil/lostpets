@@ -2,29 +2,22 @@ extends ../layout
 
 block content 
   script(src='../../../../javascripts/findshelters.js')
-  script(type='text/javascript', src='../../../../javascripts/reportfound.js')
-  h3 Thank you for reporting a found pet!  
+  br
+  h4 If you're ready to report the pet, just click the link below.
   br
   div#foundlink 
-    a(href="/pets/add/found") If you're ready to post a found pet, just click here!
-  h4 Need to locate a humane society to drop off this pet? Just enter your zip code below to find the nearest animal shelters.
+    a(href="/pets/add/found") I found someone's pet and I want to report it!
+  h4 Need to locate a humane society to drop off this pet? Just enter your zip code below and we'll locate nearby shelters for you.
   br
   form(action='/pets/add/found/initial' method="post" class="form" id="shelterForm")
-    input(type="text" name="zip" id="zip" placeholder="12345" autofocus)
-    br
-    input(type="submit" value="Submit Zip Code" class="submit" id="submitzip") 
-  div#successzip
-    p= success 
-    
+    input(type="text" name="zip" id="zip") 
   div#sheltershow
     input(type="button" value="Show Nearest Humane Societies" id="humaneSoc" class="submit")
-    p
-    div(id="addresses")
+  div(id="addresses")
       div(id="address1" class="address")
       div(id="address2" class="address")
       div(id="address3" class="address")
-    
-      div(id="map")
+  div(id="map")
 
     style.
       html {
@@ -43,5 +36,3 @@ block content
       }
     script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDKlEoatQMCNbV8_y7_i-8oR_Ven7dFMTM&callback=initMap', async='', defer='')
     p
-    
-    
