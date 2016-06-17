@@ -22,6 +22,9 @@ body{
   padding-bottom: 50px;
 }
 header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
   margin: 0;
   justify-content: center;
@@ -642,4 +645,8 @@ label{
 
 .profile-right {
   padding-left: 15px;
+}
+
+.logo {
+  height: 125px;
 }
