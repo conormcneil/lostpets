@@ -17,5 +17,5 @@ block content
        p Date Lost: #{func.call(pet.date)}
      p Description: #{pet.description}
      br
-     a(href="/twilio/#{pet.id}") 
+     a(href="/pets/confirmfound/#{pet.id}/confirm") 
        h3 I found #{pet.name}!
