@@ -643,3 +643,30 @@ label{
 .profile-right {
   padding-left: 15px;
 }
+
+#users {
+  tr {
+    // border-bottom: 1px solid black;
+    // display: block;
+    td {
+      padding: 20px;
+      border-bottom: 1px solid black;
+    }
+  }
+}
+
+#pets {
+  width: 100%;
+  padding-top: 50px;
+  padding-left: 150px;
+  font-size: 0.75em;
+  tr {
+    border-bottom: 1px solid black;
+
+    td {
+      padding: 20px;
+      border-bottom: 1px solid black;
+    }
+  }
+
+}
