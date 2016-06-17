@@ -37,6 +37,7 @@ html
         connections: ['facebook', 'google-oauth2'],
         // Change this line to environment-specific callback
         // Either {http://localhost:3000/callback} or {https://findingfido.herokuapp.com/callback}
+        //- callbackURL : process.env.CALLBACK_URL,
         callbackURL: 'http://localhost:3000/callback',
         responseType: 'code',
         authParams: {
@@ -47,6 +48,6 @@ html
 
   block content
 
-  block footer 
+  block footer
     footer.footer 
       p Copyright © 2016 Finding Fido 
