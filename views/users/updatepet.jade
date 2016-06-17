@@ -1,7 +1,9 @@
 extends ../layout
 
 block content 
-  h1.formheading Update This Pet 
+  h1.formheading Update This Pet
+  div.updateback 
+    a(class="back" href="/users/profile/mypets") Back To My Pets 
   p.error= error
   each pet in pets 
     form(action='/users/#{pet.id}/profile/update' method="post" id="lostform")
