@@ -27,7 +27,8 @@ header {
 #title {
   font-size: 3em;
   font-family: 'Gloria Hallelujah', cursive;
-  width: 100%; }
+  width: 100%;
+  padding-right: 150px; }
 
 #signLinks {
   color: #284DCC;
@@ -526,6 +527,21 @@ label {
 
 .profile-right {
   padding-left: 15px; }
+
+#users tr td {
+  padding: 20px;
+  border-bottom: 1px solid black; }
+
+#pets {
+  width: 100%;
+  padding-top: 50px;
+  padding-left: 150px;
+  font-size: 0.75em; }
+  #pets tr {
+    border-bottom: 1px solid black; }
+    #pets tr td {
+      padding: 20px;
+      border-bottom: 1px solid black; }
 
 .logo {
   height: 125px; }
