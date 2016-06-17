@@ -12,7 +12,7 @@ exports.seed = function(knex, Promise) {
             description: 'The cutest nearsighted Yellow Lab you ever saw',
             user_id: 1,
             isFound: false,
-            date: '05-25-2016',
+            date: '2016-05-25',
             image: 'https://res.cloudinary.com/dmuipy77o/image/upload/v1465920528/spot_test.jpg',
             contact: '5202751232'
         }),
@@ -24,7 +24,7 @@ exports.seed = function(knex, Promise) {
             description: 'Small, gold Yorkie with cape, allergic to kryptonite',
             user_id: 2,
             isFound: false,
-            date: '03-30-2016',
+            date: '2016-03-12',
             image: 'http://res.cloudinary.com/dmuipy77o/image/upload/v1465920528/fido_test.jpg',
             contact: '5202751232'
         }),
@@ -36,7 +36,7 @@ exports.seed = function(knex, Promise) {
             description: 'Rose is a small black cat with brown stripes and white paws.',
             user_id: 3,
             isFound: true,
-            date: '12-30-2015',
+            date: '2015-12-30',
             image: 'http://res.cloudinary.com/dmuipy77o/image/upload/v1465920528/rose_test.jpg',
             contact: '5202751232'
         }),
@@ -60,7 +60,7 @@ exports.seed = function(knex, Promise) {
             description: 'blue nose pit, he loves people, kids and chewy toys. he loves bacon and was wearing a brown leather collar with his tags',
             user_id: 2,
             isFound: false,
-            date: '3-30-2016',
+            date: '2016-03-30',
             image: 'https://res.cloudinary.com/dmuipy77o/image/upload/v1466017454/n5igycm4vt8aspwc4ja4.jpg',
             contact: '5202751232'
         }),
@@ -72,7 +72,7 @@ exports.seed = function(knex, Promise) {
             description: 'He has black spots on his tongue, loves hunting birds, was wearing a blue collar last time I saw him',
             user_id: 1,
             isFound: true,
-            date: '06-01-2016',
+            date: '2016-06-01',
             image: 'https://res.cloudinary.com/dmuipy77o/image/upload/v1466016668/dhqmu1dy1nagcsosozja.jpg',
             contact: '5202751232'
         })

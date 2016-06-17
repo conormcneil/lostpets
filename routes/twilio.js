@@ -25,7 +25,6 @@ router.get('/:id', function(req, res, next){
     })
     .first()
     .then(function(user){
-      console.log("USER: ", user);
       // Twilio Credentials
       var accountSid = process.env.TWILIO_ACCOUNT_SID;
       var authToken = process.env.TWILIO_AUTH_TOKEN;

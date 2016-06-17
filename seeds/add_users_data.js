@@ -10,8 +10,8 @@ exports.seed = function(knex, Promise) {
             password: '$2a$08$Fl.2PwybQk2M1LYOU2emcu74W/oMVapDWvGHLvPlt5DzOEtOvUS3W',
             email: 'andrew@andrew.com',
             user_image: 'examplehosting.com/andrew.jpg',
-            first_name: 'andrew',
-            last_name: 'west',
+            first_name: 'Andrew',
+            last_name: 'West',
             phone_number: 15202751232,
             isAdmin: true
         }),
@@ -21,19 +21,19 @@ exports.seed = function(knex, Promise) {
             password: '$2a$08$ak.2skitNrOT0C4/e9KP7ufu/ulv83aC7jGhehkAuRcbGz65quGDu',
             email: 'lizziebee422@gmail.com',
             user_image: 'examplehosting.com/lizzie.jpg',
-            first_name: 'lizzie',
-            last_name: 'szoke',
+            first_name: 'Lizzie',
+            last_name: 'Szoke',
             phone_number: 15202751232,
             isAdmin: true
         }),
         knex('users').insert({
             id: 3,
-            username: 'conor',
+            username: 'Conor',
             password: '$2a$08$nz8VnQBycH/ggQhhZFUhJe0rKCETRqroqFsGD/BjxsEWEbGSFxOym',
             email: 'cmkingston21@gmail.com',
             user_image: 'examplehosting.com/conor.jpg',
-            first_name: 'conor',
-            last_name: 'kingston',
+            first_name: 'Conor',
+            last_name: 'Kingston',
             phone_number: 15202751232,
             isAdmin: true
         })

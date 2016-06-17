@@ -10,6 +10,7 @@ html
     script(src='//cdn.auth0.com/js/lock-9.1.min.js')
     meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
     header 
+      img(src="/images/logo_brown.png", class="logo")
       h1#title Finding Fido 
       div#signLinks
         if !user
@@ -32,7 +33,6 @@ html
   script(type="text/javascript").
     var lock = new Auth0Lock('odLWNoZNGYeONIG3KeVCisJcta40sQeQ', 'findingfido.auth0.com');
     function signin() {
-    console.log('layout line 35: test');
       lock.show({
         connections: ['facebook', 'google-oauth2'],
         // Change this line to environment-specific callback

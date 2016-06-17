@@ -12,13 +12,21 @@ block content
       th Email
       th Admin
       th
-        for user in users
+        each row in rows 
           tr
-            td= user.id
-            td= user.first_name
-            td= user.last_name
-            td= user.username
-            td= user.email
-            td
-              a(href='/admin/users/#{user.id}/#{!user.isAdmin}')= user.isAdmin
-            td Edit
+            td= row.id
+            td= row.first_name
+            td= row.last_name
+            td= row.username
+            td= row.email
+            if user.id != row.id
+              td
+                a(href='/admin/users/#{row.id}/#{!row.isAdmin}')= row.isAdmin
+            else 
+              td= row.isAdmin 
+            if user.id != row.id 
+              td 
+                a(href='/admin/users/#{row.id}/delete') Delete User 
+            else 
+              td 
+           

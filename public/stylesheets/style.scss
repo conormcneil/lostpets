@@ -22,6 +22,9 @@ body{
   padding-bottom: 50px;
 }
 header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
   margin: 0;
   justify-content: center;
@@ -36,6 +39,7 @@ header{
     family: 'Gloria Hallelujah', cursive;
   }
   width: 100%;
+  padding-right: 150px;
 }
 #signLinks {
   p {
@@ -470,7 +474,7 @@ label{
       }
     }
 }
-#foundform {
+#foundform, .form {
   margin-bottom: 50px;
   text-align: left;
   align-items: center;
@@ -595,4 +599,81 @@ label{
 .back {
   text-decoration: none;
   padding: 15px;
+}
+
+#greetingdog {
+  width: 80%;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.welcome {
+  align-items: center;
+  text-align: center;
+
+  ul {
+    position: relative;
+    padding: 20px;
+
+    li {
+      list-style-type: none;
+      padding: 20px;
+      // display: flex;
+    }
+    img {
+      width: 50%;
+      border-radius: 50%;
+    }
+    .firstp {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.info {
+  padding: 5px;
+}
+
+#home {
+  border: none;
+}
+
+.profile-left {
+  h1 {
+    padding-bottom: 15px;
+  }
+}
+
+.profile-right {
+  padding-left: 15px;
+}
+
+#users {
+  tr {
+    // border-bottom: 1px solid black;
+    // display: block;
+    td {
+      padding: 20px;
+      border-bottom: 1px solid black;
+    }
+  }
+}
+
+#pets {
+  width: 100%;
+  padding-top: 50px;
+  padding-left: 150px;
+  font-size: 0.75em;
+  tr {
+    border-bottom: 1px solid black;
+
+    td {
+      padding: 20px;
+      border-bottom: 1px solid black;
+    }
+  }
+}
+
+.logo {
+  height: 125px;
 }

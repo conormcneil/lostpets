@@ -1,7 +1,6 @@
 $(document).ready(function(){
   $('#button').click(function(){
     var image_url = window.localStorage.getItem('image_url');
-    console.log(image_url);
     $('#imageInput').val(image_url);
   })
   var y = document.getElementById('humaneSoc');
@@ -11,7 +10,6 @@ $(document).ready(function(){
       url: 'http://api.petfinder.com/shelter.find?format=json&key=6bed824d0eff95a80bc97183e9046459&location=' + localStorage.zipcode,
       method: "GET",
       success: function(result){
-        console.log(result);
         var result2 = result.petfinder.shelters.shelter;
         var latitude1 = result.petfinder.shelters.shelter['0'].latitude.$t;
         window.localStorage.setItem('latitude1', latitude1);
@@ -50,7 +48,6 @@ $(document).ready(function(){
     //   })
     // );
     var markerArray = window.localStorage.locationArray.split(",");
-    console.log(markerArray);
     for (var i = 0; i < markerArray.length; i++) {
         if(markerArray[i] > 0 && markerArray[i+1] <0)
         marker = new google.maps.Marker({

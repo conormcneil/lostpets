@@ -2,26 +2,42 @@ extends layout
 
 block content
   link(rel='stylesheet', href='/stylesheets/index.css')
-  div.main
+  div.main#home 
     div.welcome
       h2(id="p1") Welcome to Finding Fido!
+      img#greetingdog(src="https://static.pexels.com/photos/92380/pexels-photo-92380-large.jpeg")
       h3(id="p1") Finding Fido is a project dedicated to helping pet-owners reunite each other with their lost pets.
-      p(style="text-align: left; margin: 5px;") Losing a pet can be stressful and deeply saddening. Many of us have lost a beloved pet and can remember the pain and sense of hopelessness that quickly sets in. While a visual search of the neighborhood has been the most effective method for finding a lost pet, not everyone manages to find their lost family member.
-      p(style="text-align: left; margin: 5px;") For those pets that become lost for an extended period, Finding Fido provides a centralized location for people to enlist the support of their communities in finding their pets and safely returning them home.
-    div.info
+      //- p(style="text-align: left; margin: 5px;") Losing a pet can be stressful and deeply saddening. Many of us have lost a beloved pet and can remember the pain and sense of hopelessness that quickly sets in. While a visual search of the neighborhood has been the most effective method for finding a lost pet, not everyone manages to find their lost family member.
+      //- p(style="text-align: left; margin: 5px;") For those pets that become lost for an extended period, Finding Fido provides a centralized location for people to enlist the support of their communities in finding their pets and safely returning them home.
       ul
-        li
-          p(style="text-align: left") A family pet is lost every 2 seconds in the US.
-        li
-          p(style="text-align: left")
-            | Of those pets, about 
-            span(style="color: red;") 1
-            |  in 
-            span(style="color: red;") 10
-            |  are successfully returned to their homes.
-        li
-          p(style="text-align: left") More facts will go here.
-        li
-          p(style="text-align: left") Maybe even some cute pictures of pets?
-        li
-          p(style="text-align: left") Definitely something cute.
+        li 
+          img(src="https://static.pexels.com/photos/96938/pexels-photo-96938-large.jpeg") 
+          p.firstp A family pet is lost every 2 seconds in the US.
+          p That is over 7 million pets that go missing.
+        li 
+          img(src="https://static.pexels.com/photos/69433/pexels-photo-69433-large.jpeg")
+          p Only 26% of dogs are found and returned home.
+        li 
+          img(src="https://static.pexels.com/photos/20306/pexels-photo-large.jpg")
+          p For cats, that number is even lower.
+          p Less than 5% of lost cats are returned home.
+    div.info
+      p Losing a pet can be stressful and deeply saddening. Many of us have lost a beloved pet and can remember the pain and sense of hopelessness that quickly sets in. While a visual search of the neighborhood has been the most effective method for finding a lost pet, not everyone manages to find their lost family member.
+      br
+      p For those pets that become lost for an extended period, Finding Fido provides a centralized location for people to enlist the support of their communities in finding their pets and safely returning them home.
+      //- ul
+      //-   li
+      //-     p(style="text-align: left") A family pet is lost every 2 seconds in the US.
+      //-   li
+      //-     p(style="text-align: left")
+      //-       | Of those pets, about 
+      //-       span(style="color: red;") 1
+      //-       |  in 
+      //-       span(style="color: red;") 10
+      //-       |  are successfully returned to their homes.
+      //-   li
+      //-     p(style="text-align: left") More facts will go here.
+      //-   li
+      //-     p(style="text-align: left") Maybe even some cute pictures of pets?
+      //-   li
+      //-     p(style="text-align: left") Definitely something cute.

@@ -15,9 +15,9 @@ p {
 .info {
   width: 20%;
   float: right;
-  border-style: solid;
+  /*border-style: solid;
   border-color: black;
-  border-width: thin;
+  border-width: thin;*/
 }
 .info * {
   padding: 3px;

@@ -375,8 +375,6 @@ router.get('/confirmfound/:id/confirm', function(req, res, next){
     })
     .first()
     .then(function(user){
-      console.log("USER: ", user);
-      console.log("PET: ", pet);
       res.render('pets/confirm-alert', {
         pet: pet,
         user: user

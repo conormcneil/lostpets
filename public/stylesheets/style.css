@@ -13,6 +13,9 @@ body {
   padding-bottom: 50px; }
 
 header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
   margin: 0;
   justify-content: center;
@@ -24,7 +27,8 @@ header {
 #title {
   font-size: 3em;
   font-family: 'Gloria Hallelujah', cursive;
-  width: 100%; }
+  width: 100%;
+  padding-right: 150px; }
 
 #signLinks {
   color: #284DCC;
@@ -384,16 +388,16 @@ label {
     font-size: 1em;
     font-family: 'Raleway', sans-serif; }
 
-#foundform {
+#foundform, .form {
   margin-bottom: 50px;
   text-align: left;
   align-items: center;
   width: 85%; }
-  #foundform a {
+  #foundform a, .form a {
     margin-bottom: 20px; }
-  #foundform .radio {
+  #foundform .radio, .form .radio {
     float: left; }
-  #foundform input, #foundform textarea {
+  #foundform input, #foundform textarea, .form input, .form textarea {
     padding: 9px;
     border: solid 1px #E5E5E5;
     outline: 0;
@@ -406,16 +410,17 @@ label {
     margin: 5px;
     font-size: 1em;
     font-family: 'Raleway', sans-serif; }
-  #foundform .textarea {
+  #foundform .textarea, .form .textarea {
     width: 600px;
     max-width: 600px;
     height: 150px;
     line-height: 150%; }
   #foundform input:hover, #foundform textarea:hover,
-  #foundform input:focus, #foundform textarea:focus {
+  #foundform input:focus, #foundform textarea:focus, .form input:hover, .form textarea:hover,
+  .form input:focus, .form textarea:focus {
     border-color: #C9C9C9;
     -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px; }
-  #foundform .submit {
+  #foundform .submit, .form .submit {
     width: auto;
     padding: 9px 15px;
     background: #617798;
@@ -490,5 +495,55 @@ label {
 .back {
   text-decoration: none;
   padding: 15px; }
+
+#greetingdog {
+  width: 80%;
+  border-radius: 20px;
+  padding: 10px; }
+
+.welcome {
+  align-items: center;
+  text-align: center; }
+  .welcome ul {
+    position: relative;
+    padding: 20px; }
+    .welcome ul li {
+      list-style-type: none;
+      padding: 20px; }
+    .welcome ul img {
+      width: 50%;
+      border-radius: 50%; }
+    .welcome ul .firstp {
+      margin-bottom: 10px; }
+
+.info {
+  padding: 5px; }
+
+#home {
+  border: none; }
+
+.profile-left h1 {
+  padding-bottom: 15px; }
+
+.profile-right {
+  padding-left: 15px; }
+
+#users tr td {
+  padding: 20px;
+  border-bottom: 1px solid black; }
+
+#pets {
+  width: 100%;
+  padding-top: 50px;
+  padding-left: 150px;
+  font-size: 0.75em; }
+  #pets tr {
+    border-bottom: 1px solid black; }
+    #pets tr td {
+      padding: 20px;
+      border-bottom: 1px solid black; }
+
+.logo {
+  height: 125px; }
 
 /*# sourceMappingURL=style.css.map */
