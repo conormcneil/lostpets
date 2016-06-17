@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+  h2 Confirmation
+  
+  h3 Please confirm that you have found #{pet.name} before contacting #{user.first_name}.
+  
+  
+  h3= pet.name
+  img(src="#{pet.image}" style="height: 150px;")
+    
+  a(href="/twilio/#{pet.id}") Yes, I think I found #{pet.name}!

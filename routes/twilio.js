@@ -25,6 +25,7 @@ router.get('/:id', function(req, res, next){
     })
     .first()
     .then(function(user){
+      console.log("USER: ", user);
       // Twilio Credentials
       var accountSid = process.env.TWILIO_ACCOUNT_SID;
       var authToken = process.env.TWILIO_AUTH_TOKEN;
@@ -33,7 +34,7 @@ router.get('/:id', function(req, res, next){
       client.messages.create({
        to: "+" + user.phone_number,
        from: "+15203554290",
-       body: "Someone found " + pet.name + "! \nYou can contact someone, somewhere.",
+       body: "Someone found " + pet.name + "! \nYou can contact " + user.first_name + " at " + user.phone_number,
       }, function(err, message) {
       });
       res.redirect('/pets/confirmfound');
