@@ -96,13 +96,13 @@ router.post('/signup', function(req, res, next) {
       .catch(function(err) {
         res.render('users/signup', {
           title: 'Sign up for a new account',
-          error: 'Something went wrong: please try again.'
+          error: '1 Something went wrong: please try again.'
         })
       })
     } else {
       res.render('users/signup', {
         title: 'Sign up for a new account',
-        error: 'Something went wrong: please try again.'
+        error: '2 Something went wrong: please try again.'
       })
     }
   })
