@@ -21,7 +21,7 @@ router.get('/users', function(req, res, next) {
     }
     else if(res.locals.user.isAdmin) {
       res.render('users/userlist', {
-        users: users
+        rows: users
       });
     }
     else {
