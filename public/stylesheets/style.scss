@@ -10,6 +10,15 @@ $headerColor: #CC4C28;
 header a button {
   color: $fontColor;
 }
+
+a {
+  text-decoration: none;
+  color: $fontColor;
+}
+a:hover {
+  color: purple;
+}
+
 $headerFont: Helvetica, sans-serif;
 $headerFontSize: (10/7) * 1em;
 body{
@@ -646,6 +655,9 @@ label{
 
 .profile-right {
   padding-left: 15px;
+  a:hover {
+    color: purple;
+  }
 }
 
 #users {
@@ -676,4 +688,21 @@ label{
 
 .logo {
   height: 125px;
+}
+
+.confirm {
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  img {
+    padding: 10px;
+    border-radius: 20%;
+  }
+  a {
+    text-decoration: none;
+    color: $fontColor;
+  }
+  a:hover {
+    color: purple;
+  }
 }
