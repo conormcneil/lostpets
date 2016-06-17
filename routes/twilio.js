@@ -26,17 +26,32 @@ router.get('/:id', function(req, res, next){
     .first()
     .then(function(user){
       // Twilio Credentials
-      var accountSid = process.env.TWILIO_ACCOUNT_SID;
-      var authToken = process.env.TWILIO_AUTH_TOKEN;
-      //require the Twilio module and create a REST client
-      var client = require('twilio')(accountSid, authToken);
-      client.messages.create({
-       to: "+" + user.phone_number,
-       from: "+15203554290",
-       body: "Someone found " + pet.name + "! \nYou can contact " + user.first_name + " at " + user.phone_number,
-      }, function(err, message) {
-      });
-      res.redirect('/pets/confirmfound');
+      if(pet.isFound) {
+        var accountSid = process.env.TWILIO_ACCOUNT_SID;
+        var authToken = process.env.TWILIO_AUTH_TOKEN;
+        //require the Twilio module and create a REST client
+        var client = require('twilio')(accountSid, authToken);
+        client.messages.create({
+         to: "+" + user.phone_number,
+         from: "+15203554290",
+         body: "Someone lost " + pet.name + "! \nYou can contact " + user.first_name + " at " + user.phone_number,
+        }, function(err, message) {
+        });
+        res.redirect('/pets/confirmlost');
+      }
+      else {
+        var accountSid = process.env.TWILIO_ACCOUNT_SID;
+        var authToken = process.env.TWILIO_AUTH_TOKEN;
+        //require the Twilio module and create a REST client
+        var client = require('twilio')(accountSid, authToken);
+        client.messages.create({
+         to: "+" + user.phone_number,
+         from: "+15203554290",
+         body: "Someone found " + pet.name + "! \nYou can contact " + user.first_name + " at " + user.phone_number,
+        }, function(err, message) {
+        });
+        res.redirect('/pets/confirmfound');
+      }
     })
   })
 })

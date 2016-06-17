@@ -6,16 +6,21 @@ block content
    p Back
  
  div.profile
-   div.profile-left
-     h1= pet.name
-     img(src="#{pet.image}")
-   div.profile-right
-     p Age: #{pet.age}
-     if pet.isFound
-       p Date Found: #{pet.date}
-     else
-       p Date Lost: #{func.call(pet.date)}
-     p Description: #{pet.description}
-     br
+  div.profile-left
+   h1= pet.name
+   img(src="#{pet.image}")
+  div.profile-right
+   p Age: #{pet.age}
+   if pet.isFound
+     p Date Found: #{pet.date}
+   else
+     p Date Lost: #{func.call(pet.date)}
+   p Description: #{pet.description}
+   br
+   if pet.isFound 
+     a(href="/pets/confirmfound/#{pet.id}/confirm") 
+       h3 I lost #{pet.name}!
+   else
      a(href="/pets/confirmfound/#{pet.id}/confirm") 
        h3 I found #{pet.name}!
+    

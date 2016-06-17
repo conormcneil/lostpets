@@ -362,6 +362,10 @@ router.get('/confirmfound', function(req, res, next){
   res.render('pets/confirmfound');
 });
 
+router.get('/confirmlost', function(req, res, next) {
+  res.render('pets/confirmlost');
+});
+
 router.get('/confirmfound/:id/confirm', function(req, res, next){
   knex('pets')
   .where({
@@ -377,7 +381,7 @@ router.get('/confirmfound/:id/confirm', function(req, res, next){
     .then(function(user){
       res.render('pets/confirm-alert', {
         pet: pet,
-        user: user
+        users: user
       });
 
     })

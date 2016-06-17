@@ -1,6 +1,9 @@
 body {
   text-align: center;
 }
+#petprofilelink:hover {
+  color: purple;
+}
 .back {
   text-align: left;
 }
@@ -13,13 +16,20 @@ img {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+  padding-bottom: 100px;
 }
 .profile-right {
   align-self: center;
 }
+
+.profile-right h3:hover{
+  color: purple;
+}
 a {
   text-decoration: none;
 }
-a h3 {
+
+
+/*a h3 {
   color: black;
-}
+}*/
