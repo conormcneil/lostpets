@@ -6,6 +6,8 @@ block content
   div.confirm 
     if pet.isFound 
       h3 Please confirm that you have lost #{pet.name} before contacting #{users.first_name}.
+      br
+      h4(style="color: orange;") By clicking below, your phone number will be sent to #{user.first_name} so that they can reconnect you with your pet.
       img(src="#{pet.image}" style="height: 200px;")
       
       //- h3= pet.name
@@ -14,6 +16,8 @@ block content
       a(href="/twilio/#{pet.id}") Yes, I lost #{pet.name}!
     else 
       h3 Please confirm that you have found #{pet.name} before contacting #{users.first_name}.
+      br
+      h4(style="color: orange;") By clicking below, your phone number will be sent to #{user.first_name} so that they can reconnect you with your pet.
       img(src="#{pet.image}" style="height: 200px;")
       
       //- h3= pet.name
