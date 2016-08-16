@@ -13,7 +13,7 @@ exports.seed = function(knex, Promise) {
             user_id: 1,
             isFound: false,
             date: '2016-05-25',
-            image: 'https://res.cloudinary.com/dmuipy77o/image/upload/v1465920528/spot_test.jpg',
+            image: 'https://s-media-cache-ak0.pinimg.com/564x/8e/55/4f/8e554fe1db5d834792548b549f6f73e0.jpg',
             contact: '5202751232'
         }),
         knex('pets').insert({
@@ -25,7 +25,7 @@ exports.seed = function(knex, Promise) {
             user_id: 2,
             isFound: false,
             date: '2016-03-12',
-            image: 'http://res.cloudinary.com/dmuipy77o/image/upload/v1465920528/fido_test.jpg',
+            image: 'https://res.cloudinary.com/dmuipy77o/image/upload/v1471380167/fido_vmftzs.jpg',
             contact: '5202751232'
         }),
         knex('pets').insert({
@@ -37,7 +37,7 @@ exports.seed = function(knex, Promise) {
             user_id: 3,
             isFound: true,
             date: '2015-12-30',
-            image: 'http://res.cloudinary.com/dmuipy77o/image/upload/v1465920528/rose_test.jpg',
+            image: 'https://res.cloudinary.com/dmuipy77o/image/upload/v1471380225/rose_cto1uk.jpg',
             contact: '5202751232'
         }),
         knex('pets').insert({
@@ -49,7 +49,7 @@ exports.seed = function(knex, Promise) {
             user_id: 3,
             isFound: false,
             date: '12-30-2015',
-            image: 'https://res.cloudinary.com/dmuipy77o/image/upload/v1466017008/i5zrygtp4osydkoaw9wk.jpg',
+            image: 'https://res.cloudinary.com/dmuipy77o/image/upload/v1471380356/hunter_haevtn.jpg',
             contact: '5202751232'
         }),
         knex('pets').insert({
@@ -61,7 +61,7 @@ exports.seed = function(knex, Promise) {
             user_id: 2,
             isFound: false,
             date: '2016-03-30',
-            image: 'https://res.cloudinary.com/dmuipy77o/image/upload/v1466017454/n5igycm4vt8aspwc4ja4.jpg',
+            image: 'https://res.cloudinary.com/dmuipy77o/image/upload/v1471380433/tank_am8cvr.jpg',
             contact: '5202751232'
         }),
         knex('pets').insert({
@@ -73,7 +73,7 @@ exports.seed = function(knex, Promise) {
             user_id: 1,
             isFound: true,
             date: '2016-06-01',
-            image: 'https://res.cloudinary.com/dmuipy77o/image/upload/v1466016668/dhqmu1dy1nagcsosozja.jpg',
+            image: 'https://res.cloudinary.com/dmuipy77o/image/upload/v1471380516/spike_z5aqhb.jpg',
             contact: '5202751232'
         }),
         knex('pets').insert({
@@ -85,7 +85,7 @@ exports.seed = function(knex, Promise) {
             user_id: 1,
             isFound: false,
             date: '2016-04-11',
-            image: 'https://res.cloudinary.com/dmuipy77o/image/upload/v1466182290/walker_yvhebx.jpg',
+            image: 'https://res.cloudinary.com/dmuipy77o/image/upload/v1471380564/walker_jewn21.jpg',
             contact: '5202751232'
         }),
         knex('pets').insert({
@@ -97,7 +97,7 @@ exports.seed = function(knex, Promise) {
             user_id: 2,
             isFound: true,
             date: '2016-02-24',
-            image: 'https://res.cloudinary.com/dmuipy77o/image/upload/v1466182290/venus_skeech.jpg',
+            image: 'https://res.cloudinary.com/dmuipy77o/image/upload/v1471380649/venus_zrvozi.jpg',
             contact: '5202751232'
         }),
         knex('pets').insert({
@@ -109,7 +109,7 @@ exports.seed = function(knex, Promise) {
             user_id: 3,
             isFound: false,
             date: '2016-03-15',
-            image: 'https://res.cloudinary.com/dmuipy77o/image/upload/v1466182290/tabby_agyzvk.jpg',
+            image: 'https://res.cloudinary.com/dmuipy77o/image/upload/v1471380744/tabby_baazoz.jpg',
             contact: '5202751232'
         }),
         knex('pets').insert({
@@ -121,7 +121,7 @@ exports.seed = function(knex, Promise) {
             user_id: 2,
             isFound: true,
             date: '2016-06-15',
-            image: 'https://res.cloudinary.com/dmuipy77o/image/upload/v1466182290/mustache_chk7xp.jpg',
+            image: 'https://res.cloudinary.com/dmuipy77o/image/upload/v1471380793/mustache_jjwgvw.jpg',
             contact: '5202751232'
         }),
         knex('pets').insert({
@@ -133,7 +133,7 @@ exports.seed = function(knex, Promise) {
             user_id: 1,
             isFound: false,
             date: '2016-02-14',
-            image: 'http://res.cloudinary.com/dmuipy77o/image/upload/v1466182290/frank_vedqja.jpg',
+            image: 'https://res.cloudinary.com/dmuipy77o/image/upload/v1471380852/frank_uj649f.jpg',
             contact: '5202751232'
         }),
         knex('pets').insert({
@@ -145,7 +145,7 @@ exports.seed = function(knex, Promise) {
             user_id: 1,
             isFound: true,
             date: '2016-05-14',
-            image: 'http://res.cloudinary.com/dmuipy77o/image/upload/v1466182290/bear_e10yiv.jpg',
+            image: 'https://res.cloudinary.com/dmuipy77o/image/upload/v1471380916/bear_qcluq8.jpg',
             contact: '5202751232'
         }),
         knex('pets').insert({
@@ -157,7 +157,7 @@ exports.seed = function(knex, Promise) {
             user_id: 2,
             isFound: false,
             date: '2016-05-10',
-            image: 'http://res.cloudinary.com/dmuipy77o/image/upload/v1466182290/batman_eye6de.jpg',
+            image: 'https://res.cloudinary.com/dmuipy77o/image/upload/v1471380963/batman_pmehdv.jpg',
             contact: '5202751232'
         })
     );
